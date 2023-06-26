@@ -1,0 +1,158 @@
+D:\PROJECTS\WWF\WWF\bin\ApplicationInsights.config
+D:\PROJECTS\WWF\WWF\bin\roslyn\csc.exe
+D:\PROJECTS\WWF\WWF\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\PROJECTS\WWF\WWF\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\PROJECTS\WWF\WWF\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\PROJECTS\WWF\WWF\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\PROJECTS\WWF\WWF\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\PROJECTS\WWF\WWF\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\PROJECTS\WWF\WWF\bin\roslyn\System.Collections.Immutable.dll
+D:\PROJECTS\WWF\WWF\bin\roslyn\System.Reflection.Metadata.dll
+D:\PROJECTS\WWF\WWF\bin\roslyn\vbc.exe
+D:\PROJECTS\WWF\WWF\bin\roslyn\VBCSCompiler.exe
+D:\PROJECTS\WWF\WWF\bin\roslyn\VBCSCompiler.exe.config
+D:\PROJECTS\WWF\WWF\bin\WWF.dll.config
+D:\PROJECTS\WWF\WWF\bin\WWF.dll
+D:\PROJECTS\WWF\WWF\bin\WWF.pdb
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AI.Agent.Intercept.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AI.DependencyCollector.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AI.Web.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AI.WindowsServer.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.ApplicationInsights.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.Data.Edm.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.Data.OData.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.Data.Services.Client.dll
+D:\PROJECTS\WWF\WWF\bin\System.Spatial.dll
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AI.DependencyCollector.xml
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AI.Web.xml
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AI.WindowsServer.xml
+D:\PROJECTS\WWF\WWF\bin\Microsoft.ApplicationInsights.xml
+D:\PROJECTS\WWF\WWF\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\PROJECTS\WWF\WWF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\PROJECTS\WWF\WWF\bin\Microsoft.Data.Edm.xml
+D:\PROJECTS\WWF\WWF\bin\Microsoft.Data.OData.xml
+D:\PROJECTS\WWF\WWF\bin\Microsoft.Data.Services.Client.xml
+D:\PROJECTS\WWF\WWF\bin\System.Spatial.xml
+D:\PROJECTS\WWF\WWF\bin\de\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF\WWF\bin\es\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF\WWF\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF\WWF\bin\it\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF\WWF\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF\WWF\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF\WWF\bin\de\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF\WWF\bin\es\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF\WWF\bin\fr\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF\WWF\bin\it\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ja\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ko\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ru\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF\WWF\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF\WWF\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF\WWF\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF\WWF\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF\WWF\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF\WWF\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF\WWF\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF\WWF\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF\WWF\bin\de\System.Spatial.resources.dll
+D:\PROJECTS\WWF\WWF\bin\es\System.Spatial.resources.dll
+D:\PROJECTS\WWF\WWF\bin\fr\System.Spatial.resources.dll
+D:\PROJECTS\WWF\WWF\bin\it\System.Spatial.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ja\System.Spatial.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ko\System.Spatial.resources.dll
+D:\PROJECTS\WWF\WWF\bin\ru\System.Spatial.resources.dll
+D:\PROJECTS\WWF\WWF\bin\zh-Hans\System.Spatial.resources.dll
+D:\PROJECTS\WWF\WWF\bin\zh-Hant\System.Spatial.resources.dll
+D:\PROJECTS\WWF\WWF\obj\Debug\WWF.csprojResolveAssemblyReference.cache
+D:\PROJECTS\WWF\WWF\obj\Debug\WWF.dll
+D:\PROJECTS\WWF\WWF\obj\Debug\WWF.pdb
+D:\PROJECTS\WWF TZ\WWF\bin\ApplicationInsights.config
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\csc.exe
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\System.Collections.Immutable.dll
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\System.Reflection.Metadata.dll
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\vbc.exe
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\VBCSCompiler.exe
+D:\PROJECTS\WWF TZ\WWF\bin\roslyn\VBCSCompiler.exe.config
+D:\PROJECTS\WWF TZ\WWF\bin\WWF.dll.config
+D:\PROJECTS\WWF TZ\WWF\bin\WWF.dll
+D:\PROJECTS\WWF TZ\WWF\bin\WWF.pdb
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AI.Agent.Intercept.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AI.DependencyCollector.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AI.Web.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AI.WindowsServer.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.ApplicationInsights.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.Data.Edm.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.Data.OData.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.Data.Services.Client.dll
+D:\PROJECTS\WWF TZ\WWF\bin\System.Spatial.dll
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AI.DependencyCollector.xml
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AI.Web.xml
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AI.WindowsServer.xml
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.ApplicationInsights.xml
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.Data.Edm.xml
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.Data.OData.xml
+D:\PROJECTS\WWF TZ\WWF\bin\Microsoft.Data.Services.Client.xml
+D:\PROJECTS\WWF TZ\WWF\bin\System.Spatial.xml
+D:\PROJECTS\WWF TZ\WWF\bin\de\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\es\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\it\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\de\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\es\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\fr\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\it\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ja\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ko\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ru\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\de\System.Spatial.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\es\System.Spatial.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\fr\System.Spatial.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\it\System.Spatial.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ja\System.Spatial.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ko\System.Spatial.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\ru\System.Spatial.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\zh-Hans\System.Spatial.resources.dll
+D:\PROJECTS\WWF TZ\WWF\bin\zh-Hant\System.Spatial.resources.dll
+D:\PROJECTS\WWF TZ\WWF\obj\Debug\WWF.dll
+D:\PROJECTS\WWF TZ\WWF\obj\Debug\WWF.pdb
+D:\PROJECTS\WWF TZ\WWF\obj\Debug\WWF.csprojResolveAssemblyReference.cache

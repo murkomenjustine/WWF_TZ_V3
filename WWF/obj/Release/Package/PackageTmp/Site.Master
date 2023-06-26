@@ -1,0 +1,199 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WWF.Site" %>
+<%@ Import Namespace="WWF" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WWF Tanzania | e-Procurement</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="icon" href="Images/logo.jpg" type="image/x-icon">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <form runat="server">
+        <div class="wrapper">
+
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="index2.html" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>WWF Tanzania</b></span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>WWF Tanzania</b></span>
+                </a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                                                <li class="dropdown user user-menu">
+                            <a href="general.html" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="Images/logo.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs">World Wide Fund for Nature (WWF) Tanzania</span>
+                            </a>
+                        </li>
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                    <span class="hidden-xs"> <%=Session["name"].ToString() %></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header">
+                                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        <p>
+                                            <%=Session["name"].ToString() %>
+                     
+                                            <small>Online: <%: DateTime.Now %></small>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <div class="pull-left info">
+                            <p> <%=Session["name"].ToString() %></p>
+                            <a href="#"><i class="fa fa-circle text-success"></i>Online</a>
+                        </div>
+                    </div>
+                    <!-- Sidebar user panel -->
+                    <ul class="sidebar-menu">
+                        <li><a href="Dashboard.aspx"><i class="fa fa-dashboard" aria-hidden="true"></i><span>Dashboard</span></a></li>
+                                        <%
+                            var nav = new Config().ReturnNav();
+                            bool isregistered = false;
+                            var vend = nav.eProVendorQT.Where(x => x.No == Session["vendorNo"].ToString()).ToList().Take(1);
+                            foreach (var user in vend)
+                            {
+                                isregistered = Convert.ToBoolean(user.Registered);
+                            }
+                            if (!isregistered)
+                            {
+                                        %>
+                                        <li><a href="Profile.aspx"><i class="fa fa-user-plus" aria-hidden="true"></i><span>Complete Profile</span></a></li>
+                                        <%
+                            }
+                            else
+                            {
+                                        %>
+                                        <li><a href="Profile.aspx"><i class="fa fa-user-plus" aria-hidden="true"></i><span>Update Profile</span></a></li>
+                                        <%
+                            }
+                                        %>
+                                        <li><a href="ProfileView.aspx"><i class="fa fa-user" aria-hidden="true"></i><span>View Profile</span></a></li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-table"></i><span>e-Tendering</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="ActiveTendersView.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i>Active Tenders</a></li>
+                                <li><a href="SpecialGroupTenderView.aspx"><i class="fa fa-gift" aria-hidden="true"></i>Special Group Tender</a></li>
+                                <li><a href="TendersByRegionView.aspx"><i class="fa fa-globe" aria-hidden="true"></i>Tenders By Region</a></li>
+                                <li><a href="TendersByClosingDatesView.aspx"><i class="fa fa-calendar" aria-hidden="true"></i>Tenders By Closing Dates</a></li>
+                                <li><a href="ClosedTendersView.aspx"><i class="fa fa-check"></i>Closed Tenders</a></li>
+                                <li><a href="CancelledTendersView.aspx"><i class="fa fa-times"></i>Cancelled Tenders</a></li>
+                            </ul>
+                        </li>                      
+                        <li><a href="Settings.aspx"><i class="fa fa-gears" aria-hidden="true"></i><span>Settings</span></a></li>
+                        <li><a href="HelpDesk.aspx"><i class="fa fa-desktop" aria-hidden="true"></i><span>Help Desk</span></a></li>
+                        <li><a href="Logout.aspx"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Sign Out</span></a></li>
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    <b>Last Update:</b> <%: DateTime.Now %>
+                </div>
+                <strong>Copyright &copy;  <%: DateTime.Now.Year %> <a href="https://wwf.panda.org/wwf_offices/tanzania/">World Wide Fund for Nature (WWF) Tanzania</a>.</strong> All rights reserved.
+            </footer>
+            <div class="control-sidebar-bg"></div>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.1.4 -->
+        <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false
+                });
+                $("#example3").DataTable();
+                $("#example4").DataTable();
+                $("#example5").DataTable();
+                $("#example6").DataTable();
+                $("#example7").DataTable();
+                $("#example8").DataTable();
+                $("#example9").DataTable();
+            });
+    </script>
+    </form>
+</body>
+</html>
+

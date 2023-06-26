@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WWF.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WWF_eprocurement_eprocurement" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.10.10:8047/WWFTZ/WS/TEST_ENV/Codeunit/eprocurement</Value>
+    </Setting>
+    <Setting Name="WWF_NaExtender_NavXtenderAddLink" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.10.10:8047/WWFTZ/WS/TEST_ENV/Codeunit/NavXtenderAddLink</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

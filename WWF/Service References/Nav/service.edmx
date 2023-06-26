@@ -1,0 +1,2500 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="NAV" xmlns="http://schemas.microsoft.com/ado/2007/05/edm">
+      <EntityType Name="AddendumAmmendments">
+        <Key>
+          <PropertyRef Name="Addendum_Notice_No" />
+        </Key>
+        <Property Name="Addendum_Notice_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Line_No" Type="Edm.String" />
+        <Property Name="Amended_Section_of_Tender_Doc" Type="Edm.String" />
+        <Property Name="Amendment_Type" Type="Edm.String" />
+        <Property Name="Amendment_Description" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="ApprovalCommentLine">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Table_ID" Type="Edm.Int32" />
+        <Property Name="Document_Type" Type="Edm.String" />
+        <Property Name="Document_No" Type="Edm.String" />
+        <Property Name="User_ID" Type="Edm.String" />
+        <Property Name="Date_and_Time" Type="Edm.DateTime" />
+        <Property Name="Comment" Type="Edm.String" />
+        <Property Name="Record_ID_to_Approve" Type="Edm.String" />
+        <Property Name="Workflow_Step_Instance_ID" Type="Edm.Guid" />
+        <Property Name="Approved_Days" Type="Edm.Decimal" />
+        <Property Name="Approved_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Approved_Return_Date" Type="Edm.DateTime" />
+        <Property Name="Reason" Type="Edm.String" />
+        <Property Name="Leave_Allowance_Granted" Type="Edm.Boolean" />
+      </EntityType>
+      <EntityType Name="ApprovalEntries">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Table_ID" Type="Edm.Int32" />
+        <Property Name="Document_Type" Type="Edm.String" />
+        <Property Name="Document_No" Type="Edm.String" />
+        <Property Name="Sequence_No" Type="Edm.Int32" />
+        <Property Name="Approval_Code" Type="Edm.String" />
+        <Property Name="Sender_ID" Type="Edm.String" />
+        <Property Name="Salespers_Purch_Code" Type="Edm.String" />
+        <Property Name="Approver_ID" Type="Edm.String" />
+        <Property Name="Status" Type="Edm.String" />
+        <Property Name="Date_Time_Sent_for_Approval" Type="Edm.DateTime" />
+        <Property Name="Last_Date_Time_Modified" Type="Edm.DateTime" />
+        <Property Name="Last_Modified_By_User_ID" Type="Edm.String" />
+        <Property Name="Due_Date" Type="Edm.DateTime" />
+        <Property Name="Amount" Type="Edm.Decimal" />
+        <Property Name="Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Currency_Code" Type="Edm.String" />
+        <Property Name="Approval_Type" Type="Edm.String" />
+        <Property Name="Limit_Type" Type="Edm.String" />
+        <Property Name="Available_Credit_Limit_LCY" Type="Edm.Decimal" />
+        <Property Name="Record_ID_to_Approve" Type="Edm.String" />
+        <Property Name="Delegation_Date_Formula" Type="Edm.String" />
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Workflow_Step_Instance_ID" Type="Edm.Guid" />
+        <Property Name="Comment" Type="Edm.Boolean" />
+        <Property Name="Pending_Approvals" Type="Edm.Int32" />
+        <Property Name="Number_of_Approved_Requests" Type="Edm.Int32" />
+        <Property Name="Number_of_Rejected_Requests" Type="Edm.Int32" />
+        <Property Name="Related_to_Change" Type="Edm.Boolean" />
+      </EntityType>
+      <EntityType Name="BidAuditedBalanaceSheet">
+        <Key>
+          <PropertyRef Name="Audit_Year_Code_Reference" />
+          <PropertyRef Name="AuxiliaryIndex1" />
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Audit_Year_Code_Reference" Type="Edm.String" Nullable="false" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Current_Assets_LCY" Type="Edm.Decimal" />
+        <Property Name="Fixed_Assets_LCY" Type="Edm.Decimal" />
+        <Property Name="Total_Assets_LCY" Type="Edm.Decimal" />
+        <Property Name="Current_Liabilities_LCY" Type="Edm.Decimal" />
+        <Property Name="Long_term_Liabilities_LCY" Type="Edm.Decimal" />
+        <Property Name="Total_Liabilities_LCY" Type="Edm.Decimal" />
+        <Property Name="Owners_Equity_LCY" Type="Edm.Decimal" />
+        <Property Name="Total_Liabilities_Equity_LCY" Type="Edm.Decimal" />
+        <Property Name="Debt_Ratio" Type="Edm.Decimal" />
+        <Property Name="Current_Ratio" Type="Edm.Decimal" />
+        <Property Name="Working_Capital_LCY" Type="Edm.Decimal" />
+        <Property Name="Assets_To_Equity_Ratio" Type="Edm.Decimal" />
+        <Property Name="Debt_To_Equity_Ratio" Type="Edm.Decimal" />
+        <Property Name="AuxiliaryIndex1" Type="Edm.String" Nullable="false" />
+      </EntityType>
+      <EntityType Name="BidAuditedIncomeStatement">
+        <Key>
+          <PropertyRef Name="Audit_Year_Code_Reference" />
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Audit_Year_Code_Reference" Type="Edm.String" Nullable="false" />
+        <Property Name="Total_Revenue_LCY" Type="Edm.Decimal" />
+        <Property Name="Total_COGS_LCY" Type="Edm.Decimal" />
+        <Property Name="Gross_Margin_LCY" Type="Edm.Decimal" />
+        <Property Name="Total_Operating_Expenses_LCY" Type="Edm.Decimal" />
+        <Property Name="Operating_Income_EBIT_LCY" Type="Edm.Decimal" />
+        <Property Name="Other_Non_operating_Re_Exp_LCY" Type="Edm.Decimal" />
+        <Property Name="Interest_Expense_LCY" Type="Edm.Decimal" />
+        <Property Name="Income_Before_Taxes_LCY" Type="Edm.Decimal" />
+        <Property Name="Income_Tax_Expense_LCY" Type="Edm.Decimal" />
+        <Property Name="Net_Income_from_Ops_LCY" Type="Edm.Decimal" />
+        <Property Name="Below_the_line_Items_LCY" Type="Edm.Decimal" />
+        <Property Name="Net_Income" Type="Edm.Decimal" />
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+      </EntityType>
+      <EntityType Name="BidContractsSecurities">
+        <Key>
+          <PropertyRef Name="IFS_No" />
+          <PropertyRef Name="No" />
+          <PropertyRef Name="Security_ID" />
+          <PropertyRef Name="Vendor_No" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" />
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Form_of_Security" Type="Edm.String" />
+        <Property Name="Vendor_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Security_Type" Type="Edm.String" />
+        <Property Name="Issuer_Institution_Type" Type="Edm.String" />
+        <Property Name="Issuer_Guarantor_Name" Type="Edm.String" />
+        <Property Name="Issuer_Registered_Offices" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Security_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Bid_Security_Effective_Date" Type="Edm.DateTime" />
+        <Property Name="Bid_Security_Validity_Expiry" Type="Edm.DateTime" />
+        <Property Name="Security_ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Security_Closure_Date" Type="Edm.DateTime" />
+        <Property Name="Security_Closure_Voucher_No" Type="Edm.String" />
+        <Property Name="Security_Closure_Type" Type="Edm.String" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="IFS_No" Type="Edm.String" Nullable="false" />
+      </EntityType>
+      <EntityType Name="BidEquipmentSpecifications">
+        <Key>
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="Entry_No" />
+          <PropertyRef Name="Equipment_Type_Code" />
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Equipment_Type_Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Ownership_Type" Type="Edm.String" />
+        <Property Name="Equipment_Serial" Type="Edm.String" />
+        <Property Name="Equipment_Usability_Code" Type="Edm.String" />
+        <Property Name="Equipment_Condition_Code" Type="Edm.String" />
+        <Property Name="Qty_of_Equipment" Type="Edm.Decimal" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="Years_of_Previous_Use" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="BidPastExperiences">
+        <Key>
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="Entry_No" />
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Client_Name" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Nationality_ID" Type="Edm.String" />
+        <Property Name="Citizenship_Type" Type="Edm.String" />
+        <Property Name="Date_of_Birth" Type="Edm.DateTime" />
+        <Property Name="Entity_Ownership" Type="Edm.Decimal" />
+        <Property Name="Share_Types" Type="Edm.String" />
+        <Property Name="No_of_Shares" Type="Edm.Decimal" />
+        <Property Name="Nominal_Value_Share" Type="Edm.Decimal" />
+        <Property Name="Total_Nominal_Value" Type="Edm.Decimal" />
+        <Property Name="Ownership_Effective_Date" Type="Edm.DateTime" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="Primary_Contact_Person" Type="Edm.String" />
+        <Property Name="Primary_Contact_Designation" Type="Edm.String" />
+        <Property Name="Primary_Contact_Tel" Type="Edm.String" />
+        <Property Name="Primary_Contact_Email" Type="Edm.String" />
+        <Property Name="Assignment_Project_Name" Type="Edm.String" />
+        <Property Name="Project_Scope_Summary" Type="Edm.String" />
+        <Property Name="Delivery_Location" Type="Edm.String" />
+        <Property Name="Contract_Ref_No" Type="Edm.String" />
+        <Property Name="Assignment_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Assignment_End_Date" Type="Edm.DateTime" />
+        <Property Name="Assignment_Value_LCY" Type="Edm.Decimal" />
+        <Property Name="Assignment_Status" Type="Edm.String" />
+        <Property Name="Project_Completion_Value" Type="Edm.Decimal" />
+        <Property Name="Project_Completion_Work" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="BidReponseAttachedDocuments">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+          <PropertyRef Name="No" />
+          <PropertyRef Name="Vendor_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Document_Type" Type="Edm.String" />
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Date_Filed" Type="Edm.DateTime" />
+        <Property Name="Vendor_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Procurement_Document_Type_ID" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Certificate_No" Type="Edm.String" />
+        <Property Name="Issue_Date" Type="Edm.DateTime" />
+        <Property Name="Expiry_Date" Type="Edm.DateTime" />
+        <Property Name="File_Name" Type="Edm.String" />
+        <Property Name="File_Type" Type="Edm.String" />
+        <Property Name="File_Extension" Type="Edm.String" />
+        <Property Name="Procurement_Process" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="BidResponseItemLines">
+        <Key>
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="Line_No" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Buy_from_Vendor_No" Type="Edm.String" />
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Line_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Type" Type="Edm.String" />
+        <Property Name="No" Type="Edm.String" />
+        <Property Name="Location_Code" Type="Edm.String" />
+        <Property Name="Expected_Receipt_Date" Type="Edm.DateTime" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Description_2" Type="Edm.String" />
+        <Property Name="Unit_of_Measure" Type="Edm.String" />
+        <Property Name="Quantity" Type="Edm.Decimal" />
+        <Property Name="Outstanding_Quantity" Type="Edm.Decimal" />
+        <Property Name="Qty_to_Invoice" Type="Edm.Decimal" />
+        <Property Name="Qty_to_Receive" Type="Edm.Decimal" />
+        <Property Name="Direct_Unit_Cost" Type="Edm.Decimal" />
+        <Property Name="Unit_Cost_LCY" Type="Edm.Decimal" />
+        <Property Name="VAT" Type="Edm.Decimal" />
+        <Property Name="Line_Discount" Type="Edm.Decimal" />
+        <Property Name="Line_Discount_Amount" Type="Edm.Decimal" />
+        <Property Name="Amount" Type="Edm.Decimal" />
+        <Property Name="Amount_Including_VAT" Type="Edm.Decimal" />
+        <Property Name="Unit_Price_LCY" Type="Edm.Decimal" />
+        <Property Name="Unit_Volume" Type="Edm.Decimal" />
+        <Property Name="Quantity_Received" Type="Edm.Decimal" />
+        <Property Name="Quantity_Invoiced" Type="Edm.Decimal" />
+        <Property Name="Order_No" Type="Edm.String" />
+        <Property Name="Order_Line_No" Type="Edm.Int32" />
+        <Property Name="Transaction_Type" Type="Edm.String" />
+        <Property Name="Transport_Method" Type="Edm.String" />
+        <Property Name="Unit_Cost" Type="Edm.Decimal" />
+        <Property Name="Line_Amount" Type="Edm.Decimal" />
+        <Property Name="VAT_Difference" Type="Edm.Decimal" />
+        <Property Name="Unit_of_Measure_Code" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="BidResponsesDetails">
+        <Key>
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="Tech_Evaluation_Ranking" Type="Edm.String" />
+        <Property Name="Aggregate_Weighted_Score" Type="Edm.Decimal" />
+        <Property Name="Aggregate_Ranking" Type="Edm.String" />
+        <Property Name="Final_Tender_Outcome" Type="Edm.String" />
+        <Property Name="Engineer_Estimate_LCY" Type="Edm.Decimal" />
+        <Property Name="Max_Works_Kickoff_Duration" Type="Edm.String" />
+        <Property Name="Max_Works_Charter_Duration" Type="Edm.String" />
+        <Property Name="Max_Works_Completion_Duration" Type="Edm.String" />
+        <Property Name="Defects_Liability_Period" Type="Edm.String" />
+        <Property Name="Daily_Liquidated_Dam_Unit_Cost" Type="Edm.Decimal" />
+        <Property Name="Liquidated_Damages_Limit" Type="Edm.Decimal" />
+        <Property Name="Payment_Retention" Type="Edm.Decimal" />
+        <Property Name="Retention_Amount_Limit" Type="Edm.Decimal" />
+        <Property Name="Min_Interim_Certificate_Amount" Type="Edm.Decimal" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Sealed_Bids_Technical" Type="Edm.Boolean" />
+        <Property Name="Sealed_Bids_Financial" Type="Edm.Boolean" />
+        <Property Name="WorkPlan_No" Type="Edm.String" />
+        <Property Name="Expected_Receipt_Date" Type="Edm.DateTime" />
+        <Property Name="Posting_Description" Type="Edm.String" />
+        <Property Name="Payment_Terms_Code" Type="Edm.String" />
+        <Property Name="Due_Date" Type="Edm.DateTime" />
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Buy_from_Vendor_No" Type="Edm.String" />
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Pay_to_Vendor_No" Type="Edm.String" />
+        <Property Name="Pay_to_Name" Type="Edm.String" />
+        <Property Name="Pay_to_Name_2" Type="Edm.String" />
+        <Property Name="Pay_to_Address" Type="Edm.String" />
+        <Property Name="Pay_to_Address_2" Type="Edm.String" />
+        <Property Name="Pay_to_Post_Code" Type="Edm.String" />
+        <Property Name="Pay_to_County" Type="Edm.String" />
+        <Property Name="Pay_to_Country_Region_Code" Type="Edm.String" />
+        <Property Name="Pay_to_City" Type="Edm.String" />
+        <Property Name="Total_PRN_Amount" Type="Edm.Decimal" />
+        <Property Name="Total_PRN_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="PP_Invitation_Notice_Type" Type="Edm.String" />
+        <Property Name="PP_Bid_Selection_Method" Type="Edm.String" />
+        <Property Name="PRN_Order_Date_Time" Type="Edm.DateTime" />
+        <Property Name="Document_Status" Type="Edm.String" />
+        <Property Name="Bidder_Type" Type="Edm.String" />
+        <Property Name="Joint_Venture_Partner" Type="Edm.String" />
+        <Property Name="Invitation_For_Supply_No" Type="Edm.String" />
+        <Property Name="Invitation_Notice_Type" Type="Edm.String" />
+        <Property Name="Bid_Envelope_Type" Type="Edm.String" />
+        <Property Name="Bid_Seal_Type" Type="Edm.String" />
+        <Property Name="Tender_Description" Type="Edm.String" />
+        <Property Name="Bidder_Representative_Name" Type="Edm.String" />
+        <Property Name="Bidder_Representative_Desgn" Type="Edm.String" />
+        <Property Name="Bidder_Representative_Address" Type="Edm.String" />
+        <Property Name="Bidder_Witness_Name" Type="Edm.String" />
+        <Property Name="Bidder_Witness_Designation" Type="Edm.String" />
+        <Property Name="Bidder_Witness_Address" Type="Edm.String" />
+        <Property Name="Tender_Document_Source" Type="Edm.String" />
+        <Property Name="Bid_Charge_Code" Type="Edm.String" />
+        <Property Name="Bid_Charge_LCY" Type="Edm.Decimal" />
+        <Property Name="Payment_Reference_No" Type="Edm.String" />
+        <Property Name="Posted_Direct_Income_Voucher" Type="Edm.String" />
+        <Property Name="Primary_Region" Type="Edm.String" />
+        <Property Name="Primary_Directorate" Type="Edm.String" />
+        <Property Name="Primary_Department" Type="Edm.String" />
+        <Property Name="Primary_Branch_Centre" Type="Edm.String" />
+        <Property Name="Building_House_No" Type="Edm.String" />
+        <Property Name="Plot_No" Type="Edm.String" />
+        <Property Name="Street" Type="Edm.String" />
+        <Property Name="Nature_of_Business" Type="Edm.String" />
+        <Property Name="Current_Trade_Licence_No" Type="Edm.String" />
+        <Property Name="Trade_Licence_Expiry_Date" Type="Edm.DateTime" />
+        <Property Name="Max_Value_of_Business" Type="Edm.Decimal" />
+        <Property Name="Preferred_Bank_Account_Code" Type="Edm.String" />
+        <Property Name="Bankers_Name" Type="Edm.String" />
+        <Property Name="Bankers_Branch" Type="Edm.String" />
+        <Property Name="KNTC_Agent" Type="Edm.Boolean" />
+        <Property Name="Business_Type" Type="Edm.String" />
+        <Property Name="Nominal_Capital_LCY" Type="Edm.Decimal" />
+        <Property Name="Issued_Capital_LCY" Type="Edm.Decimal" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="VAT_Registration_No" Type="Edm.String" />
+        <Property Name="Purchaser_Code" Type="Edm.String" />
+        <Property Name="Status" Type="Edm.String" />
+        <Property Name="Currency_Code" Type="Edm.String" />
+        <Property Name="Location_Code" Type="Edm.String" />
+        <Property Name="Language_Code" Type="Edm.String" />
+        <Property Name="Responsibility_Center" Type="Edm.String" />
+        <Property Name="Amount" Type="Edm.Decimal" />
+        <Property Name="Amount_Including_VAT" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="bidscoringTemplate">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Template_type" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Document_No" Type="Edm.String" />
+        <Property Name="Default_Procurement_Type" Type="Edm.String" />
+        <Property Name="Total_Preliminary_Checks_Score" Type="Edm.Decimal" />
+        <Property Name="Total_Technical_Evaluation" Type="Edm.Decimal" />
+        <Property Name="Total_Financial_Evaluation" Type="Edm.Decimal" />
+        <Property Name="Total_Assigned_Score_Weight" Type="Edm.Decimal" />
+        <Property Name="Default_YES_Bid_Rating_Score" Type="Edm.Decimal" />
+        <Property Name="NO_Bid_Rating_Response_Value" Type="Edm.String" />
+        <Property Name="Default_NO_Bid_Rating_Score" Type="Edm.Decimal" />
+        <Property Name="V1_POOR_Option_Text_Bid_Score" Type="Edm.Decimal" />
+        <Property Name="V2_FAIR_Option_Text_Bid_Score" Type="Edm.Decimal" />
+        <Property Name="V3_GOOD_Option_Text_Bid_Score" Type="Edm.Decimal" />
+        <Property Name="V4_VERY_GOOD_Text_Bid_Score" Type="Edm.Decimal" />
+        <Property Name="V5_EXCELLENT_Text_Bid_Score" Type="Edm.Decimal" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="Created_By" Type="Edm.String" />
+        <Property Name="Created_Date" Type="Edm.DateTime" />
+        <Property Name="Created_Time" Type="Edm.String" />
+        <Property Name="Solicitation_Type" Type="Edm.String" />
+        <Property Name="Effective_Date" Type="Edm.DateTime" />
+        <Property Name="Suggest_Likert_Values_for" Type="Edm.Boolean" />
+        <Property Name="Released" Type="Edm.Boolean" />
+        <Property Name="YES_Bid_Rating_Response_Value" Type="Edm.String" />
+        <Property Name="Max_Bid_Value_Limit" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="businessTypes">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="Ownership_Type" Type="Edm.String" />
+        <Property Name="No_of_Active_Vendors" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="CalenderYearCodesList">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="companySizes">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Min_No_Of_Employees" Type="Edm.Decimal" />
+        <Property Name="Max_No_Of_Employees" Type="Edm.Decimal" />
+        <Property Name="No_of_Vendors" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="Contact">
+        <Key>
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Countries">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="ISO_Code" Type="Edm.String" />
+        <Property Name="ISO_Numeric_Code" Type="Edm.String" />
+        <Property Name="EU_Country_Region_Code" Type="Edm.String" />
+        <Property Name="Intrastat_Code" Type="Edm.String" />
+        <Property Name="Address_Format" Type="Edm.String" />
+        <Property Name="Contact_Address_Format" Type="Edm.String" />
+        <Property Name="VAT_Scheme" Type="Edm.String" />
+        <Property Name="Last_Modified_Date_Time" Type="Edm.DateTime" />
+        <Property Name="County_Name" Type="Edm.String" />
+        <Property Name="Id" Type="Edm.Guid" />
+      </EntityType>
+      <EntityType Name="Currencies">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="DimensionValue">
+        <Key>
+          <PropertyRef Name="Code" />
+          <PropertyRef Name="Dimension_Code" />
+        </Key>
+        <Property Name="Dimension_Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Dimension_Value_Type" Type="Edm.String" />
+        <Property Name="Totaling" Type="Edm.String" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="Consolidation_Code" Type="Edm.String" />
+        <Property Name="Indentation" Type="Edm.Int32" />
+        <Property Name="Global_Dimension_No" Type="Edm.Int32" />
+        <Property Name="Map_to_IC_Dimension_Code" Type="Edm.String" />
+        <Property Name="Map_to_IC_Dimension_Value_Code" Type="Edm.String" />
+        <Property Name="Dimension_Value_ID" Type="Edm.Int32" />
+        <Property Name="Id" Type="Edm.Guid" />
+        <Property Name="Last_Modified_Date_Time" Type="Edm.DateTime" />
+      </EntityType>
+      <EntityType Name="DynasoftPortalUser">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="User_Name" Type="Edm.String" />
+        <Property Name="Full_Name" Type="Edm.String" />
+        <Property Name="Authentication_Email" Type="Edm.String" />
+        <Property Name="Mobile_Phone_No" Type="Edm.String" />
+        <Property Name="State" Type="Edm.String" />
+        <Property Name="Change_Password" Type="Edm.Boolean" />
+        <Property Name="Record_Type" Type="Edm.String" />
+        <Property Name="Record_ID" Type="Edm.String" />
+        <Property Name="Password_Value" Type="Edm.String" />
+        <Property Name="Last_Modified_Date" Type="Edm.DateTime" />
+      </EntityType>
+      <EntityType Name="eProcDocuments">
+        <Key>
+          <PropertyRef Name="Procurement_Document_Type" />
+          <PropertyRef Name="Procurement_Process" />
+          <PropertyRef Name="Template_ID" />
+        </Key>
+        <Property Name="Template_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Procurement_Process" Type="Edm.String" Nullable="false" />
+        <Property Name="Procurement_Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Requirement_Type" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="eProVendorQT">
+        <Key>
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="Vendor_Group" Type="Edm.String" />
+        <Property Name="Supplier_Type" Type="Edm.String" />
+        <Property Name="Dealer_Type" Type="Edm.String" />
+        <Property Name="Max_Value_of_Business" Type="Edm.Decimal" />
+        <Property Name="Nature_of_Business" Type="Edm.String" />
+        <Property Name="Building_House_No" Type="Edm.String" />
+        <Property Name="Floor" Type="Edm.String" />
+        <Property Name="Plot_No" Type="Edm.String" />
+        <Property Name="Street" Type="Edm.String" />
+        <Property Name="Authorized_Signatory_Name" Type="Edm.String" />
+        <Property Name="Signatory_Designation" Type="Edm.String" />
+        <Property Name="Vision_Statement" Type="Edm.String" />
+        <Property Name="Mission_Statement" Type="Edm.String" />
+        <Property Name="Registrn_Submitted_onPortal" Type="Edm.Boolean" />
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Telex_No" Type="Edm.String" />
+        <Property Name="Currency_Code" Type="Edm.String" />
+        <Property Name="Language_Code" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="VAT_Registration_No" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Company_Size" Type="Edm.String" />
+        <Property Name="Website_Url" Type="Edm.String" />
+        <Property Name="Industry_Group" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="Primary_Contact_No" Type="Edm.String" />
+        <Property Name="Location_Code" Type="Edm.String" />
+        <Property Name="Vendor_Type1" Type="Edm.String" />
+        <Property Name="Ownership_Type" Type="Edm.String" />
+        <Property Name="Registration_Incorporation_No" Type="Edm.String" />
+        <Property Name="Reg_Incorporation_Date" Type="Edm.DateTime" />
+        <Property Name="Operations_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="Tel" Type="Edm.String" />
+        <Property Name="Fax_No" Type="Edm.String" />
+        <Property Name="Nominal_Capital_LCY" Type="Edm.Decimal" />
+        <Property Name="Business_Type" Type="Edm.String" />
+        <Property Name="Supplier_Category" Type="Edm.String" />
+        <Property Name="Issued_Capital_LCY" Type="Edm.Decimal" />
+        <Property Name="Registered" Type="Edm.Boolean" />
+        <Property Name="Special_Group" Type="Edm.Boolean" />
+        <Property Name="Country_of_Incorporation" Type="Edm.String" />
+        <Property Name="Balance_LCY" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="HRPortalUsers">
+        <Key>
+          <PropertyRef Name="code" />
+        </Key>
+        <Property Name="code" Type="Edm.Int32" Nullable="false" />
+        <Property Name="employeeNo" Type="Edm.String" />
+        <Property Name="IdNo" Type="Edm.String" />
+        <Property Name="password" Type="Edm.String" />
+        <Property Name="changedPassword" Type="Edm.Boolean" />
+        <Property Name="isAdmin" Type="Edm.Boolean" />
+        <Property Name="Email" Type="Edm.String" />
+        <Property Name="ActivatedAsVendor" Type="Edm.Boolean" />
+        <Property Name="IDNoorRegNo" Type="Edm.String" />
+        <Property Name="Contact_No" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="ifpReqDocuments">
+        <Key>
+          <PropertyRef Name="AuxiliaryIndex1" />
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="Procurement_Document_Type_ID" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Procurement_Document_Type_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Requirement_Type" Type="Edm.String" />
+        <Property Name="Special_Group_Requirement" Type="Edm.Boolean" />
+        <Property Name="Specialized_Provider_Req" Type="Edm.Boolean" />
+        <Property Name="Track_Certificate_Expiry" Type="Edm.Boolean" />
+        <Property Name="AuxiliaryIndex1" Type="Edm.String" Nullable="false" />
+      </EntityType>
+      <EntityType Name="IFPRequests">
+        <Key>
+          <PropertyRef Name="Code" />
+          <PropertyRef Name="Document_Type" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Tender_Summary" Type="Edm.String" />
+        <Property Name="Primary_Target_Vendor_Cluster" Type="Edm.String" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="External_Document_No" Type="Edm.String" />
+        <Property Name="Period_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Period_End_Date" Type="Edm.DateTime" />
+        <Property Name="Status" Type="Edm.String" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Name_2" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Tender_Box_Location_Code" Type="Edm.String" />
+        <Property Name="Prequalification_Charge_Code" Type="Edm.String" />
+        <Property Name="Published" Type="Edm.Boolean" />
+        <Property Name="Created_by" Type="Edm.String" />
+        <Property Name="Submission_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_Start_Time" Type="Edm.String" />
+        <Property Name="Submission_End_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_End_Time" Type="Edm.String" />
+        <Property Name="Enforce_Mandatory_E_Receipt" Type="Edm.Boolean" />
+        <Property Name="Procurement_Document_Template" Type="Edm.String" />
+        <Property Name="Display_Scoring_Criteria_Vendo" Type="Edm.Boolean" />
+        <Property Name="RFI_Scoring_Template" Type="Edm.String" />
+        <Property Name="Created_Date_Time" Type="Edm.DateTime" />
+        <Property Name="Summarized_Terms_Conditions" Type="Edm.String" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="Global_Dimension_1_Code" Type="Edm.String" />
+        <Property Name="Global_Dimension_2_Code" Type="Edm.String" />
+        <Property Name="Global_Dimension_3_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Assigned_Procurement_Officer" Type="Edm.String" />
+        <Property Name="Procurement_Type" Type="Edm.String" />
+        <Property Name="Solicitation_Type" Type="Edm.String" />
+        <Property Name="No_of_Submission" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="IFPResponseLines">
+        <Key>
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="Procurement_Category" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Procurement_Category" Type="Edm.String" Nullable="false" />
+        <Property Name="Category_Description" Type="Edm.String" />
+        <Property Name="RFI_Document_No" Type="Edm.String" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Special_Group_Reservation" Type="Edm.Boolean" />
+        <Property Name="Unique_Category_Requirements" Type="Edm.Boolean" />
+        <Property Name="Global_RC_Prequalification" Type="Edm.Boolean" />
+        <Property Name="Restricted_Responsbility_Cente" Type="Edm.Boolean" />
+        <Property Name="Restricted_RC_ID" Type="Edm.String" />
+        <Property Name="Prequalification_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Prequalification_End_Date" Type="Edm.DateTime" />
+        <Property Name="Evaluation_Decision" Type="Edm.String" />
+        <Property Name="Evaluation_Score" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="ifsEquipspecs">
+        <Key>
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Equipment_Type_Code" />
+        </Key>
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Equipment_Type_Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Category" Type="Edm.String" />
+        <Property Name="Minimum_Required_Qty" Type="Edm.Decimal" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+      </EntityType>
+      <EntityType Name="ifsKeyStaff">
+        <Key>
+          <PropertyRef Name="IFS_Code" />
+          <PropertyRef Name="Staff_Role_Code" />
+        </Key>
+        <Property Name="IFS_Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Staff_Role_Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Title_Designation_Description" Type="Edm.String" />
+        <Property Name="Staff_Category" Type="Edm.String" />
+        <Property Name="Min_No_of_Recomm_Staff" Type="Edm.Int32" />
+        <Property Name="Requirement_Type" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="ifsReqDocuments">
+        <Key>
+          <PropertyRef Name="Description" />
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Procurement_Document_Type_ID" />
+        </Key>
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Procurement_Document_Type_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" Nullable="false" />
+        <Property Name="Track_Certificate_Expiry" Type="Edm.Boolean" />
+        <Property Name="Requirement_Type" Type="Edm.String" />
+        <Property Name="Special_Group_Requirement" Type="Edm.Boolean" />
+        <Property Name="Specialized_Provider_Req" Type="Edm.Boolean" />
+        <Property Name="Ordering" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="ifsSecurities">
+        <Key>
+          <PropertyRef Name="Form_of_Security" />
+          <PropertyRef Name="IFS_Code" />
+        </Key>
+        <Property Name="IFS_Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Form_of_Security" Type="Edm.String" Nullable="false" />
+        <Property Name="Security_Type" Type="Edm.String" />
+        <Property Name="Required_at_Bid_Submission" Type="Edm.Boolean" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Security_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Bid_Security_Validity_Expiry" Type="Edm.DateTime" />
+        <Property Name="Nature_of_Security" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="ifsVendorDebarment">
+        <Key>
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="Entry_no" />
+          <PropertyRef Name="Source_Voucher_No" />
+        </Key>
+        <Property Name="Entry_no" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Source_Voucher_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Firm_Name" Type="Edm.String" />
+        <Property Name="Reason_Code" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Ineligibility_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Ineligibility_End_Date" Type="Edm.DateTime" />
+        <Property Name="Reinstatement_Date" Type="Edm.DateTime" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Tax_Registration_PIN_No" Type="Edm.String" />
+        <Property Name="Incorporation_Reg_No" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+      </EntityType>
+      <EntityType Name="IndustryGroup">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="No_of_Contacts" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="InvitationPrequalification">
+        <Key>
+          <PropertyRef Name="Code" />
+          <PropertyRef Name="Document_Type" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Tender_Summary" Type="Edm.String" />
+        <Property Name="Primary_Target_Vendor_Cluster" Type="Edm.String" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="External_Document_No" Type="Edm.String" />
+        <Property Name="Period_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Period_End_Date" Type="Edm.DateTime" />
+        <Property Name="Status" Type="Edm.String" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Name_2" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Tender_Box_Location_Code" Type="Edm.String" />
+        <Property Name="Prequalification_Charge_Code" Type="Edm.String" />
+        <Property Name="Published" Type="Edm.Boolean" />
+        <Property Name="Created_by" Type="Edm.String" />
+        <Property Name="Submission_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_Start_Time" Type="Edm.String" />
+        <Property Name="Submission_End_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_End_Time" Type="Edm.String" />
+        <Property Name="Enforce_Mandatory_E_Receipt" Type="Edm.Boolean" />
+        <Property Name="Procurement_Document_Template" Type="Edm.String" />
+        <Property Name="Display_Scoring_Criteria_Vendo" Type="Edm.Boolean" />
+        <Property Name="RFI_Scoring_Template" Type="Edm.String" />
+        <Property Name="Created_Date_Time" Type="Edm.DateTime" />
+        <Property Name="Summarized_Terms_Conditions" Type="Edm.String" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="Global_Dimension_1_Code" Type="Edm.String" />
+        <Property Name="Global_Dimension_2_Code" Type="Edm.String" />
+        <Property Name="Global_Dimension_3_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Assigned_Procurement_Officer" Type="Edm.String" />
+        <Property Name="Procurement_Type" Type="Edm.String" />
+        <Property Name="Solicitation_Type" Type="Edm.String" />
+        <Property Name="Charge_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Charge_Bank_Code" Type="Edm.String" />
+        <Property Name="Bank_Name" Type="Edm.String" />
+        <Property Name="Account_Holder_Name" Type="Edm.String" />
+        <Property Name="Charge_Bank_Branch" Type="Edm.String" />
+        <Property Name="Charge_Bank_A_C_No" Type="Edm.String" />
+        <Property Name="Date_Time_Published" Type="Edm.DateTime" />
+        <Property Name="RFI_Document_Status" Type="Edm.String" />
+        <Property Name="Dimension_Set_ID" Type="Edm.Int32" />
+        <Property Name="No_of_Submission" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="invitetoTenders">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Currency_Code" Type="Edm.String" />
+        <Property Name="Procurement_Method" Type="Edm.String" />
+        <Property Name="Solicitation_Type" Type="Edm.String" />
+        <Property Name="External_Document_No" Type="Edm.String" />
+        <Property Name="Procurement_Type" Type="Edm.String" />
+        <Property Name="Procurement_Category_ID" Type="Edm.String" />
+        <Property Name="Project_ID" Type="Edm.String" />
+        <Property Name="Assigned_Procurement_Officer" Type="Edm.String" />
+        <Property Name="Road_Code" Type="Edm.String" />
+        <Property Name="Road_Link_Name" Type="Edm.String" />
+        <Property Name="Constituency_ID" Type="Edm.String" />
+        <Property Name="Requesting_Region" Type="Edm.String" />
+        <Property Name="Requesting_Directorate" Type="Edm.String" />
+        <Property Name="Requesting_Department" Type="Edm.String" />
+        <Property Name="Engineer_Estimate_LCY" Type="Edm.Decimal" />
+        <Property Name="Tender_Name" Type="Edm.String" />
+        <Property Name="Tender_Summary" Type="Edm.String" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="Status" Type="Edm.String" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Name_2" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Tender_Box_Location_Code" Type="Edm.String" />
+        <Property Name="Bid_Charge_Code" Type="Edm.String" />
+        <Property Name="Bid_Charge_LCY" Type="Edm.Decimal" />
+        <Property Name="Bid_Charge_Bank_Code" Type="Edm.String" />
+        <Property Name="Bank_Name" Type="Edm.String" />
+        <Property Name="Bank_Account_Name" Type="Edm.String" />
+        <Property Name="Bid_Charge_Bank_Branch" Type="Edm.String" />
+        <Property Name="Bid_Charge_Bank_A_C_No" Type="Edm.String" />
+        <Property Name="Published" Type="Edm.Boolean" />
+        <Property Name="Created_by" Type="Edm.String" />
+        <Property Name="Submission_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_Start_Time" Type="Edm.String" />
+        <Property Name="Submission_End_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_End_Time" Type="Edm.String" />
+        <Property Name="No_of_Submission" Type="Edm.Int32" />
+        <Property Name="Enforce_Mandatory_E_Receipt" Type="Edm.Boolean" />
+        <Property Name="Bid_Document_Template" Type="Edm.String" />
+        <Property Name="Display_Scoring_Criteria_Vendo" Type="Edm.Boolean" />
+        <Property Name="Bid_Scoring_Template" Type="Edm.String" />
+        <Property Name="Created_Date_Time" Type="Edm.DateTime" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="Invitation_Notice_Type" Type="Edm.String" />
+        <Property Name="Bid_Envelop_Type" Type="Edm.String" />
+        <Property Name="Sealed_Bids" Type="Edm.Boolean" />
+        <Property Name="PRN_No" Type="Edm.String" />
+        <Property Name="Bid_Submission_Method" Type="Edm.String" />
+        <Property Name="Lot_No" Type="Edm.String" />
+        <Property Name="LCY_Currency_Code" Type="Edm.String" />
+        <Property Name="Works_Category" Type="Edm.String" />
+        <Property Name="Annual_Procurement_Plan_ID" Type="Edm.String" />
+        <Property Name="Procurement_Plan_Line_No" Type="Edm.String" />
+        <Property Name="Procurement_Plan_Entry_No1" Type="Edm.String" />
+        <Property Name="Financial_Year_Code" Type="Edm.String" />
+        <Property Name="Budget_Narration" Type="Edm.String" />
+        <Property Name="Available_Procurement_Budget" Type="Edm.Decimal" />
+        <Property Name="Publish_Engineers_Estimate" Type="Edm.Boolean" />
+        <Property Name="Procuring_Entity_Name_Contact" Type="Edm.String" />
+        <Property Name="Bid_Opening_Date" Type="Edm.DateTime" />
+        <Property Name="Bid_Opening_Time" Type="Edm.String" />
+        <Property Name="Bid_Opening_Venue" Type="Edm.String" />
+        <Property Name="Tender_Validity_Duration" Type="Edm.String" />
+        <Property Name="Tender_Validity_Expiry_Date" Type="Edm.DateTime" />
+        <Property Name="Enforce_Mandatory_Pre_bid_Visi" Type="Edm.Boolean" />
+        <Property Name="Mandatory_Pre_bid_Visit_Date" Type="Edm.DateTime" />
+        <Property Name="Domestic_Bidder_Preference" Type="Edm.Boolean" />
+        <Property Name="Mandatory_Special_Group_Reserv" Type="Edm.Boolean" />
+        <Property Name="Bid_Tender_Security_Required" Type="Edm.Boolean" />
+        <Property Name="Bid_Security" Type="Edm.Decimal" />
+        <Property Name="Bid_Security_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Special_Group_Bid_Security" Type="Edm.Boolean" />
+        <Property Name="Bid_Security_Validity_Duration" Type="Edm.String" />
+        <Property Name="Bid_Security_Expiry_Date" Type="Edm.DateTime" />
+        <Property Name="Insurance_Cover_Required" Type="Edm.Boolean" />
+        <Property Name="Performance_Security_Required" Type="Edm.Boolean" />
+        <Property Name="Performance_Security" Type="Edm.Decimal" />
+        <Property Name="Special_Group_Performance_Secu" Type="Edm.Boolean" />
+        <Property Name="Advance_Payment_Security_Req" Type="Edm.Boolean" />
+        <Property Name="Advance_Payment_Security" Type="Edm.Decimal" />
+        <Property Name="Advance_Amount_Limit" Type="Edm.Decimal" />
+        <Property Name="Max_Works_Kickoff_Duration" Type="Edm.String" />
+        <Property Name="Max_Works_Charter_Duration" Type="Edm.String" />
+        <Property Name="Max_Works_Completion_Duration" Type="Edm.String" />
+        <Property Name="Payment_Terms_Code" Type="Edm.String" />
+        <Property Name="Defects_Liability_Period" Type="Edm.String" />
+        <Property Name="Daily_Liquidated_Dam_Unit_Cost" Type="Edm.Decimal" />
+        <Property Name="Liquidated_Damages_Limit" Type="Edm.Decimal" />
+        <Property Name="Payment_Retention" Type="Edm.Decimal" />
+        <Property Name="Retention_Amount_Limit" Type="Edm.Decimal" />
+        <Property Name="Min_Interim_Certificate_Amount" Type="Edm.Decimal" />
+        <Property Name="Appointer_of_Bid_Arbitrator" Type="Edm.String" />
+        <Property Name="Display_Scoring_Criteria_Vend" Type="Edm.Boolean" />
+        <Property Name="Document_Status" Type="Edm.String" />
+        <Property Name="Cancel_Reason_Code" Type="Edm.String" />
+        <Property Name="Parent_Invitation_No" Type="Edm.String" />
+        <Property Name="Target_Bidder_Group" Type="Edm.String" />
+        <Property Name="Location_Code" Type="Edm.String" />
+        <Property Name="Responsibility_Center" Type="Edm.String" />
+        <Property Name="Requisition_Product_Group" Type="Edm.String" />
+        <Property Name="Language_Code" Type="Edm.String" />
+        <Property Name="Purchaser_Code" Type="Edm.String" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="Global_Dimension_1_Code" Type="Edm.String" />
+        <Property Name="Global_Dimension_2_Code" Type="Edm.String" />
+        <Property Name="Global_Dimension_3_Code" Type="Edm.String" />
+        <Property Name="Primary_Tender_Submission" Type="Edm.String" />
+        <Property Name="Primary_Engineer_Contact" Type="Edm.String" />
+        <Property Name="Cancellation_Date" Type="Edm.DateTime" />
+        <Property Name="Cancellation_Secret_Code" Type="Edm.String" />
+        <Property Name="Bid_Opening_Committe" Type="Edm.String" />
+        <Property Name="Bid_Evaluation_Committe" Type="Edm.String" />
+        <Property Name="Dimension_Set_ID" Type="Edm.Int32" />
+        <Property Name="Department_Code" Type="Edm.String" />
+        <Property Name="Directorate_Code" Type="Edm.String" />
+        <Property Name="Division" Type="Edm.String" />
+        <Property Name="Job" Type="Edm.String" />
+        <Property Name="Requisition_Template_ID" Type="Edm.String" />
+        <Property Name="Procurement_Plan_ID" Type="Edm.String" />
+        <Property Name="Procurement_Plan_Entry_No" Type="Edm.Int32" />
+        <Property Name="PP_Planning_Category" Type="Edm.String" />
+        <Property Name="PP_Funding_Source_ID" Type="Edm.String" />
+        <Property Name="PP_Total_Budget" Type="Edm.Decimal" />
+        <Property Name="PP_Total_Actual_Costs" Type="Edm.Decimal" />
+        <Property Name="PP_Total_Commitments" Type="Edm.Decimal" />
+        <Property Name="PP_Total_Available_Budget" Type="Edm.Decimal" />
+        <Property Name="Stage_1_EOI_Invitation" Type="Edm.String" />
+        <Property Name="Prebid_Meeting_Address" Type="Edm.String" />
+        <Property Name="Prebid_Meeting_Register_ID" Type="Edm.String" />
+        <Property Name="Date_Time_Published" Type="Edm.DateTime" />
+        <Property Name="Cancelled_By" Type="Edm.String" />
+        <Property Name="PP_Solicitation_Type" Type="Edm.String" />
+        <Property Name="PP_Procurement_Method" Type="Edm.String" />
+        <Property Name="PP_Preference_Reservation_Code" Type="Edm.String" />
+        <Property Name="Bid_Selection_Method" Type="Edm.String" />
+        <Property Name="Job_Task_No" Type="Edm.String" />
+        <Property Name="Sent_Cancellation_Secret_Code" Type="Edm.String" />
+        <Property Name="Sealed_Bids_Technical" Type="Edm.Boolean" />
+        <Property Name="Sealed_Bids_Financial" Type="Edm.Boolean" />
+        <Property Name="Bid_Opening_Register" Type="Edm.String" />
+        <Property Name="Finance_Opening_Register" Type="Edm.String" />
+        <Property Name="Finance_Bid_Opening_Date" Type="Edm.DateTime" />
+      </EntityType>
+      <EntityType Name="languages">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Locations">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Default_Bin_Code" Type="Edm.String" />
+        <Property Name="Name_2" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Phone_No_2" Type="Edm.String" />
+        <Property Name="Telex_No" Type="Edm.String" />
+        <Property Name="Fax_No" Type="Edm.String" />
+        <Property Name="Contact" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Home_Page" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Use_As_In_Transit" Type="Edm.Boolean" />
+        <Property Name="Require_Put_away" Type="Edm.Boolean" />
+        <Property Name="Require_Pick" Type="Edm.Boolean" />
+        <Property Name="Cross_Dock_Due_Date_Calc" Type="Edm.String" />
+        <Property Name="Use_Cross_Docking" Type="Edm.Boolean" />
+        <Property Name="Require_Receive" Type="Edm.Boolean" />
+        <Property Name="Require_Shipment" Type="Edm.Boolean" />
+        <Property Name="Bin_Mandatory" Type="Edm.Boolean" />
+        <Property Name="Directed_Put_away_and_Pick" Type="Edm.Boolean" />
+        <Property Name="Default_Bin_Selection" Type="Edm.String" />
+        <Property Name="Outbound_Whse_Handling_Time" Type="Edm.String" />
+        <Property Name="Inbound_Whse_Handling_Time" Type="Edm.String" />
+        <Property Name="Put_away_Template_Code" Type="Edm.String" />
+        <Property Name="Use_Put_away_Worksheet" Type="Edm.Boolean" />
+        <Property Name="Pick_According_to_FEFO" Type="Edm.Boolean" />
+        <Property Name="Allow_Breakbulk" Type="Edm.Boolean" />
+        <Property Name="Bin_Capacity_Policy" Type="Edm.String" />
+        <Property Name="Open_Shop_Floor_Bin_Code" Type="Edm.String" />
+        <Property Name="To_Production_Bin_Code" Type="Edm.String" />
+        <Property Name="From_Production_Bin_Code" Type="Edm.String" />
+        <Property Name="Adjustment_Bin_Code" Type="Edm.String" />
+        <Property Name="Always_Create_Put_away_Line" Type="Edm.Boolean" />
+        <Property Name="Always_Create_Pick_Line" Type="Edm.Boolean" />
+        <Property Name="Special_Equipment" Type="Edm.String" />
+        <Property Name="Receipt_Bin_Code" Type="Edm.String" />
+        <Property Name="Shipment_Bin_Code" Type="Edm.String" />
+        <Property Name="Cross_Dock_Bin_Code" Type="Edm.String" />
+        <Property Name="To_Assembly_Bin_Code" Type="Edm.String" />
+        <Property Name="From_Assembly_Bin_Code" Type="Edm.String" />
+        <Property Name="Asm_to_Order_Shpt_Bin_Code" Type="Edm.String" />
+        <Property Name="Base_Calendar_Code" Type="Edm.String" />
+        <Property Name="Use_ADCS" Type="Edm.Boolean" />
+      </EntityType>
+      <EntityType Name="PortalUsers">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="User_Name" Type="Edm.String" />
+        <Property Name="Full_Name" Type="Edm.String" />
+        <Property Name="Authentication_Email" Type="Edm.String" />
+        <Property Name="Mobile_Phone_No" Type="Edm.String" />
+        <Property Name="State" Type="Edm.String" />
+        <Property Name="Change_Password" Type="Edm.Boolean" />
+        <Property Name="Record_Type" Type="Edm.String" />
+        <Property Name="Record_ID" Type="Edm.String" />
+        <Property Name="Password_Value" Type="Edm.String" />
+        <Property Name="Last_Modified_Date" Type="Edm.DateTime" />
+      </EntityType>
+      <EntityType Name="postcodes">
+        <Key>
+          <PropertyRef Name="City" />
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="City" Type="Edm.String" Nullable="false" />
+        <Property Name="Search_City" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="PrequalificationCategories">
+        <Key>
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="Prequalification_Category_ID" />
+        </Key>
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Prequalification_Category_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Amount" Type="Edm.Decimal" />
+        <Property Name="Period_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Period_End_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_Start_Time" Type="Edm.String" />
+        <Property Name="Submission_End_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_End_Time" Type="Edm.String" />
+        <Property Name="Applicable_Location" Type="Edm.String" />
+        <Property Name="Restricted_RC" Type="Edm.Boolean" />
+        <Property Name="Restricted_RC_Type" Type="Edm.String" />
+        <Property Name="Restricted_RC_Code" Type="Edm.String" />
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Special_Group_Reservation" Type="Edm.Boolean" />
+        <Property Name="Procurement_Type" Type="Edm.String" />
+        <Property Name="No_of_Submissions" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="ProcurementDocumentType">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="ProcurementMethod">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Process_Type" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="purchaseCodeLines">
+        <Key>
+          <PropertyRef Name="Line_No" />
+          <PropertyRef Name="Standard_Purchase_Code" />
+        </Key>
+        <Property Name="Standard_Purchase_Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Line_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Type" Type="Edm.String" />
+        <Property Name="No" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Quantity" Type="Edm.Decimal" />
+        <Property Name="Amount_Excl_VAT" Type="Edm.Decimal" />
+        <Property Name="Unit_of_Measure_Code" Type="Edm.String" />
+        <Property Name="Shortcut_Dimension_1_Code" Type="Edm.String" />
+        <Property Name="Shortcut_Dimension_2_Code" Type="Edm.String" />
+        <Property Name="Variant_Code" Type="Edm.String" />
+        <Property Name="Dimension_Set_ID" Type="Edm.Int32" />
+        <Property Name="Shortcut_Dimension_3_Code" Type="Edm.String" />
+        <Property Name="Shortcut_Dimension_4_Code" Type="Edm.String" />
+        <Property Name="Shortcut_Dimension_5_Code" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="PurchaseHeader">
+        <Key>
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Buy_from_Vendor_No" Type="Edm.String" />
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Pay_to_Vendor_No" Type="Edm.String" />
+        <Property Name="Pay_to_Name" Type="Edm.String" />
+        <Property Name="Pay_to_Name_2" Type="Edm.String" />
+        <Property Name="Pay_to_Address" Type="Edm.String" />
+        <Property Name="Pay_to_Address_2" Type="Edm.String" />
+        <Property Name="Pay_to_City" Type="Edm.String" />
+        <Property Name="Pay_to_Contact" Type="Edm.String" />
+        <Property Name="Your_Reference" Type="Edm.String" />
+        <Property Name="Ship_to_Code" Type="Edm.String" />
+        <Property Name="Ship_to_Name" Type="Edm.String" />
+        <Property Name="Ship_to_Name_2" Type="Edm.String" />
+        <Property Name="Ship_to_Address" Type="Edm.String" />
+        <Property Name="Ship_to_Address_2" Type="Edm.String" />
+        <Property Name="Ship_to_City" Type="Edm.String" />
+        <Property Name="Ship_to_Contact" Type="Edm.String" />
+        <Property Name="Priority_Level" Type="Edm.String" />
+        <Property Name="Requisition_Product_Group" Type="Edm.String" />
+        <Property Name="Order_Date" Type="Edm.DateTime" />
+        <Property Name="Posting_Date" Type="Edm.DateTime" />
+        <Property Name="Expected_Receipt_Date" Type="Edm.DateTime" />
+        <Property Name="Posting_Description" Type="Edm.String" />
+        <Property Name="Payment_Terms_Code" Type="Edm.String" />
+        <Property Name="Due_Date" Type="Edm.DateTime" />
+        <Property Name="Procurement_Type" Type="Edm.String" />
+        <Property Name="Contract_Number" Type="Edm.String" />
+        <Property Name="Date_received" Type="Edm.DateTime" />
+        <Property Name="Order_types" Type="Edm.String" />
+        <Property Name="Reason_to_reopen" Type="Edm.String" />
+        <Property Name="Reason_to_Cancel" Type="Edm.String" />
+        <Property Name="Order_Number" Type="Edm.String" />
+        <Property Name="Committed" Type="Edm.Boolean" />
+        <Property Name="CommittedBy" Type="Edm.String" />
+        <Property Name="Procurement_Plan" Type="Edm.String" />
+        <Property Name="Procurement_Plan_Item" Type="Edm.String" />
+        <Property Name="Request_Ref_No" Type="Edm.String" />
+        <Property Name="Supplier_Type" Type="Edm.String" />
+        <Property Name="Process_Type" Type="Edm.String" />
+        <Property Name="Purchase_Type" Type="Edm.String" />
+        <Property Name="Requisition_No" Type="Edm.String" />
+        <Property Name="Ordered" Type="Edm.Boolean" />
+        <Property Name="Request_By_No" Type="Edm.String" />
+        <Property Name="Location_Code" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Status" Type="Edm.String" />
+        <Property Name="Division" Type="Edm.String" />
+        <Property Name="Directorate_Code" Type="Edm.String" />
+        <Property Name="Department_Code" Type="Edm.String" />
+        <Property Name="Shortcut_Dimension_1_Code" Type="Edm.String" />
+        <Property Name="Shortcut_Dimension_2_Code" Type="Edm.String" />
+        <Property Name="Job" Type="Edm.String" />
+        <Property Name="Job_Task_No" Type="Edm.String" />
+        <Property Name="Consitituency" Type="Edm.String" />
+        <Property Name="Road_Code" Type="Edm.String" />
+        <Property Name="Link_Name" Type="Edm.String" />
+        <Property Name="Works_Length_Km" Type="Edm.Decimal" />
+        <Property Name="Region" Type="Edm.String" />
+        <Property Name="Invitation_For_Supply_No" Type="Edm.String" />
+        <Property Name="Payment_Retention" Type="Edm.Decimal" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Contract_Description" Type="Edm.String" />
+        <Property Name="Contract_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Contract_End_Date" Type="Edm.DateTime" />
+        <Property Name="Notice_of_Award_No" Type="Edm.String" />
+        <Property Name="Award_Tender_Sum_Inc_Taxes" Type="Edm.Decimal" />
+        <Property Name="IFS_Code" Type="Edm.String" />
+        <Property Name="Tender_Name" Type="Edm.String" />
+        <Property Name="Contract_Type" Type="Edm.String" />
+        <Property Name="Procuring_Entity_PE_Name" Type="Edm.String" />
+        <Property Name="Final_Evaluation_Report" Type="Edm.String" />
+        <Property Name="Final_Evaluation_Report_Date" Type="Edm.DateTime" />
+        <Property Name="Item_Category_Description" Type="Edm.String" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="Bidder_Type" Type="Edm.String" />
+        <Property Name="Bid_Envelope_Type" Type="Edm.String" />
+        <Property Name="Bid_Seal_Type" Type="Edm.String" />
+        <Property Name="Tender_Description" Type="Edm.String" />
+        <Property Name="Currency_Code" Type="Edm.String" />
+        <Property Name="Procurement_Plan_Entry_No" Type="Edm.Int32" />
+        <Property Name="Requisition_Template_ID" Type="Edm.String" />
+        <Property Name="PRN_Type" Type="Edm.String" />
+        <Property Name="Project_Staffing_Template_ID" Type="Edm.String" />
+        <Property Name="Works_Equipment_Template_ID" Type="Edm.String" />
+        <Property Name="Contract_Status" Type="Edm.String" />
+        <Property Name="VAT_Registration_No" Type="Edm.String" />
+        <Property Name="Procurement_Plan_ID" Type="Edm.String" />
+        <Property Name="Approved_Requisition_Amount" Type="Edm.Decimal" />
+        <Property Name="Amount" Type="Edm.Decimal" />
+        <Property Name="Amount_Including_VAT" Type="Edm.Decimal" />
+        <Property Name="Requisition_Amount" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="PurchaseLines">
+        <Key>
+          <PropertyRef Name="AuxiliaryIndex1" />
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="Line_No" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Buy_from_Vendor_No" Type="Edm.String" />
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Line_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Type" Type="Edm.String" />
+        <Property Name="No" Type="Edm.String" />
+        <Property Name="Location_Code" Type="Edm.String" />
+        <Property Name="Posting_Group" Type="Edm.String" />
+        <Property Name="Expected_Receipt_Date" Type="Edm.DateTime" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Description_2" Type="Edm.String" />
+        <Property Name="Unit_of_Measure" Type="Edm.String" />
+        <Property Name="Quantity" Type="Edm.Decimal" />
+        <Property Name="Outstanding_Quantity" Type="Edm.Decimal" />
+        <Property Name="Qty_to_Invoice" Type="Edm.Decimal" />
+        <Property Name="Qty_to_Receive" Type="Edm.Decimal" />
+        <Property Name="Direct_Unit_Cost" Type="Edm.Decimal" />
+        <Property Name="Unit_Cost_LCY" Type="Edm.Decimal" />
+        <Property Name="VAT" Type="Edm.Decimal" />
+        <Property Name="Line_Discount" Type="Edm.Decimal" />
+        <Property Name="Line_Discount_Amount" Type="Edm.Decimal" />
+        <Property Name="Amount" Type="Edm.Decimal" />
+        <Property Name="Qty_Requested" Type="Edm.Decimal" />
+        <Property Name="Amount_Including_VAT" Type="Edm.Decimal" />
+        <Property Name="Unit_Price_LCY" Type="Edm.Decimal" />
+        <Property Name="Transaction_Description" Type="Edm.String" />
+        <Property Name="Transaction_Code1" Type="Edm.String" />
+        <Property Name="AuxiliaryIndex1" Type="Edm.String" Nullable="false" />
+      </EntityType>
+      <EntityType Name="RFIPreqList">
+        <Key>
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="Prequalification_Category_ID" />
+        </Key>
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Prequalification_Category_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Amount" Type="Edm.Decimal" />
+        <Property Name="Period_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Period_End_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_Start_Time" Type="Edm.String" />
+        <Property Name="Submission_End_Date" Type="Edm.DateTime" />
+        <Property Name="Submission_End_Time" Type="Edm.String" />
+        <Property Name="Applicable_Location" Type="Edm.String" />
+        <Property Name="Restricted_RC" Type="Edm.Boolean" />
+        <Property Name="Restricted_RC_Type" Type="Edm.String" />
+        <Property Name="Restricted_RC_Code" Type="Edm.String" />
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Special_Group_Reservation" Type="Edm.Boolean" />
+        <Property Name="Procurement_Type" Type="Edm.String" />
+        <Property Name="No_of_Submissions" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="RFIResponseDocuments">
+        <Key>
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Document_Type" />
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Date_Filed" Type="Edm.DateTime" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Procurement_Document_Type_ID" Type="Edm.String" />
+        <Property Name="Document_Description" Type="Edm.String" />
+        <Property Name="Certificate_No" Type="Edm.String" />
+        <Property Name="Issue_Date" Type="Edm.DateTime" />
+        <Property Name="Expiry_Date" Type="Edm.DateTime" />
+        <Property Name="File_Name" Type="Edm.String" />
+        <Property Name="File_Type" Type="Edm.String" />
+        <Property Name="File_Extension" Type="Edm.String" />
+        <Property Name="Procurement_Process" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="RFIResponses">
+        <Key>
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Document_Type" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Vendor_Name" Type="Edm.String" />
+        <Property Name="RFI_Document_No" Type="Edm.String" />
+        <Property Name="Vendor_Representative_Name" Type="Edm.String" />
+        <Property Name="Vendor_Repr_Designation" Type="Edm.String" />
+        <Property Name="Vendor_Address" Type="Edm.String" />
+        <Property Name="Vendor_Address_2" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Special_Group_Vendor" Type="Edm.Boolean" />
+        <Property Name="Special_Group_Category" Type="Edm.String" />
+        <Property Name="Final_Evaluation_Score" Type="Edm.String" />
+        <Property Name="Document_Status" Type="Edm.String" />
+        <Property Name="Date_Submitted" Type="Edm.DateTime" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="Created_By" Type="Edm.String" />
+        <Property Name="Created_Date" Type="Edm.DateTime" />
+        <Property Name="Created_Time" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="rfiResponseT">
+        <Key>
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Document_Type" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Vendor_Name" Type="Edm.String" />
+        <Property Name="RFI_Document_No" Type="Edm.String" />
+        <Property Name="Vendor_Representative_Name" Type="Edm.String" />
+        <Property Name="Vendor_Repr_Designation" Type="Edm.String" />
+        <Property Name="Vendor_Address" Type="Edm.String" />
+        <Property Name="Vendor_Address_2" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Special_Group_Vendor" Type="Edm.Boolean" />
+        <Property Name="Special_Group_Category" Type="Edm.String" />
+        <Property Name="Final_Evaluation_Score" Type="Edm.String" />
+        <Property Name="Document_Status" Type="Edm.String" />
+        <Property Name="Date_Submitted" Type="Edm.DateTime" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="Created_By" Type="Edm.String" />
+        <Property Name="Created_Date" Type="Edm.DateTime" />
+        <Property Name="Created_Time" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="SpecialGroupCategories">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Vendor_Group" Type="Edm.String" />
+        <Property Name="Vendor_Type" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="SupplierCategory">
+        <Key>
+          <PropertyRef Name="Category_Code" />
+        </Key>
+        <Property Name="Category_Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="tenderAddendums">
+        <Key>
+          <PropertyRef Name="Addendum_Notice_No" />
+        </Key>
+        <Property Name="Addendum_Notice_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="Invitation_Notice_No" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Addendum_Instructions" Type="Edm.String" />
+        <Property Name="Primary_Addendum_Type_ID" Type="Edm.String" />
+        <Property Name="Addendum_Type_Description" Type="Edm.String" />
+        <Property Name="Tender_No" Type="Edm.String" />
+        <Property Name="Tender_Description" Type="Edm.String" />
+        <Property Name="Responsibility_Center" Type="Edm.String" />
+        <Property Name="New_Submission_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Original_Submission_Start_Date" Type="Edm.DateTime" />
+        <Property Name="New_Submission_Start_Time" Type="Edm.String" />
+        <Property Name="Original_Submission_Start_Time" Type="Edm.String" />
+        <Property Name="New_Submission_End_Date" Type="Edm.DateTime" />
+        <Property Name="Original_Submission_End_Date" Type="Edm.DateTime" />
+        <Property Name="New_Submission_End_Time" Type="Edm.String" />
+        <Property Name="Original_Submission_End_Time" Type="Edm.String" />
+        <Property Name="Original_Bid_Opening_Date" Type="Edm.DateTime" />
+        <Property Name="New_Bid_Opening_Date" Type="Edm.DateTime" />
+        <Property Name="Original_Bid_Opening_Time" Type="Edm.String" />
+        <Property Name="New_Bid_Opening_Time" Type="Edm.String" />
+        <Property Name="Original_Prebid_Meeting_Date" Type="Edm.DateTime" />
+        <Property Name="New_Prebid_Meeting_Date" Type="Edm.DateTime" />
+        <Property Name="Document_Status" Type="Edm.String" />
+        <Property Name="Status" Type="Edm.String" />
+        <Property Name="Posted" Type="Edm.Boolean" />
+      </EntityType>
+      <EntityType Name="TenderDocumentsSource">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Url_Link" Type="Edm.String" />
+        <Property Name="Default_IFS_Bid_Charge_Code" Type="Edm.String" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+      </EntityType>
+      <EntityType Name="TenderSecurityTypes">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Security_Type" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Nature_of_Security" Type="Edm.String" />
+        <Property Name="No_of_Filed_Securities" Type="Edm.Decimal" />
+        <Property Name="Filed_Securities_Value_LCY" Type="Edm.Decimal" />
+        <Property Name="No_of_Forfeited_Securities" Type="Edm.Decimal" />
+        <Property Name="Forfeited_Securities_Value_LCY" Type="Edm.Decimal" />
+        <Property Name="No_of_Released_Securities" Type="Edm.Decimal" />
+        <Property Name="Released_Securities_Value_LCY" Type="Edm.Decimal" />
+        <Property Name="BLocked" Type="Edm.Boolean" />
+      </EntityType>
+      <EntityType Name="TransactionCode">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Type" Type="Edm.String" />
+        <Property Name="No" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="vendorBalancesheet">
+        <Key>
+          <PropertyRef Name="Audit_Year_Code_Reference" />
+          <PropertyRef Name="Vendor_No" />
+        </Key>
+        <Property Name="Vendor_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Audit_Year_Code_Reference" Type="Edm.String" Nullable="false" />
+        <Property Name="Current_Assets_LCY" Type="Edm.Decimal" />
+        <Property Name="Fixed_Assets_LCY" Type="Edm.Decimal" />
+        <Property Name="Total_Assets_LCY" Type="Edm.Decimal" />
+        <Property Name="Current_Liabilities_LCY" Type="Edm.Decimal" />
+        <Property Name="Long_term_Liabilities_LCY" Type="Edm.Decimal" />
+        <Property Name="Total_Liabilities_LCY" Type="Edm.Decimal" />
+        <Property Name="Owners_Equity_LCY" Type="Edm.Decimal" />
+        <Property Name="Total_Liabilities_Equity_LCY" Type="Edm.Decimal" />
+        <Property Name="Debt_Ratio" Type="Edm.Decimal" />
+        <Property Name="Current_Ratio" Type="Edm.Decimal" />
+        <Property Name="Working_Capital_LCY" Type="Edm.Decimal" />
+        <Property Name="Assets_To_Equity_Ratio" Type="Edm.Decimal" />
+        <Property Name="Debt_To_Equity_Ratio" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="VendorBankAccounts">
+        <Key>
+          <PropertyRef Name="Code" />
+          <PropertyRef Name="Vendor_No" />
+        </Key>
+        <Property Name="Vendor_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Name_2" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="Contact" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Telex_No" Type="Edm.String" />
+        <Property Name="Bank_Branch_No" Type="Edm.String" />
+        <Property Name="Bank_Account_No" Type="Edm.String" />
+        <Property Name="Transit_No" Type="Edm.String" />
+        <Property Name="Currency_Code" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="Fax_No" Type="Edm.String" />
+        <Property Name="Telex_Answer_Back" Type="Edm.String" />
+        <Property Name="Language_Code" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Home_Page" Type="Edm.String" />
+        <Property Name="IBAN" Type="Edm.String" />
+        <Property Name="SWIFT_Code" Type="Edm.String" />
+        <Property Name="Bank_Clearing_Code" Type="Edm.String" />
+        <Property Name="Bank_Clearing_Standard" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="VendorFiledRegDocument">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+          <PropertyRef Name="Vendor_No" />
+        </Key>
+        <Property Name="Vendor_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Procurement_Document_Type_ID" Type="Edm.String" />
+        <Property Name="Date_Filed" Type="Edm.DateTime" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Certificate_No" Type="Edm.String" />
+        <Property Name="Issue_Date" Type="Edm.DateTime" />
+        <Property Name="Expiry_Date" Type="Edm.DateTime" />
+        <Property Name="File_Name" Type="Edm.String" />
+        <Property Name="File_Type" Type="Edm.String" />
+        <Property Name="File_Extension" Type="Edm.String" />
+        <Property Name="Procurement_Process" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="vendorIncomestatement">
+        <Key>
+          <PropertyRef Name="Audit_Year_Code_Reference" />
+          <PropertyRef Name="Vendor_No" />
+        </Key>
+        <Property Name="Vendor_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Audit_Year_Code_Reference" Type="Edm.String" Nullable="false" />
+        <Property Name="Total_Revenue_LCY" Type="Edm.Decimal" />
+        <Property Name="Total_COGS_LCY" Type="Edm.Decimal" />
+        <Property Name="Gross_Margin_LCY" Type="Edm.Decimal" />
+        <Property Name="Total_Operating_Expenses_LCY" Type="Edm.Decimal" />
+        <Property Name="Operating_Income_EBIT_LCY" Type="Edm.Decimal" />
+        <Property Name="Other_Non_operating_Re_Exp_LCY" Type="Edm.Decimal" />
+        <Property Name="Interest_Expense_LCY" Type="Edm.Decimal" />
+        <Property Name="Income_Before_Taxes_LCY" Type="Edm.Decimal" />
+        <Property Name="Income_Tax_Expense_LCY" Type="Edm.Decimal" />
+        <Property Name="Net_Income_from_Ops_LCY" Type="Edm.Decimal" />
+        <Property Name="Below_the_line_Items_LCY" Type="Edm.Decimal" />
+        <Property Name="Net_Income" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="VendorLitigationHistory">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Dispute_Matter" Type="Edm.String" />
+        <Property Name="Category_of_Matter" Type="Edm.String" />
+        <Property Name="Year" Type="Edm.String" />
+        <Property Name="Other_Dispute_Party" Type="Edm.String" />
+        <Property Name="V3rd_Party_Entity" Type="Edm.String" />
+        <Property Name="Dispute_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Award_Type" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="VendorPastExperience">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+          <PropertyRef Name="Vendor_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Vendor_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Client_Name" Type="Edm.String" />
+        <Property Name="Name_2" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Nationality_ID" Type="Edm.String" />
+        <Property Name="Citizenship_Type" Type="Edm.String" />
+        <Property Name="Date_of_Birth" Type="Edm.DateTime" />
+        <Property Name="Entity_Ownership" Type="Edm.Decimal" />
+        <Property Name="Share_Types" Type="Edm.String" />
+        <Property Name="No_of_Shares" Type="Edm.Decimal" />
+        <Property Name="Nominal_Value_Share" Type="Edm.Decimal" />
+        <Property Name="Total_Nominal_Value" Type="Edm.Decimal" />
+        <Property Name="Ownership_Effective_Date" Type="Edm.DateTime" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="Primary_Contact_Person" Type="Edm.String" />
+        <Property Name="Primary_Contact_Designation" Type="Edm.String" />
+        <Property Name="Primary_Contact_Tel" Type="Edm.String" />
+        <Property Name="Primary_Contact_Email" Type="Edm.String" />
+        <Property Name="Assignment_Name" Type="Edm.String" />
+        <Property Name="Project_Scope_Summary" Type="Edm.String" />
+        <Property Name="Delivery_Location" Type="Edm.String" />
+        <Property Name="Contract_Ref_No" Type="Edm.String" />
+        <Property Name="Assignment_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Assignment_End_Date" Type="Edm.DateTime" />
+        <Property Name="Assignment_Value_LCY" Type="Edm.Decimal" />
+        <Property Name="Assignment_Status" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="VendorPrequalificationEntries">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="IFP_No" Type="Edm.String" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Procurement_Type" Type="Edm.String" />
+        <Property Name="Procurement_Category_Code" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Start_Date" Type="Edm.DateTime" />
+        <Property Name="End_Date" Type="Edm.DateTime" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="Date_Blocked" Type="Edm.DateTime" />
+        <Property Name="Document_Type" Type="Edm.String" />
+        <Property Name="Posting_Date" Type="Edm.DateTime" />
+        <Property Name="Document_No" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="VendorProffessionalStaff">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+          <PropertyRef Name="Staff_Number" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Staff_Name" Type="Edm.String" />
+        <Property Name="Proffesion" Type="Edm.String" />
+        <Property Name="Current_Designation" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Nationality" Type="Edm.String" />
+        <Property Name="Citizenship_Type" Type="Edm.String" />
+        <Property Name="Date_of_Birth" Type="Edm.DateTime" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="Joining_Date" Type="Edm.DateTime" />
+        <Property Name="Years_With_the_Firm" Type="Edm.Decimal" />
+        <Property Name="Staff_Number" Type="Edm.String" Nullable="false" />
+        <Property Name="Staff_Category" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="VendorShareholderDetails">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+          <PropertyRef Name="Vendor_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Vendor_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Name_2" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Nationality_ID" Type="Edm.String" />
+        <Property Name="Citizenship_Type" Type="Edm.String" />
+        <Property Name="Date_of_Birth" Type="Edm.DateTime" />
+        <Property Name="Entity_Ownership" Type="Edm.Decimal" />
+        <Property Name="Share_Types" Type="Edm.String" />
+        <Property Name="No_of_Shares" Type="Edm.Decimal" />
+        <Property Name="Nominal_Value_Share" Type="Edm.Decimal" />
+        <Property Name="Total_Nominal_Value" Type="Edm.Decimal" />
+        <Property Name="Ownership_Effective_Date" Type="Edm.DateTime" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="ID_Passport_No" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="VendorSpecialGroupEntry">
+        <Key>
+          <PropertyRef Name="Certifcate_No" />
+          <PropertyRef Name="Vendor_No" />
+        </Key>
+        <Property Name="Certifcate_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Vendor_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Vendor_Category" Type="Edm.String" />
+        <Property Name="Certifying_Agency" Type="Edm.String" />
+        <Property Name="Products_Service_Category" Type="Edm.String" />
+        <Property Name="Certificate_Expiry_Date" Type="Edm.DateTime" />
+        <Property Name="Effective_Date" Type="Edm.DateTime" />
+        <Property Name="End_Date" Type="Edm.DateTime" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="EntryNo" Type="Edm.Int32" />
+        <Property Name="Registered_Special_Group" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="VendorStaffExperience">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+          <PropertyRef Name="Staff_ID" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Staff_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Experience_Category" Type="Edm.String" />
+        <Property Name="Experience_Summary" Type="Edm.String" />
+        <Property Name="Assignment_Description" Type="Edm.String" />
+        <Property Name="Years_of_Experience" Type="Edm.Decimal" />
+        <Property Name="Start_Year" Type="Edm.String" />
+        <Property Name="End_Year" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="VendorStaffQualification">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+          <PropertyRef Name="Staff_Id" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Qualification_Category" Type="Edm.String" />
+        <Property Name="Qualification_Name" Type="Edm.String" />
+        <Property Name="Institution" Type="Edm.String" />
+        <Property Name="Start_Year" Type="Edm.String" />
+        <Property Name="End_Year" Type="Edm.String" />
+        <Property Name="Outstanding_Achievements" Type="Edm.String" />
+        <Property Name="Staff_Id" Type="Edm.String" Nullable="false" />
+      </EntityType>
+      <EntityType Name="VendorStatetement">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Posting_Date" Type="Edm.DateTime" />
+        <Property Name="Document_Type" Type="Edm.String" />
+        <Property Name="Document_No" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Vendor_Name" Type="Edm.String" />
+        <Property Name="Currency_Code" Type="Edm.String" />
+        <Property Name="Purchase_LCY" Type="Edm.Decimal" />
+        <Property Name="Inv_Discount_LCY" Type="Edm.Decimal" />
+        <Property Name="Buy_from_Vendor_No" Type="Edm.String" />
+        <Property Name="Vendor_Posting_Group" Type="Edm.String" />
+        <Property Name="Global_Dimension_1_Code" Type="Edm.String" />
+        <Property Name="Global_Dimension_2_Code" Type="Edm.String" />
+        <Property Name="Purchaser_Code" Type="Edm.String" />
+        <Property Name="User_ID" Type="Edm.String" />
+        <Property Name="Source_Code" Type="Edm.String" />
+        <Property Name="On_Hold" Type="Edm.String" />
+        <Property Name="Applies_to_Doc_Type" Type="Edm.String" />
+        <Property Name="Applies_to_Doc_No" Type="Edm.String" />
+        <Property Name="Open" Type="Edm.Boolean" />
+        <Property Name="Due_Date" Type="Edm.DateTime" />
+        <Property Name="Pmt_Discount_Date" Type="Edm.DateTime" />
+        <Property Name="Original_Pmt_Disc_Possible" Type="Edm.Decimal" />
+        <Property Name="Pmt_Disc_Rcd_LCY" Type="Edm.Decimal" />
+        <Property Name="Positive" Type="Edm.Boolean" />
+        <Property Name="Closed_by_Entry_No" Type="Edm.Int32" />
+        <Property Name="Closed_at_Date" Type="Edm.DateTime" />
+        <Property Name="Closed_by_Amount" Type="Edm.Decimal" />
+        <Property Name="Applies_to_ID" Type="Edm.String" />
+        <Property Name="Journal_Batch_Name" Type="Edm.String" />
+        <Property Name="Reason_Code" Type="Edm.String" />
+        <Property Name="Bal_Account_Type" Type="Edm.String" />
+        <Property Name="Bal_Account_No" Type="Edm.String" />
+        <Property Name="Transaction_No" Type="Edm.Int32" />
+        <Property Name="Closed_by_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="External_Document_No" Type="Edm.String" />
+        <Property Name="Amount_to_Apply" Type="Edm.Decimal" />
+        <Property Name="Prepayment" Type="Edm.Boolean" />
+        <Property Name="Creditor_No" Type="Edm.String" />
+        <Property Name="Payment_Reference" Type="Edm.String" />
+        <Property Name="Payment_Method_Code" Type="Edm.String" />
+        <Property Name="Applies_to_Ext_Doc_No" Type="Edm.String" />
+        <Property Name="Recipient_Bank_Account" Type="Edm.String" />
+        <Property Name="Message_to_Recipient" Type="Edm.String" />
+        <Property Name="Exported_to_Payment_File" Type="Edm.Boolean" />
+        <Property Name="Dimension_Set_ID" Type="Edm.Int32" />
+        <Property Name="Procurement_Plan" Type="Edm.String" />
+        <Property Name="Procurement_Plan_Item" Type="Edm.String" />
+        <Property Name="Responsibility_Center" Type="Edm.String" />
+        <Property Name="Amount" Type="Edm.Decimal" />
+        <Property Name="Remaining_Amount" Type="Edm.Decimal" />
+        <Property Name="Original_Amt_LCY" Type="Edm.Decimal" />
+        <Property Name="Remaining_Amt_LCY" Type="Edm.Decimal" />
+        <Property Name="Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Debit_Amount" Type="Edm.Decimal" />
+        <Property Name="Credit_Amount" Type="Edm.Decimal" />
+        <Property Name="Debit_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Credit_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Original_Amount" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="WorkEquipmentCategories">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="No_of_Equipment_Types" Type="Edm.Int32" />
+        <Property Name="No_of_Equipment_Ongoing" Type="Edm.Int32" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+      </EntityType>
+      <EntityType Name="VendorLedgerEntries">
+        <Key>
+          <PropertyRef Name="AuxiliaryIndex1" />
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Transaction_No" Type="Edm.Int32" />
+        <Property Name="Vendor_No" Type="Edm.String" />
+        <Property Name="Posting_Date" Type="Edm.DateTime" />
+        <Property Name="Due_Date" Type="Edm.DateTime" />
+        <Property Name="Pmt_Discount_Date" Type="Edm.DateTime" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="Document_Type" Type="Edm.String" />
+        <Property Name="Document_No" Type="Edm.String" />
+        <Property Name="Purchaser_Code" Type="Edm.String" />
+        <Property Name="Source_Code" Type="Edm.String" />
+        <Property Name="Reason_Code" Type="Edm.String" />
+        <Property Name="IC_Partner_Code" Type="Edm.String" />
+        <Property Name="Open" Type="Edm.Boolean" />
+        <Property Name="Currency_Code" Type="Edm.String" />
+        <Property Name="Dimension_Set_ID" Type="Edm.Int32" />
+        <Property Name="Amount" Type="Edm.Decimal" />
+        <Property Name="Debit_Amount" Type="Edm.Decimal" />
+        <Property Name="Credit_Amount" Type="Edm.Decimal" />
+        <Property Name="Remaining_Amount" Type="Edm.Decimal" />
+        <Property Name="Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Debit_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Credit_Amount_LCY" Type="Edm.Decimal" />
+        <Property Name="Remaining_Amt_LCY" Type="Edm.Decimal" />
+        <Property Name="Original_Amt_LCY" Type="Edm.Decimal" />
+        <Property Name="Vendor_Name" Type="Edm.String" />
+        <Property Name="AuxiliaryIndex1" Type="Edm.String" Nullable="false" />
+      </EntityType>
+      <EntityType Name="Company">
+        <Key>
+          <PropertyRef Name="Name" />
+        </Key>
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <NavigationProperty Name="AddendumAmmendments" Relationship="NAV.Company_AddendumAmmendments" ToRole="AddendumAmmendments" FromRole="Company" />
+        <NavigationProperty Name="ApprovalCommentLine" Relationship="NAV.Company_ApprovalCommentLine" ToRole="ApprovalCommentLine" FromRole="Company" />
+        <NavigationProperty Name="ApprovalEntries" Relationship="NAV.Company_ApprovalEntries" ToRole="ApprovalEntries" FromRole="Company" />
+        <NavigationProperty Name="BidAuditedBalanaceSheet" Relationship="NAV.Company_BidAuditedBalanaceSheet" ToRole="BidAuditedBalanaceSheet" FromRole="Company" />
+        <NavigationProperty Name="BidAuditedIncomeStatement" Relationship="NAV.Company_BidAuditedIncomeStatement" ToRole="BidAuditedIncomeStatement" FromRole="Company" />
+        <NavigationProperty Name="BidContractsSecurities" Relationship="NAV.Company_BidContractsSecurities" ToRole="BidContractsSecurities" FromRole="Company" />
+        <NavigationProperty Name="BidEquipmentSpecifications" Relationship="NAV.Company_BidEquipmentSpecifications" ToRole="BidEquipmentSpecifications" FromRole="Company" />
+        <NavigationProperty Name="BidPastExperiences" Relationship="NAV.Company_BidPastExperiences" ToRole="BidPastExperiences" FromRole="Company" />
+        <NavigationProperty Name="BidReponseAttachedDocuments" Relationship="NAV.Company_BidReponseAttachedDocuments" ToRole="BidReponseAttachedDocuments" FromRole="Company" />
+        <NavigationProperty Name="BidResponseItemLines" Relationship="NAV.Company_BidResponseItemLines" ToRole="BidResponseItemLines" FromRole="Company" />
+        <NavigationProperty Name="BidResponsesDetails" Relationship="NAV.Company_BidResponsesDetails" ToRole="BidResponsesDetails" FromRole="Company" />
+        <NavigationProperty Name="bidscoringTemplate" Relationship="NAV.Company_bidscoringTemplate" ToRole="bidscoringTemplate" FromRole="Company" />
+        <NavigationProperty Name="businessTypes" Relationship="NAV.Company_businessTypes" ToRole="businessTypes" FromRole="Company" />
+        <NavigationProperty Name="CalenderYearCodesList" Relationship="NAV.Company_CalenderYearCodesList" ToRole="CalenderYearCodesList" FromRole="Company" />
+        <NavigationProperty Name="companySizes" Relationship="NAV.Company_companySizes" ToRole="companySizes" FromRole="Company" />
+        <NavigationProperty Name="Contact" Relationship="NAV.Company_Contact" ToRole="Contact" FromRole="Company" />
+        <NavigationProperty Name="Countries" Relationship="NAV.Company_Countries" ToRole="Countries" FromRole="Company" />
+        <NavigationProperty Name="Currencies" Relationship="NAV.Company_Currencies" ToRole="Currencies" FromRole="Company" />
+        <NavigationProperty Name="DimensionValue" Relationship="NAV.Company_DimensionValue" ToRole="DimensionValue" FromRole="Company" />
+        <NavigationProperty Name="DynasoftPortalUser" Relationship="NAV.Company_DynasoftPortalUser" ToRole="DynasoftPortalUser" FromRole="Company" />
+        <NavigationProperty Name="eProcDocuments" Relationship="NAV.Company_eProcDocuments" ToRole="eProcDocuments" FromRole="Company" />
+        <NavigationProperty Name="eProVendorQT" Relationship="NAV.Company_eProVendorQT" ToRole="eProVendorQT" FromRole="Company" />
+        <NavigationProperty Name="HRPortalUsers" Relationship="NAV.Company_HRPortalUsers" ToRole="HRPortalUsers" FromRole="Company" />
+        <NavigationProperty Name="ifpReqDocuments" Relationship="NAV.Company_ifpReqDocuments" ToRole="ifpReqDocuments" FromRole="Company" />
+        <NavigationProperty Name="IFPRequests" Relationship="NAV.Company_IFPRequests" ToRole="IFPRequests" FromRole="Company" />
+        <NavigationProperty Name="IFPResponseLines" Relationship="NAV.Company_IFPResponseLines" ToRole="IFPResponseLines" FromRole="Company" />
+        <NavigationProperty Name="ifsEquipspecs" Relationship="NAV.Company_ifsEquipspecs" ToRole="ifsEquipspecs" FromRole="Company" />
+        <NavigationProperty Name="ifsKeyStaff" Relationship="NAV.Company_ifsKeyStaff" ToRole="ifsKeyStaff" FromRole="Company" />
+        <NavigationProperty Name="ifsReqDocuments" Relationship="NAV.Company_ifsReqDocuments" ToRole="ifsReqDocuments" FromRole="Company" />
+        <NavigationProperty Name="ifsSecurities" Relationship="NAV.Company_ifsSecurities" ToRole="ifsSecurities" FromRole="Company" />
+        <NavigationProperty Name="ifsVendorDebarment" Relationship="NAV.Company_ifsVendorDebarment" ToRole="ifsVendorDebarment" FromRole="Company" />
+        <NavigationProperty Name="IndustryGroup" Relationship="NAV.Company_IndustryGroup" ToRole="IndustryGroup" FromRole="Company" />
+        <NavigationProperty Name="InvitationPrequalification" Relationship="NAV.Company_InvitationPrequalification" ToRole="InvitationPrequalification" FromRole="Company" />
+        <NavigationProperty Name="invitetoTenders" Relationship="NAV.Company_invitetoTenders" ToRole="invitetoTenders" FromRole="Company" />
+        <NavigationProperty Name="languages" Relationship="NAV.Company_languages" ToRole="languages" FromRole="Company" />
+        <NavigationProperty Name="Locations" Relationship="NAV.Company_Locations" ToRole="Locations" FromRole="Company" />
+        <NavigationProperty Name="PortalUsers" Relationship="NAV.Company_PortalUsers" ToRole="PortalUsers" FromRole="Company" />
+        <NavigationProperty Name="postcodes" Relationship="NAV.Company_postcodes" ToRole="postcodes" FromRole="Company" />
+        <NavigationProperty Name="PrequalificationCategories" Relationship="NAV.Company_PrequalificationCategories" ToRole="PrequalificationCategories" FromRole="Company" />
+        <NavigationProperty Name="ProcurementDocumentType" Relationship="NAV.Company_ProcurementDocumentType" ToRole="ProcurementDocumentType" FromRole="Company" />
+        <NavigationProperty Name="ProcurementMethod" Relationship="NAV.Company_ProcurementMethod" ToRole="ProcurementMethod" FromRole="Company" />
+        <NavigationProperty Name="purchaseCodeLines" Relationship="NAV.Company_purchaseCodeLines" ToRole="purchaseCodeLines" FromRole="Company" />
+        <NavigationProperty Name="PurchaseHeader" Relationship="NAV.Company_PurchaseHeader" ToRole="PurchaseHeader" FromRole="Company" />
+        <NavigationProperty Name="PurchaseLines" Relationship="NAV.Company_PurchaseLines" ToRole="PurchaseLines" FromRole="Company" />
+        <NavigationProperty Name="RFIPreqList" Relationship="NAV.Company_RFIPreqList" ToRole="RFIPreqList" FromRole="Company" />
+        <NavigationProperty Name="RFIResponseDocuments" Relationship="NAV.Company_RFIResponseDocuments" ToRole="RFIResponseDocuments" FromRole="Company" />
+        <NavigationProperty Name="RFIResponses" Relationship="NAV.Company_RFIResponses" ToRole="RFIResponses" FromRole="Company" />
+        <NavigationProperty Name="rfiResponseT" Relationship="NAV.Company_rfiResponseT" ToRole="rfiResponseT" FromRole="Company" />
+        <NavigationProperty Name="SpecialGroupCategories" Relationship="NAV.Company_SpecialGroupCategories" ToRole="SpecialGroupCategories" FromRole="Company" />
+        <NavigationProperty Name="SupplierCategory" Relationship="NAV.Company_SupplierCategory" ToRole="SupplierCategory" FromRole="Company" />
+        <NavigationProperty Name="tenderAddendums" Relationship="NAV.Company_tenderAddendums" ToRole="tenderAddendums" FromRole="Company" />
+        <NavigationProperty Name="TenderDocumentsSource" Relationship="NAV.Company_TenderDocumentsSource" ToRole="TenderDocumentsSource" FromRole="Company" />
+        <NavigationProperty Name="TenderSecurityTypes" Relationship="NAV.Company_TenderSecurityTypes" ToRole="TenderSecurityTypes" FromRole="Company" />
+        <NavigationProperty Name="TransactionCode" Relationship="NAV.Company_TransactionCode" ToRole="TransactionCode" FromRole="Company" />
+        <NavigationProperty Name="vendorBalancesheet" Relationship="NAV.Company_vendorBalancesheet" ToRole="vendorBalancesheet" FromRole="Company" />
+        <NavigationProperty Name="VendorBankAccounts" Relationship="NAV.Company_VendorBankAccounts" ToRole="VendorBankAccounts" FromRole="Company" />
+        <NavigationProperty Name="VendorFiledRegDocument" Relationship="NAV.Company_VendorFiledRegDocument" ToRole="VendorFiledRegDocument" FromRole="Company" />
+        <NavigationProperty Name="vendorIncomestatement" Relationship="NAV.Company_vendorIncomestatement" ToRole="vendorIncomestatement" FromRole="Company" />
+        <NavigationProperty Name="VendorLitigationHistory" Relationship="NAV.Company_VendorLitigationHistory" ToRole="VendorLitigationHistory" FromRole="Company" />
+        <NavigationProperty Name="VendorPastExperience" Relationship="NAV.Company_VendorPastExperience" ToRole="VendorPastExperience" FromRole="Company" />
+        <NavigationProperty Name="VendorPrequalificationEntries" Relationship="NAV.Company_VendorPrequalificationEntries" ToRole="VendorPrequalificationEntries" FromRole="Company" />
+        <NavigationProperty Name="VendorProffessionalStaff" Relationship="NAV.Company_VendorProffessionalStaff" ToRole="VendorProffessionalStaff" FromRole="Company" />
+        <NavigationProperty Name="VendorShareholderDetails" Relationship="NAV.Company_VendorShareholderDetails" ToRole="VendorShareholderDetails" FromRole="Company" />
+        <NavigationProperty Name="VendorSpecialGroupEntry" Relationship="NAV.Company_VendorSpecialGroupEntry" ToRole="VendorSpecialGroupEntry" FromRole="Company" />
+        <NavigationProperty Name="VendorStaffExperience" Relationship="NAV.Company_VendorStaffExperience" ToRole="VendorStaffExperience" FromRole="Company" />
+        <NavigationProperty Name="VendorStaffQualification" Relationship="NAV.Company_VendorStaffQualification" ToRole="VendorStaffQualification" FromRole="Company" />
+        <NavigationProperty Name="VendorStatetement" Relationship="NAV.Company_VendorStatetement" ToRole="VendorStatetement" FromRole="Company" />
+        <NavigationProperty Name="WorkEquipmentCategories" Relationship="NAV.Company_WorkEquipmentCategories" ToRole="WorkEquipmentCategories" FromRole="Company" />
+        <NavigationProperty Name="VendorLedgerEntries" Relationship="NAV.Company_VendorLedgerEntries" ToRole="VendorLedgerEntries" FromRole="Company" />
+      </EntityType>
+      <Association Name="Company_AddendumAmmendments">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.AddendumAmmendments" Role="AddendumAmmendments" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ApprovalCommentLine">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.ApprovalCommentLine" Role="ApprovalCommentLine" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ApprovalEntries">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.ApprovalEntries" Role="ApprovalEntries" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_BidAuditedBalanaceSheet">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.BidAuditedBalanaceSheet" Role="BidAuditedBalanaceSheet" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_BidAuditedIncomeStatement">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.BidAuditedIncomeStatement" Role="BidAuditedIncomeStatement" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_BidContractsSecurities">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.BidContractsSecurities" Role="BidContractsSecurities" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_BidEquipmentSpecifications">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.BidEquipmentSpecifications" Role="BidEquipmentSpecifications" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_BidPastExperiences">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.BidPastExperiences" Role="BidPastExperiences" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_BidReponseAttachedDocuments">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.BidReponseAttachedDocuments" Role="BidReponseAttachedDocuments" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_BidResponseItemLines">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.BidResponseItemLines" Role="BidResponseItemLines" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_BidResponsesDetails">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.BidResponsesDetails" Role="BidResponsesDetails" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_bidscoringTemplate">
+        <End Type="NAV.bidscoringTemplate" Role="bidscoringTemplate" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_businessTypes">
+        <End Type="NAV.businessTypes" Role="businessTypes" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_CalenderYearCodesList">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.CalenderYearCodesList" Role="CalenderYearCodesList" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_companySizes">
+        <End Type="NAV.companySizes" Role="companySizes" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Contact">
+        <End Type="NAV.Contact" Role="Contact" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Countries">
+        <End Type="NAV.Countries" Role="Countries" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Currencies">
+        <End Type="NAV.Currencies" Role="Currencies" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_DimensionValue">
+        <End Type="NAV.DimensionValue" Role="DimensionValue" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_DynasoftPortalUser">
+        <End Type="NAV.DynasoftPortalUser" Role="DynasoftPortalUser" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_eProcDocuments">
+        <End Type="NAV.eProcDocuments" Role="eProcDocuments" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_eProVendorQT">
+        <End Type="NAV.eProVendorQT" Role="eProVendorQT" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_HRPortalUsers">
+        <End Type="NAV.HRPortalUsers" Role="HRPortalUsers" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ifpReqDocuments">
+        <End Type="NAV.ifpReqDocuments" Role="ifpReqDocuments" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_IFPRequests">
+        <End Type="NAV.IFPRequests" Role="IFPRequests" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_IFPResponseLines">
+        <End Type="NAV.IFPResponseLines" Role="IFPResponseLines" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ifsEquipspecs">
+        <End Type="NAV.ifsEquipspecs" Role="ifsEquipspecs" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ifsKeyStaff">
+        <End Type="NAV.ifsKeyStaff" Role="ifsKeyStaff" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ifsReqDocuments">
+        <End Type="NAV.ifsReqDocuments" Role="ifsReqDocuments" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ifsSecurities">
+        <End Type="NAV.ifsSecurities" Role="ifsSecurities" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ifsVendorDebarment">
+        <End Type="NAV.ifsVendorDebarment" Role="ifsVendorDebarment" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_IndustryGroup">
+        <End Type="NAV.IndustryGroup" Role="IndustryGroup" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_InvitationPrequalification">
+        <End Type="NAV.InvitationPrequalification" Role="InvitationPrequalification" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_invitetoTenders">
+        <End Type="NAV.invitetoTenders" Role="invitetoTenders" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_languages">
+        <End Type="NAV.languages" Role="languages" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Locations">
+        <End Type="NAV.Locations" Role="Locations" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_PortalUsers">
+        <End Type="NAV.PortalUsers" Role="PortalUsers" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_postcodes">
+        <End Type="NAV.postcodes" Role="postcodes" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_PrequalificationCategories">
+        <End Type="NAV.PrequalificationCategories" Role="PrequalificationCategories" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ProcurementDocumentType">
+        <End Type="NAV.ProcurementDocumentType" Role="ProcurementDocumentType" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ProcurementMethod">
+        <End Type="NAV.ProcurementMethod" Role="ProcurementMethod" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_purchaseCodeLines">
+        <End Type="NAV.purchaseCodeLines" Role="purchaseCodeLines" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_PurchaseHeader">
+        <End Type="NAV.PurchaseHeader" Role="PurchaseHeader" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_PurchaseLines">
+        <End Type="NAV.PurchaseLines" Role="PurchaseLines" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_RFIPreqList">
+        <End Type="NAV.RFIPreqList" Role="RFIPreqList" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_RFIResponseDocuments">
+        <End Type="NAV.RFIResponseDocuments" Role="RFIResponseDocuments" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_RFIResponses">
+        <End Type="NAV.RFIResponses" Role="RFIResponses" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_rfiResponseT">
+        <End Type="NAV.rfiResponseT" Role="rfiResponseT" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_SpecialGroupCategories">
+        <End Type="NAV.SpecialGroupCategories" Role="SpecialGroupCategories" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_SupplierCategory">
+        <End Type="NAV.SupplierCategory" Role="SupplierCategory" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_tenderAddendums">
+        <End Type="NAV.tenderAddendums" Role="tenderAddendums" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_TenderDocumentsSource">
+        <End Type="NAV.TenderDocumentsSource" Role="TenderDocumentsSource" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_TenderSecurityTypes">
+        <End Type="NAV.TenderSecurityTypes" Role="TenderSecurityTypes" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_TransactionCode">
+        <End Type="NAV.TransactionCode" Role="TransactionCode" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_vendorBalancesheet">
+        <End Type="NAV.vendorBalancesheet" Role="vendorBalancesheet" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorBankAccounts">
+        <End Type="NAV.VendorBankAccounts" Role="VendorBankAccounts" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorFiledRegDocument">
+        <End Type="NAV.VendorFiledRegDocument" Role="VendorFiledRegDocument" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_vendorIncomestatement">
+        <End Type="NAV.vendorIncomestatement" Role="vendorIncomestatement" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorLitigationHistory">
+        <End Type="NAV.VendorLitigationHistory" Role="VendorLitigationHistory" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorPastExperience">
+        <End Type="NAV.VendorPastExperience" Role="VendorPastExperience" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorPrequalificationEntries">
+        <End Type="NAV.VendorPrequalificationEntries" Role="VendorPrequalificationEntries" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorProffessionalStaff">
+        <End Type="NAV.VendorProffessionalStaff" Role="VendorProffessionalStaff" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorShareholderDetails">
+        <End Type="NAV.VendorShareholderDetails" Role="VendorShareholderDetails" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorSpecialGroupEntry">
+        <End Type="NAV.VendorSpecialGroupEntry" Role="VendorSpecialGroupEntry" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorStaffExperience">
+        <End Type="NAV.VendorStaffExperience" Role="VendorStaffExperience" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorStaffQualification">
+        <End Type="NAV.VendorStaffQualification" Role="VendorStaffQualification" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorStatetement">
+        <End Type="NAV.VendorStatetement" Role="VendorStatetement" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_WorkEquipmentCategories">
+        <End Type="NAV.WorkEquipmentCategories" Role="WorkEquipmentCategories" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_VendorLedgerEntries">
+        <End Type="NAV.VendorLedgerEntries" Role="VendorLedgerEntries" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <EntityContainer Name="NAV" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="AddendumAmmendments" EntityType="NAV.AddendumAmmendments" />
+        <EntitySet Name="ApprovalCommentLine" EntityType="NAV.ApprovalCommentLine" />
+        <EntitySet Name="ApprovalEntries" EntityType="NAV.ApprovalEntries" />
+        <EntitySet Name="BidAuditedBalanaceSheet" EntityType="NAV.BidAuditedBalanaceSheet" />
+        <EntitySet Name="BidAuditedIncomeStatement" EntityType="NAV.BidAuditedIncomeStatement" />
+        <EntitySet Name="BidContractsSecurities" EntityType="NAV.BidContractsSecurities" />
+        <EntitySet Name="BidEquipmentSpecifications" EntityType="NAV.BidEquipmentSpecifications" />
+        <EntitySet Name="BidPastExperiences" EntityType="NAV.BidPastExperiences" />
+        <EntitySet Name="BidReponseAttachedDocuments" EntityType="NAV.BidReponseAttachedDocuments" />
+        <EntitySet Name="BidResponseItemLines" EntityType="NAV.BidResponseItemLines" />
+        <EntitySet Name="BidResponsesDetails" EntityType="NAV.BidResponsesDetails" />
+        <EntitySet Name="bidscoringTemplate" EntityType="NAV.bidscoringTemplate" />
+        <EntitySet Name="businessTypes" EntityType="NAV.businessTypes" />
+        <EntitySet Name="CalenderYearCodesList" EntityType="NAV.CalenderYearCodesList" />
+        <EntitySet Name="companySizes" EntityType="NAV.companySizes" />
+        <EntitySet Name="Contact" EntityType="NAV.Contact" />
+        <EntitySet Name="Countries" EntityType="NAV.Countries" />
+        <EntitySet Name="Currencies" EntityType="NAV.Currencies" />
+        <EntitySet Name="DimensionValue" EntityType="NAV.DimensionValue" />
+        <EntitySet Name="DynasoftPortalUser" EntityType="NAV.DynasoftPortalUser" />
+        <EntitySet Name="eProcDocuments" EntityType="NAV.eProcDocuments" />
+        <EntitySet Name="eProVendorQT" EntityType="NAV.eProVendorQT" />
+        <EntitySet Name="HRPortalUsers" EntityType="NAV.HRPortalUsers" />
+        <EntitySet Name="ifpReqDocuments" EntityType="NAV.ifpReqDocuments" />
+        <EntitySet Name="IFPRequests" EntityType="NAV.IFPRequests" />
+        <EntitySet Name="IFPResponseLines" EntityType="NAV.IFPResponseLines" />
+        <EntitySet Name="ifsEquipspecs" EntityType="NAV.ifsEquipspecs" />
+        <EntitySet Name="ifsKeyStaff" EntityType="NAV.ifsKeyStaff" />
+        <EntitySet Name="ifsReqDocuments" EntityType="NAV.ifsReqDocuments" />
+        <EntitySet Name="ifsSecurities" EntityType="NAV.ifsSecurities" />
+        <EntitySet Name="ifsVendorDebarment" EntityType="NAV.ifsVendorDebarment" />
+        <EntitySet Name="IndustryGroup" EntityType="NAV.IndustryGroup" />
+        <EntitySet Name="InvitationPrequalification" EntityType="NAV.InvitationPrequalification" />
+        <EntitySet Name="invitetoTenders" EntityType="NAV.invitetoTenders" />
+        <EntitySet Name="languages" EntityType="NAV.languages" />
+        <EntitySet Name="Locations" EntityType="NAV.Locations" />
+        <EntitySet Name="PortalUsers" EntityType="NAV.PortalUsers" />
+        <EntitySet Name="postcodes" EntityType="NAV.postcodes" />
+        <EntitySet Name="PrequalificationCategories" EntityType="NAV.PrequalificationCategories" />
+        <EntitySet Name="ProcurementDocumentType" EntityType="NAV.ProcurementDocumentType" />
+        <EntitySet Name="ProcurementMethod" EntityType="NAV.ProcurementMethod" />
+        <EntitySet Name="purchaseCodeLines" EntityType="NAV.purchaseCodeLines" />
+        <EntitySet Name="PurchaseHeader" EntityType="NAV.PurchaseHeader" />
+        <EntitySet Name="PurchaseLines" EntityType="NAV.PurchaseLines" />
+        <EntitySet Name="RFIPreqList" EntityType="NAV.RFIPreqList" />
+        <EntitySet Name="RFIResponseDocuments" EntityType="NAV.RFIResponseDocuments" />
+        <EntitySet Name="RFIResponses" EntityType="NAV.RFIResponses" />
+        <EntitySet Name="rfiResponseT" EntityType="NAV.rfiResponseT" />
+        <EntitySet Name="SpecialGroupCategories" EntityType="NAV.SpecialGroupCategories" />
+        <EntitySet Name="SupplierCategory" EntityType="NAV.SupplierCategory" />
+        <EntitySet Name="tenderAddendums" EntityType="NAV.tenderAddendums" />
+        <EntitySet Name="TenderDocumentsSource" EntityType="NAV.TenderDocumentsSource" />
+        <EntitySet Name="TenderSecurityTypes" EntityType="NAV.TenderSecurityTypes" />
+        <EntitySet Name="TransactionCode" EntityType="NAV.TransactionCode" />
+        <EntitySet Name="vendorBalancesheet" EntityType="NAV.vendorBalancesheet" />
+        <EntitySet Name="VendorBankAccounts" EntityType="NAV.VendorBankAccounts" />
+        <EntitySet Name="VendorFiledRegDocument" EntityType="NAV.VendorFiledRegDocument" />
+        <EntitySet Name="vendorIncomestatement" EntityType="NAV.vendorIncomestatement" />
+        <EntitySet Name="VendorLitigationHistory" EntityType="NAV.VendorLitigationHistory" />
+        <EntitySet Name="VendorPastExperience" EntityType="NAV.VendorPastExperience" />
+        <EntitySet Name="VendorPrequalificationEntries" EntityType="NAV.VendorPrequalificationEntries" />
+        <EntitySet Name="VendorProffessionalStaff" EntityType="NAV.VendorProffessionalStaff" />
+        <EntitySet Name="VendorShareholderDetails" EntityType="NAV.VendorShareholderDetails" />
+        <EntitySet Name="VendorSpecialGroupEntry" EntityType="NAV.VendorSpecialGroupEntry" />
+        <EntitySet Name="VendorStaffExperience" EntityType="NAV.VendorStaffExperience" />
+        <EntitySet Name="VendorStaffQualification" EntityType="NAV.VendorStaffQualification" />
+        <EntitySet Name="VendorStatetement" EntityType="NAV.VendorStatetement" />
+        <EntitySet Name="WorkEquipmentCategories" EntityType="NAV.WorkEquipmentCategories" />
+        <EntitySet Name="VendorLedgerEntries" EntityType="NAV.VendorLedgerEntries" />
+        <EntitySet Name="Company" EntityType="NAV.Company" />
+        <AssociationSet Name="Company_AddendumAmmendments_AddendumAmmendments" Association="NAV.Company_AddendumAmmendments">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="AddendumAmmendments" EntitySet="AddendumAmmendments" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ApprovalCommentLine_ApprovalCommentLine" Association="NAV.Company_ApprovalCommentLine">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ApprovalCommentLine" EntitySet="ApprovalCommentLine" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ApprovalEntries_ApprovalEntries" Association="NAV.Company_ApprovalEntries">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ApprovalEntries" EntitySet="ApprovalEntries" />
+        </AssociationSet>
+        <AssociationSet Name="Company_BidAuditedBalanaceSheet_BidAuditedBalanaceSheet" Association="NAV.Company_BidAuditedBalanaceSheet">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="BidAuditedBalanaceSheet" EntitySet="BidAuditedBalanaceSheet" />
+        </AssociationSet>
+        <AssociationSet Name="Company_BidAuditedIncomeStatement_BidAuditedIncomeStatement" Association="NAV.Company_BidAuditedIncomeStatement">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="BidAuditedIncomeStatement" EntitySet="BidAuditedIncomeStatement" />
+        </AssociationSet>
+        <AssociationSet Name="Company_BidContractsSecurities_BidContractsSecurities" Association="NAV.Company_BidContractsSecurities">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="BidContractsSecurities" EntitySet="BidContractsSecurities" />
+        </AssociationSet>
+        <AssociationSet Name="Company_BidEquipmentSpecifications_BidEquipmentSpecifications" Association="NAV.Company_BidEquipmentSpecifications">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="BidEquipmentSpecifications" EntitySet="BidEquipmentSpecifications" />
+        </AssociationSet>
+        <AssociationSet Name="Company_BidPastExperiences_BidPastExperiences" Association="NAV.Company_BidPastExperiences">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="BidPastExperiences" EntitySet="BidPastExperiences" />
+        </AssociationSet>
+        <AssociationSet Name="Company_BidReponseAttachedDocuments_BidReponseAttachedDocuments" Association="NAV.Company_BidReponseAttachedDocuments">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="BidReponseAttachedDocuments" EntitySet="BidReponseAttachedDocuments" />
+        </AssociationSet>
+        <AssociationSet Name="Company_BidResponseItemLines_BidResponseItemLines" Association="NAV.Company_BidResponseItemLines">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="BidResponseItemLines" EntitySet="BidResponseItemLines" />
+        </AssociationSet>
+        <AssociationSet Name="Company_BidResponsesDetails_BidResponsesDetails" Association="NAV.Company_BidResponsesDetails">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="BidResponsesDetails" EntitySet="BidResponsesDetails" />
+        </AssociationSet>
+        <AssociationSet Name="Company_bidscoringTemplate_bidscoringTemplate" Association="NAV.Company_bidscoringTemplate">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="bidscoringTemplate" EntitySet="bidscoringTemplate" />
+        </AssociationSet>
+        <AssociationSet Name="Company_businessTypes_businessTypes" Association="NAV.Company_businessTypes">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="businessTypes" EntitySet="businessTypes" />
+        </AssociationSet>
+        <AssociationSet Name="Company_CalenderYearCodesList_CalenderYearCodesList" Association="NAV.Company_CalenderYearCodesList">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="CalenderYearCodesList" EntitySet="CalenderYearCodesList" />
+        </AssociationSet>
+        <AssociationSet Name="Company_companySizes_companySizes" Association="NAV.Company_companySizes">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="companySizes" EntitySet="companySizes" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Contact_Contact" Association="NAV.Company_Contact">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Contact" EntitySet="Contact" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Countries_Countries" Association="NAV.Company_Countries">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Countries" EntitySet="Countries" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Currencies_Currencies" Association="NAV.Company_Currencies">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Currencies" EntitySet="Currencies" />
+        </AssociationSet>
+        <AssociationSet Name="Company_DimensionValue_DimensionValue" Association="NAV.Company_DimensionValue">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="DimensionValue" EntitySet="DimensionValue" />
+        </AssociationSet>
+        <AssociationSet Name="Company_DynasoftPortalUser_DynasoftPortalUser" Association="NAV.Company_DynasoftPortalUser">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="DynasoftPortalUser" EntitySet="DynasoftPortalUser" />
+        </AssociationSet>
+        <AssociationSet Name="Company_eProcDocuments_eProcDocuments" Association="NAV.Company_eProcDocuments">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="eProcDocuments" EntitySet="eProcDocuments" />
+        </AssociationSet>
+        <AssociationSet Name="Company_eProVendorQT_eProVendorQT" Association="NAV.Company_eProVendorQT">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="eProVendorQT" EntitySet="eProVendorQT" />
+        </AssociationSet>
+        <AssociationSet Name="Company_HRPortalUsers_HRPortalUsers" Association="NAV.Company_HRPortalUsers">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="HRPortalUsers" EntitySet="HRPortalUsers" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ifpReqDocuments_ifpReqDocuments" Association="NAV.Company_ifpReqDocuments">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ifpReqDocuments" EntitySet="ifpReqDocuments" />
+        </AssociationSet>
+        <AssociationSet Name="Company_IFPRequests_IFPRequests" Association="NAV.Company_IFPRequests">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="IFPRequests" EntitySet="IFPRequests" />
+        </AssociationSet>
+        <AssociationSet Name="Company_IFPResponseLines_IFPResponseLines" Association="NAV.Company_IFPResponseLines">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="IFPResponseLines" EntitySet="IFPResponseLines" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ifsEquipspecs_ifsEquipspecs" Association="NAV.Company_ifsEquipspecs">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ifsEquipspecs" EntitySet="ifsEquipspecs" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ifsKeyStaff_ifsKeyStaff" Association="NAV.Company_ifsKeyStaff">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ifsKeyStaff" EntitySet="ifsKeyStaff" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ifsReqDocuments_ifsReqDocuments" Association="NAV.Company_ifsReqDocuments">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ifsReqDocuments" EntitySet="ifsReqDocuments" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ifsSecurities_ifsSecurities" Association="NAV.Company_ifsSecurities">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ifsSecurities" EntitySet="ifsSecurities" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ifsVendorDebarment_ifsVendorDebarment" Association="NAV.Company_ifsVendorDebarment">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ifsVendorDebarment" EntitySet="ifsVendorDebarment" />
+        </AssociationSet>
+        <AssociationSet Name="Company_IndustryGroup_IndustryGroup" Association="NAV.Company_IndustryGroup">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="IndustryGroup" EntitySet="IndustryGroup" />
+        </AssociationSet>
+        <AssociationSet Name="Company_InvitationPrequalification_InvitationPrequalification" Association="NAV.Company_InvitationPrequalification">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="InvitationPrequalification" EntitySet="InvitationPrequalification" />
+        </AssociationSet>
+        <AssociationSet Name="Company_invitetoTenders_invitetoTenders" Association="NAV.Company_invitetoTenders">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="invitetoTenders" EntitySet="invitetoTenders" />
+        </AssociationSet>
+        <AssociationSet Name="Company_languages_languages" Association="NAV.Company_languages">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="languages" EntitySet="languages" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Locations_Locations" Association="NAV.Company_Locations">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Locations" EntitySet="Locations" />
+        </AssociationSet>
+        <AssociationSet Name="Company_PortalUsers_PortalUsers" Association="NAV.Company_PortalUsers">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="PortalUsers" EntitySet="PortalUsers" />
+        </AssociationSet>
+        <AssociationSet Name="Company_postcodes_postcodes" Association="NAV.Company_postcodes">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="postcodes" EntitySet="postcodes" />
+        </AssociationSet>
+        <AssociationSet Name="Company_PrequalificationCategories_PrequalificationCategories" Association="NAV.Company_PrequalificationCategories">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="PrequalificationCategories" EntitySet="PrequalificationCategories" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ProcurementDocumentType_ProcurementDocumentType" Association="NAV.Company_ProcurementDocumentType">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ProcurementDocumentType" EntitySet="ProcurementDocumentType" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ProcurementMethod_ProcurementMethod" Association="NAV.Company_ProcurementMethod">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ProcurementMethod" EntitySet="ProcurementMethod" />
+        </AssociationSet>
+        <AssociationSet Name="Company_purchaseCodeLines_purchaseCodeLines" Association="NAV.Company_purchaseCodeLines">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="purchaseCodeLines" EntitySet="purchaseCodeLines" />
+        </AssociationSet>
+        <AssociationSet Name="Company_PurchaseHeader_PurchaseHeader" Association="NAV.Company_PurchaseHeader">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="PurchaseHeader" EntitySet="PurchaseHeader" />
+        </AssociationSet>
+        <AssociationSet Name="Company_PurchaseLines_PurchaseLines" Association="NAV.Company_PurchaseLines">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="PurchaseLines" EntitySet="PurchaseLines" />
+        </AssociationSet>
+        <AssociationSet Name="Company_RFIPreqList_RFIPreqList" Association="NAV.Company_RFIPreqList">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="RFIPreqList" EntitySet="RFIPreqList" />
+        </AssociationSet>
+        <AssociationSet Name="Company_RFIResponseDocuments_RFIResponseDocuments" Association="NAV.Company_RFIResponseDocuments">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="RFIResponseDocuments" EntitySet="RFIResponseDocuments" />
+        </AssociationSet>
+        <AssociationSet Name="Company_RFIResponses_RFIResponses" Association="NAV.Company_RFIResponses">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="RFIResponses" EntitySet="RFIResponses" />
+        </AssociationSet>
+        <AssociationSet Name="Company_rfiResponseT_rfiResponseT" Association="NAV.Company_rfiResponseT">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="rfiResponseT" EntitySet="rfiResponseT" />
+        </AssociationSet>
+        <AssociationSet Name="Company_SpecialGroupCategories_SpecialGroupCategories" Association="NAV.Company_SpecialGroupCategories">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="SpecialGroupCategories" EntitySet="SpecialGroupCategories" />
+        </AssociationSet>
+        <AssociationSet Name="Company_SupplierCategory_SupplierCategory" Association="NAV.Company_SupplierCategory">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="SupplierCategory" EntitySet="SupplierCategory" />
+        </AssociationSet>
+        <AssociationSet Name="Company_tenderAddendums_tenderAddendums" Association="NAV.Company_tenderAddendums">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="tenderAddendums" EntitySet="tenderAddendums" />
+        </AssociationSet>
+        <AssociationSet Name="Company_TenderDocumentsSource_TenderDocumentsSource" Association="NAV.Company_TenderDocumentsSource">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="TenderDocumentsSource" EntitySet="TenderDocumentsSource" />
+        </AssociationSet>
+        <AssociationSet Name="Company_TenderSecurityTypes_TenderSecurityTypes" Association="NAV.Company_TenderSecurityTypes">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="TenderSecurityTypes" EntitySet="TenderSecurityTypes" />
+        </AssociationSet>
+        <AssociationSet Name="Company_TransactionCode_TransactionCode" Association="NAV.Company_TransactionCode">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="TransactionCode" EntitySet="TransactionCode" />
+        </AssociationSet>
+        <AssociationSet Name="Company_vendorBalancesheet_vendorBalancesheet" Association="NAV.Company_vendorBalancesheet">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="vendorBalancesheet" EntitySet="vendorBalancesheet" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorBankAccounts_VendorBankAccounts" Association="NAV.Company_VendorBankAccounts">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorBankAccounts" EntitySet="VendorBankAccounts" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorFiledRegDocument_VendorFiledRegDocument" Association="NAV.Company_VendorFiledRegDocument">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorFiledRegDocument" EntitySet="VendorFiledRegDocument" />
+        </AssociationSet>
+        <AssociationSet Name="Company_vendorIncomestatement_vendorIncomestatement" Association="NAV.Company_vendorIncomestatement">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="vendorIncomestatement" EntitySet="vendorIncomestatement" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorLitigationHistory_VendorLitigationHistory" Association="NAV.Company_VendorLitigationHistory">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorLitigationHistory" EntitySet="VendorLitigationHistory" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorPastExperience_VendorPastExperience" Association="NAV.Company_VendorPastExperience">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorPastExperience" EntitySet="VendorPastExperience" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorPrequalificationEntries_VendorPrequalificationEntries" Association="NAV.Company_VendorPrequalificationEntries">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorPrequalificationEntries" EntitySet="VendorPrequalificationEntries" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorProffessionalStaff_VendorProffessionalStaff" Association="NAV.Company_VendorProffessionalStaff">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorProffessionalStaff" EntitySet="VendorProffessionalStaff" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorShareholderDetails_VendorShareholderDetails" Association="NAV.Company_VendorShareholderDetails">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorShareholderDetails" EntitySet="VendorShareholderDetails" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorSpecialGroupEntry_VendorSpecialGroupEntry" Association="NAV.Company_VendorSpecialGroupEntry">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorSpecialGroupEntry" EntitySet="VendorSpecialGroupEntry" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorStaffExperience_VendorStaffExperience" Association="NAV.Company_VendorStaffExperience">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorStaffExperience" EntitySet="VendorStaffExperience" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorStaffQualification_VendorStaffQualification" Association="NAV.Company_VendorStaffQualification">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorStaffQualification" EntitySet="VendorStaffQualification" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorStatetement_VendorStatetement" Association="NAV.Company_VendorStatetement">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorStatetement" EntitySet="VendorStatetement" />
+        </AssociationSet>
+        <AssociationSet Name="Company_WorkEquipmentCategories_WorkEquipmentCategories" Association="NAV.Company_WorkEquipmentCategories">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="WorkEquipmentCategories" EntitySet="WorkEquipmentCategories" />
+        </AssociationSet>
+        <AssociationSet Name="Company_VendorLedgerEntries_VendorLedgerEntries" Association="NAV.Company_VendorLedgerEntries">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="VendorLedgerEntries" EntitySet="VendorLedgerEntries" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
