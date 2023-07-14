@@ -109,8 +109,6 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Tender No</th>
-                            <th>External Document No</th>
                             <th>Tender Name</th>
                             <th>Description</th>
                             <th>Tender Submission Startdate</th>
@@ -124,7 +122,7 @@
                             int counter = 0;
                            
                             //var data = nav.invitetoTenders.Where(x => x.Published == true && x.Document_Status == "Published" && x.Procurement_Method == "Open Tender" /*&& x.Submission_End_Date >= today*/).ToList();
-                            var data = nav.invitetoTenders;
+                            var data = nav.invitetoTenders.Where(x=> x.Type == "Tender");
                             foreach (var member in data)
                             {
                                 string clearText = member.Code;
@@ -160,14 +158,12 @@
                         %>
                         <tr>
                             <td><%=counter %></td>
-                            <td><%=member.Code %></td>
-                            <td><%=member.External_Document_No %></td>
                             <td><%=member.Tender_Name %></td>
                             <td><%=member.Description %></td>
                             <td><%=member.Submission_Start_Date %></td>
                             <td><%=member.Submission_End_Date %></td>
                             <td><%="Open" %></td>
-                            <td><a href="TenderDetails.aspx?TenderNo=<%=clearText %>" class="btn btn-info"><i class="fa fa-edit"></i>View Details</a> </td>
+                            <td><a href="TenderDetails.aspx?TenderNo=<%=clearText %>" class="btn btn-primary"><i class="fa fa-edit"></i>View Details</a> </td>
 
                         </tr>
                         <%

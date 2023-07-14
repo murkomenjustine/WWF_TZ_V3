@@ -78,3 +78,4 @@ D:\PROJECTS\WWF TZ\WWF\bin\zh-Hant\System.Spatial.resources.dll
 D:\PROJECTS\WWF TZ\WWF\obj\Release\WWF.dll
 D:\PROJECTS\WWF TZ\WWF\obj\Release\WWF.pdb
 D:\PROJECTS\WWF TZ\WWF\obj\Release\WWF.XmlSerializers.dll
+D:\PROJECTS\WWF TZ\WWF\obj\Release\WWF.csprojResolveAssemblyReference.cache

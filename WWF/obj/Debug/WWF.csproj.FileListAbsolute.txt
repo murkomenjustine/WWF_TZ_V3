@@ -155,4 +155,3 @@ D:\PROJECTS\WWF TZ\WWF\bin\zh-Hans\System.Spatial.resources.dll
 D:\PROJECTS\WWF TZ\WWF\bin\zh-Hant\System.Spatial.resources.dll
 D:\PROJECTS\WWF TZ\WWF\obj\Debug\WWF.dll
 D:\PROJECTS\WWF TZ\WWF\obj\Debug\WWF.pdb
-D:\PROJECTS\WWF TZ\WWF\obj\Debug\WWF.csprojResolveAssemblyReference.cache

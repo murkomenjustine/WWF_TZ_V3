@@ -97,5 +97,16 @@ namespace WWF
                 return null;
             }
         }
+
+        protected void apply_Click(object sender, EventArgs e)
+        {
+            string cipherText = Request.QueryString["TenderNo"];
+            Response.Redirect("TenderApplicationPage.aspx?TenderNo=" + cipherText);
+        }
+
+        protected void cancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TenderDetails.aspx");
+        }
     }
 }

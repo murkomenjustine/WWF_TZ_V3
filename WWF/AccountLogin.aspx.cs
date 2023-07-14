@@ -37,7 +37,7 @@ namespace WWF
                 else
                 {
                     var nav = new Config().ReturnNav();
-                    var users = nav.DynasoftPortalUser.Where(r => r.Authentication_Email == tEmailAddress && r.Password_Value == tPassword && r.Record_Type == "Vendor");
+                    var users = nav.DynasoftPortalUser.Where(r => r.Authentication_Email == tEmailAddress && r.Password_Value == tPassword);
                     Boolean exists = false;
                     foreach (var user in users)
                     {
@@ -46,6 +46,8 @@ namespace WWF
                         Session["name"] = user.Full_Name;
                         Session["email"] = user.Authentication_Email;
                         Session["vendorNo"] = user.Record_ID;
+                        Session["employeeNo"] = user.Record_ID;
+                        Session["user"] = user.Record_Type;
                         if (ChangePassword == false)
                         {
                             Response.Redirect("AccountChangePass.aspx");
@@ -58,7 +60,18 @@ namespace WWF
                     }
                     else
                     {
-                        Response.Redirect("Dashboard.aspx");
+                        if(Session["user"].ToString() == "Employee")
+                        {
+                            Response.Redirect("EmployeeDashboard.aspx");
+                        }
+                        else if (Session["user"].ToString() == "Vendor")
+                        {
+                            Response.Redirect("Dashboard.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("ConsultantDashboard.aspx");
+                        }                       
                     }
                 }
             }

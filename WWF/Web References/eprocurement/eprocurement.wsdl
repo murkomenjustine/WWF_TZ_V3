@@ -606,6 +606,162 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnConsultantGeneralDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendono" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="name" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="phone" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="country" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="address" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="taxno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnConsultantGeneralDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertConsultantQualification">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="qualification" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="duration" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertConsultantQualification_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateConsultantQualification">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryno" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="vendorno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="qualification" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="duration" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateConsultantQualification_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDeleteConsultantQualification">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryno" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="vendorno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDeleteConsultantQualification_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertConsultantReferee">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="name" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="phone" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertConsultantReferee_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateConsultantReferee">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryno" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="vendorno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="name" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="phone" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateConsultantReferee_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDeleteConsultantReferee">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryno" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="vendorno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDeleteConsultantReferee_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertConsultantRegDocs">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documenttoupload" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="filename" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentlink" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertConsultantRegDocs_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateTenderLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryno" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="tenderno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unitprice" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="totalprice" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="vatinc" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="vatexc" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateTenderLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
   <message name="FnChangePassword">
@@ -806,6 +962,60 @@
   <message name="FnCreateRequisitionLine_Result">
     <part name="parameters" element="tns:FnCreateRequisitionLine_Result" />
   </message>
+  <message name="FnConsultantGeneralDetails">
+    <part name="parameters" element="tns:FnConsultantGeneralDetails" />
+  </message>
+  <message name="FnConsultantGeneralDetails_Result">
+    <part name="parameters" element="tns:FnConsultantGeneralDetails_Result" />
+  </message>
+  <message name="FnInsertConsultantQualification">
+    <part name="parameters" element="tns:FnInsertConsultantQualification" />
+  </message>
+  <message name="FnInsertConsultantQualification_Result">
+    <part name="parameters" element="tns:FnInsertConsultantQualification_Result" />
+  </message>
+  <message name="FnUpdateConsultantQualification">
+    <part name="parameters" element="tns:FnUpdateConsultantQualification" />
+  </message>
+  <message name="FnUpdateConsultantQualification_Result">
+    <part name="parameters" element="tns:FnUpdateConsultantQualification_Result" />
+  </message>
+  <message name="FnDeleteConsultantQualification">
+    <part name="parameters" element="tns:FnDeleteConsultantQualification" />
+  </message>
+  <message name="FnDeleteConsultantQualification_Result">
+    <part name="parameters" element="tns:FnDeleteConsultantQualification_Result" />
+  </message>
+  <message name="FnInsertConsultantReferee">
+    <part name="parameters" element="tns:FnInsertConsultantReferee" />
+  </message>
+  <message name="FnInsertConsultantReferee_Result">
+    <part name="parameters" element="tns:FnInsertConsultantReferee_Result" />
+  </message>
+  <message name="FnUpdateConsultantReferee">
+    <part name="parameters" element="tns:FnUpdateConsultantReferee" />
+  </message>
+  <message name="FnUpdateConsultantReferee_Result">
+    <part name="parameters" element="tns:FnUpdateConsultantReferee_Result" />
+  </message>
+  <message name="FnDeleteConsultantReferee">
+    <part name="parameters" element="tns:FnDeleteConsultantReferee" />
+  </message>
+  <message name="FnDeleteConsultantReferee_Result">
+    <part name="parameters" element="tns:FnDeleteConsultantReferee_Result" />
+  </message>
+  <message name="FnInsertConsultantRegDocs">
+    <part name="parameters" element="tns:FnInsertConsultantRegDocs" />
+  </message>
+  <message name="FnInsertConsultantRegDocs_Result">
+    <part name="parameters" element="tns:FnInsertConsultantRegDocs_Result" />
+  </message>
+  <message name="FnUpdateTenderLine">
+    <part name="parameters" element="tns:FnUpdateTenderLine" />
+  </message>
+  <message name="FnUpdateTenderLine_Result">
+    <part name="parameters" element="tns:FnUpdateTenderLine_Result" />
+  </message>
   <portType name="eprocurement_Port">
     <operation name="FnChangePassword">
       <input name="FnChangePassword" message="tns:FnChangePassword" />
@@ -938,6 +1148,42 @@
     <operation name="FnCreateRequisitionLine">
       <input name="FnCreateRequisitionLine" message="tns:FnCreateRequisitionLine" />
       <output name="FnCreateRequisitionLine_Result" message="tns:FnCreateRequisitionLine_Result" />
+    </operation>
+    <operation name="FnConsultantGeneralDetails">
+      <input name="FnConsultantGeneralDetails" message="tns:FnConsultantGeneralDetails" />
+      <output name="FnConsultantGeneralDetails_Result" message="tns:FnConsultantGeneralDetails_Result" />
+    </operation>
+    <operation name="FnInsertConsultantQualification">
+      <input name="FnInsertConsultantQualification" message="tns:FnInsertConsultantQualification" />
+      <output name="FnInsertConsultantQualification_Result" message="tns:FnInsertConsultantQualification_Result" />
+    </operation>
+    <operation name="FnUpdateConsultantQualification">
+      <input name="FnUpdateConsultantQualification" message="tns:FnUpdateConsultantQualification" />
+      <output name="FnUpdateConsultantQualification_Result" message="tns:FnUpdateConsultantQualification_Result" />
+    </operation>
+    <operation name="FnDeleteConsultantQualification">
+      <input name="FnDeleteConsultantQualification" message="tns:FnDeleteConsultantQualification" />
+      <output name="FnDeleteConsultantQualification_Result" message="tns:FnDeleteConsultantQualification_Result" />
+    </operation>
+    <operation name="FnInsertConsultantReferee">
+      <input name="FnInsertConsultantReferee" message="tns:FnInsertConsultantReferee" />
+      <output name="FnInsertConsultantReferee_Result" message="tns:FnInsertConsultantReferee_Result" />
+    </operation>
+    <operation name="FnUpdateConsultantReferee">
+      <input name="FnUpdateConsultantReferee" message="tns:FnUpdateConsultantReferee" />
+      <output name="FnUpdateConsultantReferee_Result" message="tns:FnUpdateConsultantReferee_Result" />
+    </operation>
+    <operation name="FnDeleteConsultantReferee">
+      <input name="FnDeleteConsultantReferee" message="tns:FnDeleteConsultantReferee" />
+      <output name="FnDeleteConsultantReferee_Result" message="tns:FnDeleteConsultantReferee_Result" />
+    </operation>
+    <operation name="FnInsertConsultantRegDocs">
+      <input name="FnInsertConsultantRegDocs" message="tns:FnInsertConsultantRegDocs" />
+      <output name="FnInsertConsultantRegDocs_Result" message="tns:FnInsertConsultantRegDocs_Result" />
+    </operation>
+    <operation name="FnUpdateTenderLine">
+      <input name="FnUpdateTenderLine" message="tns:FnUpdateTenderLine" />
+      <output name="FnUpdateTenderLine_Result" message="tns:FnUpdateTenderLine_Result" />
     </operation>
   </portType>
   <binding name="eprocurement_Binding" type="tns:eprocurement_Port">
@@ -1236,6 +1482,87 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnCreateRequisitionLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnConsultantGeneralDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnConsultantGeneralDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnConsultantGeneralDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnConsultantGeneralDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertConsultantQualification">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnInsertConsultantQualification" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertConsultantQualification">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertConsultantQualification_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdateConsultantQualification">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnUpdateConsultantQualification" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdateConsultantQualification">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdateConsultantQualification_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnDeleteConsultantQualification">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnDeleteConsultantQualification" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnDeleteConsultantQualification">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnDeleteConsultantQualification_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertConsultantReferee">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnInsertConsultantReferee" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertConsultantReferee">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertConsultantReferee_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdateConsultantReferee">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnUpdateConsultantReferee" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdateConsultantReferee">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdateConsultantReferee_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnDeleteConsultantReferee">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnDeleteConsultantReferee" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnDeleteConsultantReferee">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnDeleteConsultantReferee_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertConsultantRegDocs">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnInsertConsultantRegDocs" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertConsultantRegDocs">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertConsultantRegDocs_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdateTenderLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnUpdateTenderLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdateTenderLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdateTenderLine_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

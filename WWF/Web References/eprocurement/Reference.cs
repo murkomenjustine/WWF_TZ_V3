@@ -95,6 +95,24 @@ namespace WWF.eprocurement {
         
         private System.Threading.SendOrPostCallback FnCreateRequisitionLineOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnConsultantGeneralDetailsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnInsertConsultantQualificationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnUpdateConsultantQualificationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnDeleteConsultantQualificationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnInsertConsultantRefereeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnUpdateConsultantRefereeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnDeleteConsultantRefereeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnInsertConsultantRegDocsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnUpdateTenderLineOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -231,6 +249,33 @@ namespace WWF.eprocurement {
         
         /// <remarks/>
         public event FnCreateRequisitionLineCompletedEventHandler FnCreateRequisitionLineCompleted;
+        
+        /// <remarks/>
+        public event FnConsultantGeneralDetailsCompletedEventHandler FnConsultantGeneralDetailsCompleted;
+        
+        /// <remarks/>
+        public event FnInsertConsultantQualificationCompletedEventHandler FnInsertConsultantQualificationCompleted;
+        
+        /// <remarks/>
+        public event FnUpdateConsultantQualificationCompletedEventHandler FnUpdateConsultantQualificationCompleted;
+        
+        /// <remarks/>
+        public event FnDeleteConsultantQualificationCompletedEventHandler FnDeleteConsultantQualificationCompleted;
+        
+        /// <remarks/>
+        public event FnInsertConsultantRefereeCompletedEventHandler FnInsertConsultantRefereeCompleted;
+        
+        /// <remarks/>
+        public event FnUpdateConsultantRefereeCompletedEventHandler FnUpdateConsultantRefereeCompleted;
+        
+        /// <remarks/>
+        public event FnDeleteConsultantRefereeCompletedEventHandler FnDeleteConsultantRefereeCompleted;
+        
+        /// <remarks/>
+        public event FnInsertConsultantRegDocsCompletedEventHandler FnInsertConsultantRegDocsCompleted;
+        
+        /// <remarks/>
+        public event FnUpdateTenderLineCompletedEventHandler FnUpdateTenderLineCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnChangePassword", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnChangePassword_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1511,6 +1556,339 @@ namespace WWF.eprocurement {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnConsultantGeneralDetails", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnConsultantGeneralDetails_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnConsultantGeneralDetails(string vendono, string name, string phone, string country, string email, string address, string taxno) {
+            object[] results = this.Invoke("FnConsultantGeneralDetails", new object[] {
+                        vendono,
+                        name,
+                        phone,
+                        country,
+                        email,
+                        address,
+                        taxno});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnConsultantGeneralDetailsAsync(string vendono, string name, string phone, string country, string email, string address, string taxno) {
+            this.FnConsultantGeneralDetailsAsync(vendono, name, phone, country, email, address, taxno, null);
+        }
+        
+        /// <remarks/>
+        public void FnConsultantGeneralDetailsAsync(string vendono, string name, string phone, string country, string email, string address, string taxno, object userState) {
+            if ((this.FnConsultantGeneralDetailsOperationCompleted == null)) {
+                this.FnConsultantGeneralDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnConsultantGeneralDetailsOperationCompleted);
+            }
+            this.InvokeAsync("FnConsultantGeneralDetails", new object[] {
+                        vendono,
+                        name,
+                        phone,
+                        country,
+                        email,
+                        address,
+                        taxno}, this.FnConsultantGeneralDetailsOperationCompleted, userState);
+        }
+        
+        private void OnFnConsultantGeneralDetailsOperationCompleted(object arg) {
+            if ((this.FnConsultantGeneralDetailsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnConsultantGeneralDetailsCompleted(this, new FnConsultantGeneralDetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnInsertConsultantQualificat" +
+            "ion", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnInsertConsultantQualification_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnInsertConsultantQualification(string vendorno, string qualification, int year, int duration) {
+            object[] results = this.Invoke("FnInsertConsultantQualification", new object[] {
+                        vendorno,
+                        qualification,
+                        year,
+                        duration});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnInsertConsultantQualificationAsync(string vendorno, string qualification, int year, int duration) {
+            this.FnInsertConsultantQualificationAsync(vendorno, qualification, year, duration, null);
+        }
+        
+        /// <remarks/>
+        public void FnInsertConsultantQualificationAsync(string vendorno, string qualification, int year, int duration, object userState) {
+            if ((this.FnInsertConsultantQualificationOperationCompleted == null)) {
+                this.FnInsertConsultantQualificationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertConsultantQualificationOperationCompleted);
+            }
+            this.InvokeAsync("FnInsertConsultantQualification", new object[] {
+                        vendorno,
+                        qualification,
+                        year,
+                        duration}, this.FnInsertConsultantQualificationOperationCompleted, userState);
+        }
+        
+        private void OnFnInsertConsultantQualificationOperationCompleted(object arg) {
+            if ((this.FnInsertConsultantQualificationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnInsertConsultantQualificationCompleted(this, new FnInsertConsultantQualificationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnUpdateConsultantQualificat" +
+            "ion", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnUpdateConsultantQualification_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnUpdateConsultantQualification(int entryno, string vendorno, string qualification, int year, int duration) {
+            object[] results = this.Invoke("FnUpdateConsultantQualification", new object[] {
+                        entryno,
+                        vendorno,
+                        qualification,
+                        year,
+                        duration});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnUpdateConsultantQualificationAsync(int entryno, string vendorno, string qualification, int year, int duration) {
+            this.FnUpdateConsultantQualificationAsync(entryno, vendorno, qualification, year, duration, null);
+        }
+        
+        /// <remarks/>
+        public void FnUpdateConsultantQualificationAsync(int entryno, string vendorno, string qualification, int year, int duration, object userState) {
+            if ((this.FnUpdateConsultantQualificationOperationCompleted == null)) {
+                this.FnUpdateConsultantQualificationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnUpdateConsultantQualificationOperationCompleted);
+            }
+            this.InvokeAsync("FnUpdateConsultantQualification", new object[] {
+                        entryno,
+                        vendorno,
+                        qualification,
+                        year,
+                        duration}, this.FnUpdateConsultantQualificationOperationCompleted, userState);
+        }
+        
+        private void OnFnUpdateConsultantQualificationOperationCompleted(object arg) {
+            if ((this.FnUpdateConsultantQualificationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnUpdateConsultantQualificationCompleted(this, new FnUpdateConsultantQualificationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnDeleteConsultantQualificat" +
+            "ion", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnDeleteConsultantQualification_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnDeleteConsultantQualification(int entryno, string vendorno) {
+            object[] results = this.Invoke("FnDeleteConsultantQualification", new object[] {
+                        entryno,
+                        vendorno});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnDeleteConsultantQualificationAsync(int entryno, string vendorno) {
+            this.FnDeleteConsultantQualificationAsync(entryno, vendorno, null);
+        }
+        
+        /// <remarks/>
+        public void FnDeleteConsultantQualificationAsync(int entryno, string vendorno, object userState) {
+            if ((this.FnDeleteConsultantQualificationOperationCompleted == null)) {
+                this.FnDeleteConsultantQualificationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnDeleteConsultantQualificationOperationCompleted);
+            }
+            this.InvokeAsync("FnDeleteConsultantQualification", new object[] {
+                        entryno,
+                        vendorno}, this.FnDeleteConsultantQualificationOperationCompleted, userState);
+        }
+        
+        private void OnFnDeleteConsultantQualificationOperationCompleted(object arg) {
+            if ((this.FnDeleteConsultantQualificationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnDeleteConsultantQualificationCompleted(this, new FnDeleteConsultantQualificationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnInsertConsultantReferee", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnInsertConsultantReferee_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnInsertConsultantReferee(string vendorno, string name, int phone, string email) {
+            object[] results = this.Invoke("FnInsertConsultantReferee", new object[] {
+                        vendorno,
+                        name,
+                        phone,
+                        email});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnInsertConsultantRefereeAsync(string vendorno, string name, int phone, string email) {
+            this.FnInsertConsultantRefereeAsync(vendorno, name, phone, email, null);
+        }
+        
+        /// <remarks/>
+        public void FnInsertConsultantRefereeAsync(string vendorno, string name, int phone, string email, object userState) {
+            if ((this.FnInsertConsultantRefereeOperationCompleted == null)) {
+                this.FnInsertConsultantRefereeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertConsultantRefereeOperationCompleted);
+            }
+            this.InvokeAsync("FnInsertConsultantReferee", new object[] {
+                        vendorno,
+                        name,
+                        phone,
+                        email}, this.FnInsertConsultantRefereeOperationCompleted, userState);
+        }
+        
+        private void OnFnInsertConsultantRefereeOperationCompleted(object arg) {
+            if ((this.FnInsertConsultantRefereeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnInsertConsultantRefereeCompleted(this, new FnInsertConsultantRefereeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnUpdateConsultantReferee", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnUpdateConsultantReferee_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnUpdateConsultantReferee(int entryno, string vendorno, string name, int phone, string email) {
+            object[] results = this.Invoke("FnUpdateConsultantReferee", new object[] {
+                        entryno,
+                        vendorno,
+                        name,
+                        phone,
+                        email});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnUpdateConsultantRefereeAsync(int entryno, string vendorno, string name, int phone, string email) {
+            this.FnUpdateConsultantRefereeAsync(entryno, vendorno, name, phone, email, null);
+        }
+        
+        /// <remarks/>
+        public void FnUpdateConsultantRefereeAsync(int entryno, string vendorno, string name, int phone, string email, object userState) {
+            if ((this.FnUpdateConsultantRefereeOperationCompleted == null)) {
+                this.FnUpdateConsultantRefereeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnUpdateConsultantRefereeOperationCompleted);
+            }
+            this.InvokeAsync("FnUpdateConsultantReferee", new object[] {
+                        entryno,
+                        vendorno,
+                        name,
+                        phone,
+                        email}, this.FnUpdateConsultantRefereeOperationCompleted, userState);
+        }
+        
+        private void OnFnUpdateConsultantRefereeOperationCompleted(object arg) {
+            if ((this.FnUpdateConsultantRefereeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnUpdateConsultantRefereeCompleted(this, new FnUpdateConsultantRefereeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnDeleteConsultantReferee", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnDeleteConsultantReferee_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnDeleteConsultantReferee(int entryno, string vendorno) {
+            object[] results = this.Invoke("FnDeleteConsultantReferee", new object[] {
+                        entryno,
+                        vendorno});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnDeleteConsultantRefereeAsync(int entryno, string vendorno) {
+            this.FnDeleteConsultantRefereeAsync(entryno, vendorno, null);
+        }
+        
+        /// <remarks/>
+        public void FnDeleteConsultantRefereeAsync(int entryno, string vendorno, object userState) {
+            if ((this.FnDeleteConsultantRefereeOperationCompleted == null)) {
+                this.FnDeleteConsultantRefereeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnDeleteConsultantRefereeOperationCompleted);
+            }
+            this.InvokeAsync("FnDeleteConsultantReferee", new object[] {
+                        entryno,
+                        vendorno}, this.FnDeleteConsultantRefereeOperationCompleted, userState);
+        }
+        
+        private void OnFnDeleteConsultantRefereeOperationCompleted(object arg) {
+            if ((this.FnDeleteConsultantRefereeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnDeleteConsultantRefereeCompleted(this, new FnDeleteConsultantRefereeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnInsertConsultantRegDocs", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnInsertConsultantRegDocs_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnInsertConsultantRegDocs(string vendorNo, string documenttoupload, string filename, string documentlink) {
+            object[] results = this.Invoke("FnInsertConsultantRegDocs", new object[] {
+                        vendorNo,
+                        documenttoupload,
+                        filename,
+                        documentlink});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnInsertConsultantRegDocsAsync(string vendorNo, string documenttoupload, string filename, string documentlink) {
+            this.FnInsertConsultantRegDocsAsync(vendorNo, documenttoupload, filename, documentlink, null);
+        }
+        
+        /// <remarks/>
+        public void FnInsertConsultantRegDocsAsync(string vendorNo, string documenttoupload, string filename, string documentlink, object userState) {
+            if ((this.FnInsertConsultantRegDocsOperationCompleted == null)) {
+                this.FnInsertConsultantRegDocsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertConsultantRegDocsOperationCompleted);
+            }
+            this.InvokeAsync("FnInsertConsultantRegDocs", new object[] {
+                        vendorNo,
+                        documenttoupload,
+                        filename,
+                        documentlink}, this.FnInsertConsultantRegDocsOperationCompleted, userState);
+        }
+        
+        private void OnFnInsertConsultantRegDocsOperationCompleted(object arg) {
+            if ((this.FnInsertConsultantRegDocsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnInsertConsultantRegDocsCompleted(this, new FnInsertConsultantRegDocsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnUpdateTenderLine", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnUpdateTenderLine_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnUpdateTenderLine(int entryno, string tenderno, decimal unitprice, decimal totalprice, decimal vatinc, decimal vatexc) {
+            object[] results = this.Invoke("FnUpdateTenderLine", new object[] {
+                        entryno,
+                        tenderno,
+                        unitprice,
+                        totalprice,
+                        vatinc,
+                        vatexc});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnUpdateTenderLineAsync(int entryno, string tenderno, decimal unitprice, decimal totalprice, decimal vatinc, decimal vatexc) {
+            this.FnUpdateTenderLineAsync(entryno, tenderno, unitprice, totalprice, vatinc, vatexc, null);
+        }
+        
+        /// <remarks/>
+        public void FnUpdateTenderLineAsync(int entryno, string tenderno, decimal unitprice, decimal totalprice, decimal vatinc, decimal vatexc, object userState) {
+            if ((this.FnUpdateTenderLineOperationCompleted == null)) {
+                this.FnUpdateTenderLineOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnUpdateTenderLineOperationCompleted);
+            }
+            this.InvokeAsync("FnUpdateTenderLine", new object[] {
+                        entryno,
+                        tenderno,
+                        unitprice,
+                        totalprice,
+                        vatinc,
+                        vatexc}, this.FnUpdateTenderLineOperationCompleted, userState);
+        }
+        
+        private void OnFnUpdateTenderLineOperationCompleted(object arg) {
+            if ((this.FnUpdateTenderLineCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnUpdateTenderLineCompleted(this, new FnUpdateTenderLineCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -2352,6 +2730,240 @@ namespace WWF.eprocurement {
         private object[] results;
         
         internal FnCreateRequisitionLineCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnConsultantGeneralDetailsCompletedEventHandler(object sender, FnConsultantGeneralDetailsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnConsultantGeneralDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnConsultantGeneralDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnInsertConsultantQualificationCompletedEventHandler(object sender, FnInsertConsultantQualificationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnInsertConsultantQualificationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnInsertConsultantQualificationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnUpdateConsultantQualificationCompletedEventHandler(object sender, FnUpdateConsultantQualificationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnUpdateConsultantQualificationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnUpdateConsultantQualificationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnDeleteConsultantQualificationCompletedEventHandler(object sender, FnDeleteConsultantQualificationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnDeleteConsultantQualificationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnDeleteConsultantQualificationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnInsertConsultantRefereeCompletedEventHandler(object sender, FnInsertConsultantRefereeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnInsertConsultantRefereeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnInsertConsultantRefereeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnUpdateConsultantRefereeCompletedEventHandler(object sender, FnUpdateConsultantRefereeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnUpdateConsultantRefereeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnUpdateConsultantRefereeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnDeleteConsultantRefereeCompletedEventHandler(object sender, FnDeleteConsultantRefereeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnDeleteConsultantRefereeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnDeleteConsultantRefereeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnInsertConsultantRegDocsCompletedEventHandler(object sender, FnInsertConsultantRegDocsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnInsertConsultantRegDocsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnInsertConsultantRegDocsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnUpdateTenderLineCompletedEventHandler(object sender, FnUpdateTenderLineCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnUpdateTenderLineCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnUpdateTenderLineCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

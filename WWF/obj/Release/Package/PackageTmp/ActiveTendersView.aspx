@@ -25,16 +25,17 @@
             </div>
             <div class="panel-body">
                 <div runat="server" id="feedback"></div>
+                <div class="table-responsive">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Tender No</th>
-                            <th>External Document No</th>
                             <th>Tender Name</th>
                             <th>Description</th>
-                            <th>Tender Submission Startdate</th>
-                            <th>Tender Submission Dateline</th>
+                            <th>Submission Startdate</th>
+                            <th>Submission StartTime</th>
+                            <th>Submission Dateline</th>
+                            <th>Submission EndTime</th>
                             <th>Status</th>
                             <th>View Details</th>
                         </tr>
@@ -44,7 +45,7 @@
                             int counter = 0;
                             var nav = new Config().ReturnNav();
                             //var data = nav.invitetoTenders.Where(x => x.Published == true && x.Document_Status == "Published" && x.Procurement_Method == "Open Tender" /*&& x.Submission_End_Date >= today*/).ToList();
-                            var data = nav.invitetoTenders;
+                            var data = nav.invitetoTenders.Where(x => x.Type == "Tender").ToList();
                             foreach (var member in data)
                             {
                                 string clearText = member.Code;
@@ -80,14 +81,14 @@
                         %>
                         <tr>
                             <td><%=counter %></td>
-                            <td><%=member.Code %></td>
-                            <td><%=member.External_Document_No %></td>
                             <td><%=member.Tender_Name %></td>
                             <td><%=member.Description %></td>
-                            <td><%=member.Submission_Start_Date %></td>
-                            <td><%=member.Submission_End_Date %></td>
+                            <td><%=Convert.ToDateTime(member.Submission_Start_Date).ToString("dd-MM-yyyy") %></td>
+                            <td><%=Convert.ToDateTime(member.Submission_Start_Time).ToString("HH:mm tt") %></td>
+                            <td><%=Convert.ToDateTime(member.Submission_End_Date).ToString("dd-MM-yyyy") %></td>
+                            <td><%=Convert.ToDateTime(member.Submission_End_Time).ToString("HH:mm tt") %></td>
                             <td><%="Open" %></td>
-                            <td><a href="TenderDetails.aspx?TenderNo=<%=clearText %>" class="btn btn-info"><i class="fa fa-edit"></i>View Details</a> </td>
+                            <td><a href="TenderDetails.aspx?TenderNo=<%=clearText %>" class="btn btn-primary"><i class="fa fa-eye"></i>View Details</a> </td>
 
                         </tr>
                         <%
@@ -95,8 +96,10 @@
                         %>
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </section>
     <!-- /.content -->
 </asp:Content>
+

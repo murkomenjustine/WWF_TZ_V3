@@ -160,7 +160,7 @@ namespace WWF
                 //step 6
                 if (step == 8)
                 {
-                    var ptype = nav.ProcurementDocumentType;
+                    var ptype = nav.ProcurementDocumentType.Where(x => x.Type == "Vendor");
                     documenttoupload.DataSource = ptype;
                     documenttoupload.DataTextField = "Description";
                     documenttoupload.DataValueField = "Code";

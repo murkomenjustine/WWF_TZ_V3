@@ -415,6 +415,26 @@
         <Property Name="Max_No_Of_Employees" Type="Edm.Decimal" />
         <Property Name="No_of_Vendors" Type="Edm.Int32" />
       </EntityType>
+      <EntityType Name="ConsultantQualification">
+        <Key>
+          <PropertyRef Name="EntryNo" />
+        </Key>
+        <Property Name="EntryNo" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Qualification" Type="Edm.String" />
+        <Property Name="Year_Obtained" Type="Edm.Int32" />
+        <Property Name="Duration" Type="Edm.Int32" />
+        <Property Name="VendoNo" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="ConsultantReferee">
+        <Key>
+          <PropertyRef Name="EntryNo" />
+        </Key>
+        <Property Name="EntryNo" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Phone" Type="Edm.Int32" />
+        <Property Name="Email" Type="Edm.String" />
+        <Property Name="VendorNo" Type="Edm.String" />
+      </EntityType>
       <EntityType Name="Contact">
         <Key>
           <PropertyRef Name="No" />
@@ -482,6 +502,38 @@
         <Property Name="Password_Value" Type="Edm.String" />
         <Property Name="Last_Modified_Date" Type="Edm.DateTime" />
       </EntityType>
+      <EntityType Name="Employees">
+        <Key>
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="First_Name" Type="Edm.String" />
+        <Property Name="Middle_Name" Type="Edm.String" />
+        <Property Name="Last_Name" Type="Edm.String" />
+        <Property Name="Initials" Type="Edm.String" />
+        <Property Name="Job_Title" Type="Edm.String" />
+        <Property Name="Search_Name" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Mobile_Phone_No" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Alt_Address_Code" Type="Edm.String" />
+        <Property Name="Alt_Address_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Alt_Address_End_Date" Type="Edm.DateTime" />
+        <Property Name="Birth_Date" Type="Edm.DateTime" />
+        <Property Name="Social_Security_No" Type="Edm.String" />
+        <Property Name="Union_Code" Type="Edm.String" />
+        <Property Name="Union_Membership_No" Type="Edm.String" />
+        <Property Name="Gender" Type="Edm.String" />
+        <Property Name="Status" Type="Edm.String" />
+        <Property Name="Company_E_Mail" Type="Edm.String" />
+        <Property Name="National_ID" Type="Edm.String" />
+        <Property Name="Department" Type="Edm.String" />
+      </EntityType>
       <EntityType Name="eProcDocuments">
         <Key>
           <PropertyRef Name="Procurement_Document_Type" />
@@ -493,6 +545,7 @@
         <Property Name="Procurement_Document_Type" Type="Edm.String" Nullable="false" />
         <Property Name="Description" Type="Edm.String" />
         <Property Name="Requirement_Type" Type="Edm.String" />
+        <Property Name="Type" Type="Edm.String" />
       </EntityType>
       <EntityType Name="eProVendorQT">
         <Key>
@@ -809,6 +862,9 @@
         <Property Name="Constituency_ID" Type="Edm.String" />
         <Property Name="Requesting_Region" Type="Edm.String" />
         <Property Name="Requesting_Directorate" Type="Edm.String" />
+        <Property Name="VAT_Rate" Type="Edm.Decimal" />
+        <Property Name="Total_VAT_Inclusive" Type="Edm.Decimal" />
+        <Property Name="Total_VAT_Exclusive" Type="Edm.Decimal" />
         <Property Name="Requesting_Department" Type="Edm.String" />
         <Property Name="Engineer_Estimate_LCY" Type="Edm.Decimal" />
         <Property Name="Tender_Name" Type="Edm.String" />
@@ -944,6 +1000,7 @@
         <Property Name="Bid_Opening_Register" Type="Edm.String" />
         <Property Name="Finance_Opening_Register" Type="Edm.String" />
         <Property Name="Finance_Bid_Opening_Date" Type="Edm.DateTime" />
+        <Property Name="Type" Type="Edm.String" />
       </EntityType>
       <EntityType Name="languages">
         <Key>
@@ -1064,6 +1121,7 @@
         </Key>
         <Property Name="Code" Type="Edm.String" Nullable="false" />
         <Property Name="Description" Type="Edm.String" />
+        <Property Name="Type" Type="Edm.String" />
       </EntityType>
       <EntityType Name="ProcurementMethod">
         <Key>
@@ -1093,6 +1151,8 @@
         <Property Name="Shortcut_Dimension_3_Code" Type="Edm.String" />
         <Property Name="Shortcut_Dimension_4_Code" Type="Edm.String" />
         <Property Name="Shortcut_Dimension_5_Code" Type="Edm.String" />
+        <Property Name="Unit_Price" Type="Edm.Decimal" />
+        <Property Name="Total_Price" Type="Edm.Decimal" />
       </EntityType>
       <EntityType Name="PurchaseHeader">
         <Key>
@@ -1489,6 +1549,7 @@
         <Property Name="File_Type" Type="Edm.String" />
         <Property Name="File_Extension" Type="Edm.String" />
         <Property Name="Procurement_Process" Type="Edm.String" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
       </EntityType>
       <EntityType Name="vendorIncomestatement">
         <Key>
@@ -1816,11 +1877,14 @@
         <NavigationProperty Name="businessTypes" Relationship="NAV.Company_businessTypes" ToRole="businessTypes" FromRole="Company" />
         <NavigationProperty Name="CalenderYearCodesList" Relationship="NAV.Company_CalenderYearCodesList" ToRole="CalenderYearCodesList" FromRole="Company" />
         <NavigationProperty Name="companySizes" Relationship="NAV.Company_companySizes" ToRole="companySizes" FromRole="Company" />
+        <NavigationProperty Name="ConsultantQualification" Relationship="NAV.Company_ConsultantQualification" ToRole="ConsultantQualification" FromRole="Company" />
+        <NavigationProperty Name="ConsultantReferee" Relationship="NAV.Company_ConsultantReferee" ToRole="ConsultantReferee" FromRole="Company" />
         <NavigationProperty Name="Contact" Relationship="NAV.Company_Contact" ToRole="Contact" FromRole="Company" />
         <NavigationProperty Name="Countries" Relationship="NAV.Company_Countries" ToRole="Countries" FromRole="Company" />
         <NavigationProperty Name="Currencies" Relationship="NAV.Company_Currencies" ToRole="Currencies" FromRole="Company" />
         <NavigationProperty Name="DimensionValue" Relationship="NAV.Company_DimensionValue" ToRole="DimensionValue" FromRole="Company" />
         <NavigationProperty Name="DynasoftPortalUser" Relationship="NAV.Company_DynasoftPortalUser" ToRole="DynasoftPortalUser" FromRole="Company" />
+        <NavigationProperty Name="Employees" Relationship="NAV.Company_Employees" ToRole="Employees" FromRole="Company" />
         <NavigationProperty Name="eProcDocuments" Relationship="NAV.Company_eProcDocuments" ToRole="eProcDocuments" FromRole="Company" />
         <NavigationProperty Name="eProVendorQT" Relationship="NAV.Company_eProVendorQT" ToRole="eProVendorQT" FromRole="Company" />
         <NavigationProperty Name="HRPortalUsers" Relationship="NAV.Company_HRPortalUsers" ToRole="HRPortalUsers" FromRole="Company" />
@@ -1931,6 +1995,14 @@
         <End Type="NAV.companySizes" Role="companySizes" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
+      <Association Name="Company_ConsultantQualification">
+        <End Type="NAV.ConsultantQualification" Role="ConsultantQualification" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ConsultantReferee">
+        <End Type="NAV.ConsultantReferee" Role="ConsultantReferee" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
       <Association Name="Company_Contact">
         <End Type="NAV.Contact" Role="Contact" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
@@ -1949,6 +2021,10 @@
       </Association>
       <Association Name="Company_DynasoftPortalUser">
         <End Type="NAV.DynasoftPortalUser" Role="DynasoftPortalUser" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Employees">
+        <End Type="NAV.Employees" Role="Employees" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
       <Association Name="Company_eProcDocuments">
@@ -2163,11 +2239,14 @@
         <EntitySet Name="businessTypes" EntityType="NAV.businessTypes" />
         <EntitySet Name="CalenderYearCodesList" EntityType="NAV.CalenderYearCodesList" />
         <EntitySet Name="companySizes" EntityType="NAV.companySizes" />
+        <EntitySet Name="ConsultantQualification" EntityType="NAV.ConsultantQualification" />
+        <EntitySet Name="ConsultantReferee" EntityType="NAV.ConsultantReferee" />
         <EntitySet Name="Contact" EntityType="NAV.Contact" />
         <EntitySet Name="Countries" EntityType="NAV.Countries" />
         <EntitySet Name="Currencies" EntityType="NAV.Currencies" />
         <EntitySet Name="DimensionValue" EntityType="NAV.DimensionValue" />
         <EntitySet Name="DynasoftPortalUser" EntityType="NAV.DynasoftPortalUser" />
+        <EntitySet Name="Employees" EntityType="NAV.Employees" />
         <EntitySet Name="eProcDocuments" EntityType="NAV.eProcDocuments" />
         <EntitySet Name="eProVendorQT" EntityType="NAV.eProVendorQT" />
         <EntitySet Name="HRPortalUsers" EntityType="NAV.HRPortalUsers" />
@@ -2278,6 +2357,14 @@
           <End Role="Company" EntitySet="Company" />
           <End Role="companySizes" EntitySet="companySizes" />
         </AssociationSet>
+        <AssociationSet Name="Company_ConsultantQualification_ConsultantQualification" Association="NAV.Company_ConsultantQualification">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ConsultantQualification" EntitySet="ConsultantQualification" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ConsultantReferee_ConsultantReferee" Association="NAV.Company_ConsultantReferee">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ConsultantReferee" EntitySet="ConsultantReferee" />
+        </AssociationSet>
         <AssociationSet Name="Company_Contact_Contact" Association="NAV.Company_Contact">
           <End Role="Company" EntitySet="Company" />
           <End Role="Contact" EntitySet="Contact" />
@@ -2297,6 +2384,10 @@
         <AssociationSet Name="Company_DynasoftPortalUser_DynasoftPortalUser" Association="NAV.Company_DynasoftPortalUser">
           <End Role="Company" EntitySet="Company" />
           <End Role="DynasoftPortalUser" EntitySet="DynasoftPortalUser" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Employees_Employees" Association="NAV.Company_Employees">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Employees" EntitySet="Employees" />
         </AssociationSet>
         <AssociationSet Name="Company_eProcDocuments_eProcDocuments" Association="NAV.Company_eProcDocuments">
           <End Role="Company" EntitySet="Company" />

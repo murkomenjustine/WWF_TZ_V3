@@ -43,8 +43,8 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Submit" ID="submit" OnClick="submit_Click" />
-                     <asp:Button runat="server" CssClass="btn btn-success pull-left" Text="Cancel" ID="cancel" CausesValidation="false" OnClick="cancel_Click" />
+                    <asp:Button runat="server" CssClass="btn btn-primary pull-right" Text="Submit" ID="submit" OnClick="submit_Click" />
+                     <asp:Button runat="server" CssClass="btn btn-primary pull-left" Text="Cancel" ID="cancel" CausesValidation="false" OnClick="cancel_Click" />
                     <div class="clearfix"></div>
                 </div>
             </div>

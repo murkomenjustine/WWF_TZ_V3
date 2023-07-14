@@ -119,19 +119,27 @@
     <Content Include="AccountChangePass.aspx" />
     <Content Include="AccountForgotPass.aspx" />
     <Content Include="AccountLogin.aspx" />
+    <Content Include="ActiveConsultancyView.aspx" />
     <Content Include="ActiveTenders.aspx" />
     <Content Include="ActiveTendersView.aspx" />
     <Content Include="ApprovedPurchaseRequisitions.aspx" />
     <Content Include="AwardedContracts_Home.aspx" />
     <Content Include="CancelledTendersView.aspx" />
     <Content Include="ClosedTendersView.aspx" />
+    <Content Include="ConsultancyApplicationPage.aspx" />
+    <Content Include="ConsultancyDetails.aspx" />
+    <Content Include="ConsultantDashboard.aspx" />
+    <Content Include="ConsultantProfile.aspx" />
+    <Content Include="ConsultantProfileView.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="DownloadVendorFile.aspx" />
     <Content Include="EmployeeDashboard.aspx" />
+    <Content Include="EmployeeProfile.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HelpDesk.aspx" />
     <Content Include="HelpDesk_Home.aspx" />
+    <Content Include="InProgressPurchaseRequisitions.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="OpenPurchaseRequisitions.aspx" />
     <Content Include="packages.config" />
@@ -164,6 +172,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\NaExtender\NavXtenderAddLink.wsdl" />
+    <Content Include="TenderApplicationPage.aspx" />
     <Content Include="Web References\NaExtender\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -210,6 +219,13 @@
     <Compile Include="AccountLogin.aspx.designer.cs">
       <DependentUpon>AccountLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ActiveConsultancyView.aspx.cs">
+      <DependentUpon>ActiveConsultancyView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActiveConsultancyView.aspx.designer.cs">
+      <DependentUpon>ActiveConsultancyView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ActiveTenders.aspx.cs">
       <DependentUpon>ActiveTenders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -254,6 +270,41 @@
       <DependentUpon>ClosedTendersView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Config.cs" />
+    <Compile Include="ConsultancyApplicationPage.aspx.cs">
+      <DependentUpon>ConsultancyApplicationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultancyApplicationPage.aspx.designer.cs">
+      <DependentUpon>ConsultancyApplicationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultancyDetails.aspx.cs">
+      <DependentUpon>ConsultancyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultancyDetails.aspx.designer.cs">
+      <DependentUpon>ConsultancyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultantDashboard.aspx.cs">
+      <DependentUpon>ConsultantDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultantDashboard.aspx.designer.cs">
+      <DependentUpon>ConsultantDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultantProfile.aspx.cs">
+      <DependentUpon>ConsultantProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultantProfile.aspx.designer.cs">
+      <DependentUpon>ConsultantProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultantProfileView.aspx.cs">
+      <DependentUpon>ConsultantProfileView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultantProfileView.aspx.designer.cs">
+      <DependentUpon>ConsultantProfileView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ContactUs.aspx.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -282,6 +333,13 @@
     </Compile>
     <Compile Include="EmployeeDashboard.aspx.designer.cs">
       <DependentUpon>EmployeeDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProfile.aspx.cs">
+      <DependentUpon>EmployeeProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeProfile.aspx.designer.cs">
+      <DependentUpon>EmployeeProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
@@ -320,6 +378,13 @@
     </Compile>
     <Compile Include="HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InProgressPurchaseRequisitions.aspx.cs">
+      <DependentUpon>InProgressPurchaseRequisitions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InProgressPurchaseRequisitions.aspx.designer.cs">
+      <DependentUpon>InProgressPurchaseRequisitions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -422,6 +487,13 @@
     </Compile>
     <Compile Include="SpecialGroupTenderView.aspx.designer.cs">
       <DependentUpon>SpecialGroupTenderView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TenderApplicationPage.aspx.cs">
+      <DependentUpon>TenderApplicationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TenderApplicationPage.aspx.designer.cs">
+      <DependentUpon>TenderApplicationPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TenderDetails.aspx.cs">
       <DependentUpon>TenderDetails.aspx</DependentUpon>

@@ -76,8 +76,8 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Apply for This Tender" ID="apply" />
-                                <asp:Button runat="server" CssClass="btn btn-success pull-left" Text="Cancel Application" ID="cancel" CausesValidation="false" />
+                                <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Apply for This Tender" ID="apply" OnClick="apply_Click" />
+                                <asp:Button runat="server" CssClass="btn btn-success pull-left" Text="Cancel Application" ID="cancel" CausesValidation="false" OnClick="cancel_Click" />
                                 <div class="clearfix"></div>
                             </div>
                             <!-- /.col -->
@@ -430,7 +430,6 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Type</th>
-                                                <th>Item No.</th>
                                                 <th>Description</th>
                                                 <th>Quantity Required</th>
                                                 <th>Unit of Measure</th>
@@ -448,7 +447,6 @@
                                             <tr>
                                                 <td><%=counter %></td>
                                                 <td><%=member.Type %></td>
-                                                <td><%=member.No %></td>
                                                 <td><%=member.Description %></td>
                                                 <td><%=member.Quantity %></td>
                                                 <td><%=member.Unit_of_Measure_Code %></td>

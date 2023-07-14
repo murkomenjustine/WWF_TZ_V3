@@ -1052,7 +1052,7 @@
                                             <tbody>
                                                 <%
                                                     int counter = 0;
-                                                    var docdata = nav.eProcDocuments.Where(x => x.Procurement_Process == "Registration").ToList();
+                                                    var docdata = nav.eProcDocuments.Where(x => x.Procurement_Process == "Registration"  && x.Type == "Vendor").ToList();
                                                     foreach (var member in docdata)
                                                     {
                                                         counter++;
@@ -1157,6 +1157,7 @@
                                                     <th>Certificate No</th>
                                                     <th>Issue Date</th>
                                                     <th>Expiry Date</th>
+                                                    <th>Date Uploaded</th>
                                                     <th>Download</th>
                                                     <th>Remove</th>
                                                 </tr>
@@ -1176,6 +1177,7 @@
                                                     <td><%=member.Certificate_No %></td>
                                                     <td><%=Convert.ToDateTime(member.Issue_Date).ToString("dd-MM-yyyy") %></td>
                                                     <td><%=Convert.ToDateTime(member.Expiry_Date).ToString("dd-MM-yyyy") %></td>
+                                                    <td><%=Convert.ToDateTime(member.Document_Date).ToString("dd-MM-yyyy") %></td>
                                                     <td><a href="DownloadVendorFile.aspx?applicationNo=<%=vendorNo %>&&fileName=<%=member.File_Name %>" class="btn btn-primary"><i class="fa fa-download"></i>Download</a></td>
                                                     <td>
                                                         <label class="btn btn-danger" onclick="deletedocDetails('<%=member.Entry_No %>','<%=member.Description %>');"><i class="fa fa-thrash"></i>Remove</label>

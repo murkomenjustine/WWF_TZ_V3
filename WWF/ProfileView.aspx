@@ -527,6 +527,7 @@
                                                 <th>Certificate No</th>
                                                 <th>Issue Date</th>
                                                 <th>Expiry Date</th>
+                                                <th>Date Uploaded</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -544,6 +545,7 @@
                                                 <td><%=member.Certificate_No %></td>
                                                 <td><%=Convert.ToDateTime(member.Issue_Date).ToString("dd-MM-yyyy") %></td>
                                                 <td><%=Convert.ToDateTime(member.Expiry_Date).ToString("dd-MM-yyyy") %></td>
+                                                <td><%=Convert.ToDateTime(member.Document_Date).ToString("dd-MM-yyyy") %></td>
                                             </tr>
                                             <%
                                                 }

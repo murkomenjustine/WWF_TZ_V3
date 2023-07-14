@@ -39,7 +39,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
-						<span class="label-input100">Password</span>
+						<span class="label-input100">Pass</span>
                          <asp:TextBox CssClass="input100" runat="server" ID="password" Placeholder="Please Enter Valid password" type="password" required Style="height: 42px;" />
 						<span class="focus-input100"></span>
 					</div>
@@ -53,7 +53,7 @@
 
 						<div>
 							<a href="AccountForgotPass.aspx" class="txt1">
-								Forgot Password?
+								Reset Password?
 							</a>
 						</div>
 					</div>

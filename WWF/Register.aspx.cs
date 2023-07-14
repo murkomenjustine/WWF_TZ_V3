@@ -93,10 +93,15 @@ namespace WWF
                 divvendor.Visible = true;
                 divconsultant.Visible = false;
             }
-            else
+            if (txtregister == "Consultant")
             {
                 divvendor.Visible = false;
                 divconsultant.Visible = true;
+            }
+            if (txtregister == "--Select--")
+            {
+                divvendor.Visible = false;
+                divconsultant.Visible = false;
             }
         }
     }
