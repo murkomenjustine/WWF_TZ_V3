@@ -139,12 +139,12 @@
     <script>
         function sendApprovalRequest(documentNumber) {
             document.getElementById("approveImprestMemoNo").innerHTML = documentNumber;
-            document.getElementById("MainBody_imprestMemoToApprove").value = documentNumber;
+            document.getElementById("ContentPlaceHolder1_imprestMemoToApprove").value = documentNumber;
             $("#sendImprestMemoForApproval").modal();
         }
         function cancelApprovalRequest(documentNumber) {
             document.getElementById("cancelImprestMemoText").innerHTML = documentNumber;
-            document.getElementById("MainBody_cancelImprestMemoNo").value = documentNumber;
+            document.getElementById("ContentPlaceHolder1_cancelImprestMemoNo").value = documentNumber;
             $("#cancelImprestMemoForApprovalModal").modal();
         }
     </script>

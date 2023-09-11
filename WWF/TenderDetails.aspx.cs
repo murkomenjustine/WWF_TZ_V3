@@ -18,51 +18,18 @@ namespace WWF
             {
                 string TenderNo = Decrypt(Request.QueryString["TenderNo"]);
                 var nav = new Config().ReturnNav();
-                var tenderDetails = nav.invitetoTenders.Where(x => x.Code == TenderNo).Take(1).ToList();
+                var tenderDetails = nav.ProcurementRequest.Where(x => x.No == TenderNo).Take(1).ToList();
                 foreach(var item in tenderDetails)
                 {
                     //Tender General Details.
-                    tenderno.Text = item.Code;
-                    description.Text = item.Description;
-                    targetbiddergroup.Text = item.Target_Bidder_Group;
-                    bidselectionmethod.Text = item.Bid_Selection_Method;
-                    requisitionprodgroup.Text = item.Requisition_Product_Group;
-                    if(item.Mandatory_Special_Group_Reserv == true)
-                    {
-                        manspecialgroupreserv.Text = "YES";
-                    }
-                    else
-                    {
-                        manspecialgroupreserv.Text = "NO";
-                    }
-                    tenderexpirydate.Text = Convert.ToDateTime(item.Tender_Validity_Expiry_Date).ToString("dd/MM/yyyy");
-                    location.Text = item.Location_Code;
-                    tendervalidityduration.Text = item.Tender_Validity_Duration;
-                    externaldocumentno.Text = item.External_Document_No;
-                    bidenvelopetype.Text = item.Bid_Envelop_Type;
-                    documentdate.Text = Convert.ToDateTime(item.Document_Date).ToString("dd/MM/yyyy");
-                    mandatorymeeting.Text = Convert.ToDateTime(item.Mandatory_Pre_bid_Visit_Date).ToString("dd/MM/yyyy");
-
-                    //Critical Submission Details
-                    submissionstartdate.Text = Convert.ToDateTime(item.Submission_Start_Date).ToString("dd/MM/yyyy");
-                    submissionstarttime.Text = item.Submission_Start_Time;
-                    submissiondate.Text = Convert.ToDateTime(item.Submission_End_Date).ToString("dd/MM/yyyy");
-                    submissiontime.Text = item.Submission_End_Time;
-                    address2.Text = item.Address_2;
-                    address.Text = item.Address;
-                    prebidmeetingdate.Text = Convert.ToDateTime(item.Mandatory_Pre_bid_Visit_Date).ToString("dd/MM/yyyy");
-                    prebidmeetingaddress.Text = item.Prebid_Meeting_Address;
-                    country.Text = item.Country_Region_Code;
-                    city.Text = item.City;
-                    bidopeningdate.Text = Convert.ToDateTime(item.Bid_Opening_Date).ToString("dd/MM/yyyy");
-                    bidopeningtime.Text = item.Bid_Opening_Time;
-                    //bidopeningtime.Text = Convert.ToDateTime(item.Bid_Opening_Time).ToString("HH:mm:ss tt");
-                    phonenum.Text = item.Phone_No;
-                    bidopeningvunue.Text = item.Bid_Opening_Venue;
-                    tenderboxlocation.Text = item.Tender_Box_Location_Code;
-                    procurringentityname.Text = item.Procuring_Entity_Name_Contact;
-                    primarytendersubmissionaddress.Text = item.Primary_Tender_Submission;
-                    postalcode.Text = item.Post_Code;
+                    description.Text = item.Title;
+                    proposaltype.Text = item.Tender_Type;
+                    suppliercategory.Text = item.Supplier_Category;
+                    validperiod.Text = item.Validity_Period;
+                    startdate.Text = Convert.ToDateTime(item.Submission_Start_Date).ToString("dd/MM/yyyy");
+                    starttime.Text = Convert.ToDateTime(item.Submission_Start_Time).ToString("HH:mm tt");
+                    enddate.Text = Convert.ToDateTime(item.Submission_End_Date).ToString("dd/MM/yyyy");
+                    endtime.Text = Convert.ToDateTime(item.Submission_End_Time).ToString("HH:mm tt");
                 }
             }
         }

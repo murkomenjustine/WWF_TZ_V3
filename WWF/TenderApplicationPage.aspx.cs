@@ -38,7 +38,7 @@ namespace WWF
                 string TenderNo = Decrypt(cipherText);
                 decimal totalexclusivevat = getTotalExclusiveVAT(TenderNo);
                 decimal totalinclusivevat = getTotalInclusiveVAT(TenderNo);
-                string status = Config.ObjNav.FnUpdateTenderLine(glineno, TenderNo, gunitprice, gtotalprice, totalinclusivevat, totalexclusivevat);
+                string status = Config.ObjNav.FnUpdateTenderLinePrice(glineno, TenderNo, gunitprice, gtotalprice, totalinclusivevat, totalexclusivevat);
                 string[] info = status.Split('*');
                 if (info[0] == "success")
                 {
@@ -60,7 +60,7 @@ namespace WWF
         {
             string TenderNo = Decrypt(Request.QueryString["TenderNo"]);
             var nav = new Config().ReturnNav();
-            var tenderDetails = nav.invitetoTenders.Where(x => x.Code == TenderNo).Take(1).ToList();
+            var tenderDetails = nav.ProcurementRequest.Where(x => x.No == TenderNo).Take(1).ToList();
             foreach (var item in tenderDetails)
             {
                 totalvatexclusive.Text = Convert.ToDecimal(item.Total_VAT_Exclusive).ToString("#,##0.00");
@@ -73,10 +73,10 @@ namespace WWF
         {
             var nav = new Config().ReturnNav();
             decimal totallineamount = 0;
-            var query = nav.purchaseCodeLines.Where(x => x.Standard_Purchase_Code == TenderNo).ToList();
+            var query = nav.ProcurementRequestLines.Where(x => x.Requisition_No == TenderNo).ToList();
             foreach (var t in query)
             {
-                totallineamount += Convert.ToDecimal(t.Total_Price);
+                totallineamount += Convert.ToDecimal(t.Amount);
             }
 
             return totallineamount;
@@ -91,15 +91,15 @@ namespace WWF
                 decimal vatrate = 0;
                 decimal vatamount = 0;
                 
-                var tenderDetails = nav.invitetoTenders.Where(x => x.Code == TenderNo).Take(1).ToList();
+                var tenderDetails = nav.ProcurementRequest.Where(x => x.No == TenderNo).Take(1).ToList();
                 foreach (var item in tenderDetails)
                 {
                     vatrate = Convert.ToDecimal(item.VAT_Rate);
                 }
-                var query = nav.purchaseCodeLines.Where(x => x.Standard_Purchase_Code == TenderNo).ToList();
+                var query = nav.ProcurementRequestLines.Where(x => x.Requisition_No == TenderNo).ToList();
                 foreach (var t in query)
                 {
-                    totallineamount += Convert.ToDecimal(t.Total_Price);
+                    totallineamount += Convert.ToDecimal(t.Amount);
                 }
                 vatamount = (vatrate / 100) * totallineamount;
                 totalinclvat = totallineamount - vatamount;
@@ -140,6 +140,82 @@ namespace WWF
                 //Log.writeLog(ex);
                 return null;
             }
+        }
+
+        protected void documentuploaddetails_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string gdocumenttoupload = documenttoupload.SelectedValue.Trim();
+
+                string vendorNo = Convert.ToString(Session["vendorNo"]);
+                string ApplicationNumber = vendorNo;
+                ApplicationNumber = ApplicationNumber.Replace('/', '_');
+                ApplicationNumber = ApplicationNumber.Replace(':', '_');
+                string path1 = Config.FilesLocation() + "Approved Tender Card/";
+                string str1 = Convert.ToString(ApplicationNumber);
+                string folderName = path1 + str1 + "/";
+
+                if (filetoupload.HasFile)
+                {
+                    string extension = System.IO.Path.GetExtension(filetoupload.FileName);
+                    string filename = ApplicationNumber + "_" + gdocumenttoupload + extension;
+                    string fullpath = folderName + filename;
+                    if (!Directory.Exists(folderName))
+                    {
+                        Directory.CreateDirectory(folderName);
+                    }
+                    if (File.Exists(folderName + filename))
+                    {
+                        File.Delete(folderName + filename);
+                    }
+                    filetoupload.SaveAs(folderName + filename);
+                    //Config.navExtender.AddLinkToRecord("Vendor Registration Card", ApplicationNumber, fullpath, "");
+                    if (File.Exists(folderName + filename))
+                    {
+                        pricingfeedback.InnerHtml = "<div class='alert alert-success'>The document "+ gdocumenttoupload +" has been uploaded successfully<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+                    else
+                    {
+                        pricingfeedback.InnerHtml = "<div class='alert alert-danger'>The document " + gdocumenttoupload + " was not uploaded, kindly try again<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                pricingfeedback.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+        }
+
+        protected void submitapplication_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string vendorNo = Convert.ToString(Session["vendorNo"]);
+                string cipherText = Request.QueryString["TenderNo"];
+                string TenderNo = Decrypt(cipherText);
+                string status = Config.ObjNav.FnSubmitTender(TenderNo, vendorNo);
+                string[] info = status.Split('*');
+                if (info[0] == "success")
+                {
+                    populateTotals();
+                    pricingfeedback.InnerHtml = "<div class='alert alert-success'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    pricingfeedback.InnerHtml = "<div class='alert alert-danger'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+            }
+            catch (Exception ex)
+            {
+                pricingfeedback.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+        }
+
+        protected void back_Click(object sender, EventArgs e)
+        {
+            string cipherText = Request.QueryString["TenderNo"];
+            Response.Redirect("TenderDetails.aspx?TenderNo=" + cipherText);
         }
     }
 }

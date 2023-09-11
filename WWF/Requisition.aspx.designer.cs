@@ -139,6 +139,15 @@ namespace WWF {
         protected global::System.Web.UI.WebControls.TextBox directUnitCost;
         
         /// <summary>
+        /// activitynumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox activitynumber;
+        
+        /// <summary>
         /// addrequisitionlines control.
         /// </summary>
         /// <remarks>

@@ -30,6 +30,21 @@
         <div class="wrapper">
 
             <header class="main-header">
+                <%
+                    var image = "";
+                    try
+                    {
+                        image = "Passport/" + Convert.ToString(Session["employeeNo"]) + ".png";
+                        if(image == null)
+                        {
+                            image = "Passport/" + Convert.ToString(Session["vendorNo"]) + ".png";
+                        }
+                    }
+                    catch
+                    {
+                        image = "";
+                    }
+                %>
                 <!-- Logo -->
                 <a href="index2.html" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -54,13 +69,13 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                    <img src="<%=image %>" class="user-image" alt="User Image">
                                     <span class="hidden-xs"><%=Session["name"].ToString() %></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        <img src="<%=image %>" class="img-circle" alt="User Image">
                                         <p>
                                             <%=Session["name"].ToString() %>
 
@@ -88,7 +103,7 @@
                 <section class="sidebar">
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="<%=image %>" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
                             <p><%=Session["name"].ToString() %></p>
@@ -100,8 +115,9 @@
                         <%
                             if (Session["user"].ToString() == "Vendor")
                             {
-                        %>
+                        %>                        
                         <li><a href="Dashboard.aspx"><i class="fa fa-dashboard" aria-hidden="true"></i><span>Dashboard</span></a></li>
+                        <li><a href="ImageUpload.aspx"><i class="fa fa-image" aria-hidden="true"></i><span>Photo / Logo Upload</span></a></li>
                         <%
                             var nav = new Config().ReturnNav();
                             bool isregistered = false;
@@ -131,9 +147,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="ActiveTendersView.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i>Active Tenders</a></li>
-                                <li><a href="SpecialGroupTenderView.aspx"><i class="fa fa-gift" aria-hidden="true"></i>Special Group Tender</a></li>
-                                <li><a href="TendersByRegionView.aspx"><i class="fa fa-globe" aria-hidden="true"></i>Tenders By Region</a></li>
-                                <li><a href="TendersByClosingDatesView.aspx"><i class="fa fa-calendar" aria-hidden="true"></i>Tenders By Closing Dates</a></li>
+                                <li><a href="SubmittedTendersView.aspx"><i class="fa fa-question-circle" aria-hidden="true"></i>Tenders Under Evaluation</a></li>
                                 <li><a href="ClosedTendersView.aspx"><i class="fa fa-check"></i>Closed Tenders</a></li>
                                 <li><a href="CancelledTendersView.aspx"><i class="fa fa-times"></i>Cancelled Tenders</a></li>
                             </ul>
@@ -166,6 +180,7 @@
                             {
                         %>
                         <li><a href="ConsultantDashboard.aspx"><i class="fa fa-dashboard" aria-hidden="true"></i><span>Dashboard</span></a></li>
+                        <li><a href="ImageUpload.aspx"><i class="fa fa-picture" aria-hidden="true"></i><span>Passport Photo Upload</span></a></li>
                         <%
                             var nav = new Config().ReturnNav();
                             bool isregistered = false;
@@ -195,6 +210,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="ActiveConsultancyView.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i>Active Consultancies</a></li>
+                                <li><a href="SubmittedConsultancyView.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i>Submitted Consultancies</a></li>
                                 <li><a href="ClosedConsultancyView.aspx"><i class="fa fa-check"></i>Closed Consultancies</a></li>
                                 <li><a href="CancelledConsultancyView.aspx"><i class="fa fa-times"></i>Cancelled Consultancies</a></li>
                             </ul>
@@ -206,9 +222,10 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="ActiveTendersView.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i>Active Tenders</a></li>
-                                <li><a href="SpecialGroupTenderView.aspx"><i class="fa fa-gift" aria-hidden="true"></i>Special Group Tender</a></li>
+                                <li><a href="SubmittedTendersView.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i>Submitted Tenders</a></li>
+<%--                                <li><a href="SpecialGroupTenderView.aspx"><i class="fa fa-gift" aria-hidden="true"></i>Special Group Tender</a></li>
                                 <li><a href="TendersByRegionView.aspx"><i class="fa fa-globe" aria-hidden="true"></i>Tenders By Region</a></li>
-                                <li><a href="TendersByClosingDatesView.aspx"><i class="fa fa-calendar" aria-hidden="true"></i>Tenders By Closing Dates</a></li>
+                                <li><a href="TendersByClosingDatesView.aspx"><i class="fa fa-calendar" aria-hidden="true"></i>Tenders By Closing Dates</a></li>--%>
                                 <li><a href="ClosedTendersView.aspx"><i class="fa fa-check"></i>Closed Tenders</a></li>
                                 <li><a href="CancelledTendersView.aspx"><i class="fa fa-times"></i>Cancelled Tenders</a></li>
                             </ul>

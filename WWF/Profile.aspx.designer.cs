@@ -688,13 +688,13 @@ namespace WWF {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl keystafffeedback;
         
         /// <summary>
-        /// staffnumber control.
+        /// designation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox staffnumber;
+        protected global::System.Web.UI.WebControls.DropDownList designation;
         
         /// <summary>
         /// staffname control.
@@ -713,24 +713,6 @@ namespace WWF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox profession;
-        
-        /// <summary>
-        /// currentdesignation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox currentdesignation;
-        
-        /// <summary>
-        /// dateofbirth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dateofbirth;
         
         /// <summary>
         /// joiningdate control.
@@ -760,13 +742,13 @@ namespace WWF {
         protected global::System.Web.UI.WebControls.TextBox staffphonenumber;
         
         /// <summary>
-        /// staffsnationality control.
+        /// staffsnationality1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox staffsnationality;
+        protected global::System.Web.UI.WebControls.DropDownList staffsnationality1;
         
         /// <summary>
         /// staffemail control.
@@ -776,6 +758,15 @@ namespace WWF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox staffemail;
+        
+        /// <summary>
+        /// cv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload cv;
         
         /// <summary>
         /// staffdetails control.

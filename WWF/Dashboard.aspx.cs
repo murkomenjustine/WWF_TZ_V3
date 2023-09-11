@@ -20,6 +20,22 @@ namespace WWF
                 {
                     Response.Redirect("HomePage.aspx");
                 }
+                else
+                {
+                    string filesFolder = Server.MapPath("~/Passport/");
+                    string employeeNo = Convert.ToString(Session["vendorNo"]);
+                    string filename = filesFolder + employeeNo + ".png";
+                    if (File.Exists(filename))
+                    {
+                        photosize.Visible = false;
+                    }
+                    else
+                    {
+
+                        photosize.InnerHtml = "<div class='alert alert-warning'>" + "Dear" + " " + Session["name"].ToString() + " " + "Kindly Upload your Passport Size Photo. <a href='ImageUpload.aspx'>Click here to upload logo / photo</a>" + "</div>";
+                    }
+
+                }
                 string code = Decrypt(Request.QueryString["p"]);
                 string user = Decrypt(Request.QueryString["u"]);
             }

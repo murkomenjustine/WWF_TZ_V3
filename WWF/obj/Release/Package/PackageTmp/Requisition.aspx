@@ -101,7 +101,7 @@
                     </div>
                     <div class="col-md-6 col-lg-6">
                         <div class="form-group">
-                            <strong>Location<span class="text-danger" style="font-size: 15px">*</span></strong>
+                            <strong>Delivery Location<span class="text-danger" style="font-size: 15px">*</span></strong>
                             <asp:DropDownList runat="server" ID="location" CssClass="form-control select2" AppendDataBoundItems="true">
                                 <asp:ListItem>--Select--</asp:ListItem>
                             </asp:DropDownList>
@@ -122,7 +122,7 @@
                     <div class="col-md-6 col-lg-6">
                         <div class="form-group">
                             <strong>Due Date<span class="text-danger" style="font-size: 15px">*</span></strong>
-                            <asp:TextBox runat="server" ID="prof_endDate" CssClass="form-control" placeholder="Please Enter Due Date" />
+                            <asp:TextBox runat="server" TextMode="Date" ID="prof_endDate" CssClass="form-control" placeholder="Please Enter Due Date" />
                             <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="prof_endDate" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
@@ -179,12 +179,17 @@
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
-                        <strong>Direct Unit Cost<span class="text-danger" style="font-size: 15px">*</span></strong>
+                        <strong>Estimated Unit Cost<span class="text-danger" style="font-size: 15px">*</span></strong>
                         <asp:TextBox runat="server" ID="directUnitCost" CssClass="form-control" TextMode="Number" placeholder="Enter Unit Cost" />
                         <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="directUnitCost" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                     </div>
                 </div>
-
+                                <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                        <strong>Activity Number</strong>
+                        <asp:TextBox runat="server" ID="activitynumber" CssClass="form-control" placeholder="Enter Activity Number" />
+                    </div>
+                </div>
 
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
@@ -195,13 +200,13 @@
                 <table class="table table-bordered table-striped" id="example2">
                     <thead>
                         <tr>
-                            <th>Transaction Code</th>
                             <th>Transaction Description</th>
-                            <th>Type</th>
+                            <%--<th>Type</th>--%>
                             <th>Quantity Requested </th>
                             <th>Description </th>
-                            <th>Unit Cost</th>
+                            <th>Estimated Unit Cost</th>
                             <th>Total Line Amount </th>
+                             <th>Activity Number</th>
                             <th>Remove</th>
                         </tr>
                     </thead>
@@ -214,14 +219,13 @@
                             {
                         %>
                         <tr>
-                            <td><% =line.Transaction_Code1 %></td>
                             <td><% =line.Transaction_Description %></td>
-                            <td><% =line.Type %></td>
+                           <%-- <td><% =line.Type %></td>--%>
                             <td><% =line.Qty_Requested %></td>
                             <td><% =line.Description %></td>
                             <td><%=String.Format("{0:n}", Convert.ToDouble(line.Direct_Unit_Cost)) %></td>
                             <td><%=String.Format("{0:n}", Convert.ToDouble(line.Amount)) %></td>
-
+                            <td><% =line.Activity_Number %></td>
                             <td>
                                 <label class="btn btn-danger" onclick="removeLine('<% =line.Description %>','<%=line.Line_No %>');"><i class="fa fa-trash"></i>Delete</label></td>
                         </tr>
@@ -319,7 +323,7 @@
 
         function deleteFile(fileName) {
             document.getElementById("filetoDeleteName").innerText = fileName;
-            document.getElementById("MainBody_fileName").value = fileName;
+            document.getElementById("ContentPlaceHolder1_fileName").value = fileName;
             $("#deleteFileModal").modal();
         }
     </script>
@@ -336,8 +340,8 @@
                     <asp:TextBox runat="server" ID="fileName" type="hidden" />
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                    <asp:Button runat="server" CssClass="btn btn-primary" Text="Delete File" ID="deletefilebtn" OnClick="deletefilebtn_Click" CausesValidation="false" />
+                    <button type="button" class="btn btn-primary pull-left" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-primary pull-right" Text="Delete File" ID="deletefilebtn" OnClick="deletefilebtn_Click" CausesValidation="false" />
                 </div>
             </div>
 
@@ -347,7 +351,7 @@
     <script>
         function removeLine(itemName, lineNo) {
             document.getElementById("itemName").innerText = itemName;
-            document.getElementById("MainBody_lineNo").value = lineNo;
+            document.getElementById("ContentPlaceHolder1_lineNo").value = lineNo;
             $("#removeLineModal").modal();
         }
     </script>
@@ -364,8 +368,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                    <asp:Button runat="server" CssClass="btn btn-primary" Text="Delete Line" ID="removelinebtn" OnClick="removelinebtn_Click" CausesValidation="false" />
+                    <button type="button" class="btn btn-primary pull-left" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-primary pull-left" Text="Delete Line" ID="removelinebtn" OnClick="removelinebtn_Click" CausesValidation="false" />
                 </div>
             </div>
 

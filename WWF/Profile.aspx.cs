@@ -157,7 +157,17 @@ namespace WWF
                     }
                 }
 
-                //step 6
+                //step 7
+                if (step == 7)
+                {
+                    var dcountry = nav.Countries;
+                    staffsnationality1.DataSource = dcountry;
+                    staffsnationality1.DataTextField = "Name";
+                    staffsnationality1.DataValueField = "Name";
+                    staffsnationality1.DataBind();
+                }
+
+                //step 8
                 if (step == 8)
                 {
                     var ptype = nav.ProcurementDocumentType.Where(x => x.Type == "Vendor");
@@ -697,17 +707,17 @@ namespace WWF
         {
             try
             {
-                string gstaffnumber = staffnumber.Text.Trim();
+                string gstaffnumber = "";
                 string gstaffname = staffname.Text.Trim();
                 string gprofession = profession.Text.Trim();
-                string gcurrentdesignation = currentdesignation.Text.Trim();
-                string ndateofbirth = Convert.ToDateTime(dateofbirth.Text.Trim()).ToString("yyyy-MM-dd");
+                string gcurrentdesignation = designation.Text.Trim();
+                string ndateofbirth = Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-dd");
                 DateTime gdateofbirth = DateTime.ParseExact(ndateofbirth, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 string njoiningdate = Convert.ToDateTime(joiningdate.Text.Trim()).ToString("yyyy-MM-dd");
                 DateTime gjoiningdate = DateTime.ParseExact(njoiningdate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 int gyearsinthefirm = Convert.ToInt32(yearsinthefirm.Text.Trim());
                 string gstaffphonenumber = staffphonenumber.Text.Trim();
-                string gstaffnationality = staffsnationality.Text.Trim();
+                string gstaffnationality = staffsnationality1.SelectedValue.Trim();
                 string gstaffemail = staffemail.Text.Trim();
                 string vendorNo = Convert.ToString(Session["vendorNo"]);
                 string status = Config.ObjNav.FnInsertStaff(vendorNo, gstaffnumber, gstaffname, gprofession, gcurrentdesignation, gdateofbirth, gjoiningdate, gyearsinthefirm, gstaffphonenumber, gstaffnationality, gstaffemail);

@@ -80,12 +80,13 @@
                     <li class="header">HOME</li>
                     <li><a href="HomePage.aspx"><i class="fa fa-sign-in" aria-hidden="true"></i><span>Home Page</span></a></li>
                     <li class="header">ACCOUNT</li>
-                    <li><a href="AccountLogin.aspx"><i class="fa fa-sign-in" aria-hidden="true"></i><span>Log in</span></a></li>
+                    <li><a href="AccountLogin.aspx"><i class="fa fa-sign-in" aria-hidden="true"></i><span>Staff Log in</span></a></li>
+                    <li><a href="AccountLogin.aspx"><i class="fa fa-sign-in" aria-hidden="true"></i><span>Supplier Log in</span></a></li>                    
+                    <li><a href="Register.aspx"><i class="fa fa-registered" aria-hidden="true"></i><span>Supplier Registration</span></a></li>
                     <li><a href="AccountForgotPass.aspx"><i class="fa fa-key" aria-hidden="true"></i><span>Forgot Your Password?</span></a></li>
-                    <li><a href="Register.aspx"><i class="fa fa-registered" aria-hidden="true"></i><span>Register</span></a></li>
                     <li class="header">INFORMATION</li>
-                    <li><a href="ActiveTenders.aspx"><i class="fa fa-check" aria-hidden="true"></i><span>Current Tenders</span></a></li>
-                    <li><a href="AwardedContracts_Home.aspx"><i class="fa fa-trophy" aria-hidden="true"></i><span>Awarded Contracts</span></a></li>
+                    <li><a href="ActiveTenders.aspx"><i class="fa fa-check" aria-hidden="true"></i><span>Current Tenders/Consultancies</span></a></li>
+                    <%--<li><a href="AwardedContracts_Home.aspx"><i class="fa fa-trophy" aria-hidden="true"></i><span>Awarded Contracts</span></a></li>--%>
                     <li><a href="Documents/AdminLTE%203%20%20DataTables.pdf"><i class="fa fa-book"></i><span>User Guide Notes</span></a></li>
                     <li><a href="HelpDesk_Home.aspx"><i class="fa fa-desktop" aria-hidden="true"></i><span>Help Desk</span></a></li>
                 </ul>

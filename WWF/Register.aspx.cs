@@ -28,7 +28,7 @@ namespace WWF
                 bool error = false;
                 string tapplicantbusinessname = applicantbusinessname.Text.Trim();
                 string ttaxno = taxno.Text.Trim();
-                string temail = email.Text.Trim();
+                string temail = email.Text.Trim().ToLower();
                 string tphone = phone.Text.Trim();
                 string tcontactperson = contactperson.Text.Trim();
                 bool isValid = IsValidEmail(temail);

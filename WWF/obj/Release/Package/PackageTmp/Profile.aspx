@@ -853,9 +853,15 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
-                            <strong>Staff Number<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="staffnumber" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="staffnumber" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
+                            <strong>Current Designation<span class="text-danger" style="font-size: 25px">*</span></strong>
+                            <asp:DropDownList runat="server" ID="designation" CssClass="form-control select2" AppendDataBoundItems="true" >
+                                <asp:ListItem>--Select--</asp:ListItem>
+                                <asp:ListItem>Mr</asp:ListItem>
+                                <asp:ListItem>Mrs</asp:ListItem>
+                                <asp:ListItem>Prof</asp:ListItem>
+                                <asp:ListItem>Dr</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="designation" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
@@ -872,22 +878,6 @@
                             <strong>Profession<span class="text-danger" style="font-size: 25px">*</span></strong>
                             <asp:TextBox runat="server" ID="profession" CssClass="form-control" placeholder="Please enter details here..." />
                             <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="profession" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Current Designation<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="currentdesignation" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="currentdesignation" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Date of Birth<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" TextMode="Date" ID="dateofbirth" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="dateofbirth" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
@@ -918,8 +908,10 @@
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
                             <strong>Nationality<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="staffsnationality" CssClass="form-control" />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="staffsnationality" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
+                            <asp:DropDownList runat="server" ID="staffsnationality1" CssClass="form-control select2" AppendDataBoundItems="true" >
+                                <asp:ListItem>--Select--</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="staffsnationality1" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
@@ -927,6 +919,15 @@
                             <strong>Email Address<span class="text-danger" style="font-size: 25px">*</span></strong>
                             <asp:TextBox runat="server" ID="staffemail" CssClass="form-control" placeholder="Please enter details here..." />
                             <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="staffemail" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="form-group">
+                            <strong>Curriculum Vitae<span class="text-danger" style="font-size: 25px">*</span></strong>
+                            <asp:FileUpload runat="server" ID="cv" CssClass="form-control" />
+                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="cv" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
                 </div>
@@ -948,7 +949,6 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Staff Number</th>
                                                     <th>Staff Name</th>
                                                     <th>Profession</th>
                                                     <%--                                            <th>Current Designation</th>
@@ -976,7 +976,6 @@
                                                 %>
                                                 <tr>
                                                     <td><%=counter %></td>
-                                                    <td><%=t.Staff_Number %></td>
                                                     <td><%=t.Staff_Name %></td>
                                                     <td><%=t.Proffesion %></td>
                                                     <%--                                            <td><%=t.Current_Designation %></td>

@@ -22,33 +22,6 @@ namespace WWF
                 }
 
                 var nav = new Config().ReturnNav();
-                String requisitionNo = "";
-                try
-                {
-                    requisitionNo = Request.QueryString["requisitionNo"];
-                    if (string.IsNullOrEmpty(requisitionNo))
-                    {
-                        requisitionNo = "";
-                    }
-                    else
-                    {
-                        var pHeader = nav.PurchaseHeader.Where(x => x.No == requisitionNo);
-                        foreach (var user in pHeader)
-                        {
-                            tprocesstype.SelectedValue = user.Process_Type;
-                            currency.Text = user.Currency_Code;
-                            description.Text = user.Description;
-                            location.SelectedValue = user.Location_Code;
-                            project.SelectedValue = user.Shortcut_Dimension_1_Code;
-                            prof_endDate.Text = Convert.ToDateTime(user.Due_Date).ToString("dd/MM/yyyy");
-                        }
-                    }
-                }
-                catch
-                {
-                    requisitionNo = "";
-                }
-
                 //dropdowns
                 var procMethods = nav.ProcurementMethod;
                 tprocesstype.DataSource = procMethods;
@@ -68,10 +41,24 @@ namespace WWF
                 location.DataValueField = "Code";
                 location.DataBind();
 
-                var tprojects = nav.DimensionValue.Where(x => x.Global_Dimension_No == 1);
-                project.DataSource = tprojects;
-                project.DataTextField = "Name";
+                //var tprojects = nav.DimensionValue.Where(x => x.Global_Dimension_No == 1);
+                //project.DataSource = tprojects;
+                //project.DataTextField = "Name";
+                //project.DataValueField = "Code";
+                //project.DataBind();
+
+                var jobst = nav.Job;
+                List<DropdownItems> allJobst = new List<DropdownItems>();
+                foreach (var myJob in jobst)
+                {
+                    DropdownItems employee = new DropdownItems();
+                    employee.Code = myJob.Project_Number;
+                    employee.Name = myJob.Award_Number + " - " + myJob.Project_Number + " - " + myJob.Project_Description;
+                    allJobst.Add(employee);
+                }
+                project.DataSource = allJobst;
                 project.DataValueField = "Code";
+                project.DataTextField = "Name";
                 project.DataBind();
 
                 var jobs = nav.TransactionCode;
@@ -87,7 +74,33 @@ namespace WWF
                 transactionDesc.DataValueField = "Code";
                 transactionDesc.DataTextField = "Name";
                 transactionDesc.DataBind();
-
+                //saved data
+                String requisitionNo = "";
+                try
+                {
+                    requisitionNo = Request.QueryString["requisitionNo"];
+                    if (string.IsNullOrEmpty(requisitionNo))
+                    {
+                        requisitionNo = "";
+                    }
+                    else
+                    {
+                        var pHeader = nav.PurchaseHeader.Where(x => x.No == requisitionNo);
+                        foreach (var user in pHeader)
+                        {
+                            tprocesstype.SelectedValue = user.Process_Type;
+                            currency.Text = user.Currency_Code;
+                            description.Text = user.Description;
+                            location.SelectedValue = user.Location_Code;
+                            project.SelectedValue = user.Shortcut_Dimension_1_Code;
+                            prof_endDate.Text = Convert.ToDateTime(user.Due_Date).ToString("yyyy-MM-dd");
+                        }
+                    }
+                }
+                catch
+                {
+                    requisitionNo = "";
+                }
             }
         }
 
@@ -103,18 +116,8 @@ namespace WWF
                 string tcurrency = currency.SelectedValue.Trim();
                 string tlocation = location.SelectedValue.Trim();
                 string tproject = project.SelectedValue.Trim();
-                string tprof_endDate = prof_endDate.Text.Trim();
-                DateTime nduedate = new DateTime();
-                try
-                {
-                    nduedate = DateTime.ParseExact(tprof_endDate, "d/M/yyyy", CultureInfo.InvariantCulture);
-                }
-                catch (Exception)
-                {
-                    error = true;
-                    message += message.Length > 0 ? "<br/>" : "";
-                    message += "Please provide a valid date for due date";
-                }
+                string s = Convert.ToDateTime(prof_endDate.Text.Trim()).ToString("yyyy-MM-dd");
+                DateTime nduedate = DateTime.ParseExact(s, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 if (error)
                 {
                     generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
@@ -142,7 +145,7 @@ namespace WWF
                     String[] info = status.Split('*');
                     if (info[0] == "success")
                     {
-                        Response.Redirect("Requisition.aspx?step=2&&requisitionNo=" + requisitionNo);
+                        Response.Redirect("Requisition.aspx?step=2&&requisitionNo=" + info[2]);
                     }
                     else
                     {
@@ -165,6 +168,7 @@ namespace WWF
                 string emp = Convert.ToString(Session["employeeNo"]);
                 string ttransactionDesc = transactionDesc.SelectedValue.Trim();
                 string ttxtdescription = txtdescription.Text.Trim();
+                string ttactivitynumber = activitynumber.Text.Trim();
                 //int tstaff = Convert.ToInt32(staff.Text.Trim());
                 int tquantityRequested = Convert.ToInt32(quantityRequested.Text.Trim());
                 decimal tdirectUnitCost = Convert.ToDecimal(directUnitCost.Text.Trim());
@@ -177,7 +181,7 @@ namespace WWF
                 {
                     String requisitionNo = Request.QueryString["requisitionNo"];
 
-                    String status = Config.ObjNav.FnCreateRequisitionLine(requisitionNo, ttransactionDesc, tquantityRequested, 0, tdirectUnitCost, ttxtdescription);
+                    String status = Config.ObjNav.FnCreateRequisitionLine(requisitionNo, ttransactionDesc, tquantityRequested, 0, tdirectUnitCost, ttxtdescription, ttactivitynumber);
                     String[] info = status.Split('*');
                     if (info[0] == "success")
                     {

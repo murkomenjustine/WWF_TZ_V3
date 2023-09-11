@@ -67,13 +67,13 @@ namespace WWF {
         protected global::System.Web.UI.WebControls.DropDownList documenttoupload;
         
         /// <summary>
-        /// selectdocument control.
+        /// filetoupload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload selectdocument;
+        protected global::System.Web.UI.WebControls.FileUpload filetoupload;
         
         /// <summary>
         /// documentuploaddetails control.

@@ -94,7 +94,7 @@
                     <tbody>
                         <%
                             int counter = 0;
-                            var query = nav.purchaseCodeLines.Where(x => x.Standard_Purchase_Code == cipherText).ToList();
+                            var query = nav.ProcurementRequestLines.Where(x => x.Requisition_No == cipherText).ToList();
                             foreach (var member in query)
                             {
 
@@ -104,10 +104,10 @@
                             <td><%=counter %></td>
                             <td><%=member.Type %></td>
                             <td><%=member.Description %></td>
-                            <td><%=member.Unit_of_Measure_Code %></td>
+                            <td><%=member.Unit_of_Measure %></td>
                             <td><%=member.Quantity %></td>
                             <td><%=Convert.ToDecimal(member.Unit_Price).ToString("#,##0.00") %></td>
-                            <td><%=Convert.ToDecimal(member.Total_Price).ToString("#,##0.00") %></td>
+                            <td><%=Convert.ToDecimal(member.Amount).ToString("#,##0.00") %></td>
                             <td>
                                 <label class="btn btn-primary" onclick="addpricing('<%=member.Line_No %>','<%=member.Description %>','<%=member.Quantity %>','<%=member.Unit_Price %>');"><i class="fa fa-plus"></i>Add Pricing</label>
                             </td>
@@ -185,13 +185,13 @@
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
                             <strong>Select Document<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:fileupload runat="server" id="selectdocument" cssclass="form-control" />
-                            <asp:requiredfieldvalidator display="dynamic" runat="server" controltovalidate="selectdocument" errormessage="Please fill this field, it cannot be empty!" forecolor="Red" />
+                            <asp:fileupload runat="server" id="filetoupload" cssclass="form-control" />
+                            <asp:requiredfieldvalidator display="dynamic" runat="server" controltovalidate="filetoupload" errormessage="Please fill this field, it cannot be empty!" forecolor="Red" />
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <asp:button runat="server" cssclass="btn btn-primary pull-right" text="Upload Documents" id="documentuploaddetails" />
+                    <asp:button runat="server" cssclass="btn btn-primary pull-right" text="Upload Documents" id="documentuploaddetails" OnClick="documentuploaddetails_Click" />
                     <div class="clearfix"></div>
                 </div>
                 <div class="row">
@@ -217,8 +217,8 @@
                                                     try
                                                     {
                                                         String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
-                                                        String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Vendor Registration Card/";
-                                                        String vendorNo = Request.QueryString["vendorNo"];
+                                                        String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Approved Tender Card/";
+                                                        String vendorNo = Convert.ToString(Session["vendorNo"]);
                                                         vendorNo = vendorNo.Replace('/', '_');
                                                         vendorNo = vendorNo.Replace(':', '_');
                                                         String documentDirectory = filesFolder + vendorNo + "/";
@@ -259,8 +259,8 @@
             </div>
         </div>
         <div class="panel-footer">
-            <asp:Button runat="server" CssClass="btn btn-primary pull-right" Text="Submit Application" ID="submitapplication" CausesValidation="false"/>
-            <asp:Button runat="server" CssClass="btn btn-primary pull-left" Text="Back" ID="back" CausesValidation="false" />
+            <asp:Button runat="server" CssClass="btn btn-primary pull-right" Text="Submit Application" ID="submitapplication" OnClick="submitapplication_Click" CausesValidation="false"/>
+            <asp:Button runat="server" CssClass="btn btn-primary pull-left" Text="Back" ID="back" OnClick="back_Click" CausesValidation="false" />
             <div class="clearfix"></div>
         </div>
     </section>

@@ -113,6 +113,12 @@ namespace WWF.eprocurement {
         
         private System.Threading.SendOrPostCallback FnUpdateTenderLineOperationCompleted;
         
+        private System.Threading.SendOrPostCallback AddemployeepassportphotoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnUpdateTenderLinePriceOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnSubmitTenderOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -276,6 +282,15 @@ namespace WWF.eprocurement {
         
         /// <remarks/>
         public event FnUpdateTenderLineCompletedEventHandler FnUpdateTenderLineCompleted;
+        
+        /// <remarks/>
+        public event AddemployeepassportphotoCompletedEventHandler AddemployeepassportphotoCompleted;
+        
+        /// <remarks/>
+        public event FnUpdateTenderLinePriceCompletedEventHandler FnUpdateTenderLinePriceCompleted;
+        
+        /// <remarks/>
+        public event FnSubmitTenderCompletedEventHandler FnSubmitTenderCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnChangePassword", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnChangePassword_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1518,24 +1533,25 @@ namespace WWF.eprocurement {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnCreateRequisitionLine", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnCreateRequisitionLine_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnCreateRequisitionLine(string docNo, string transactioncode, int qtyRequested, int noStaff, decimal directunitcost, string desc) {
+        public string FnCreateRequisitionLine(string docNo, string transactioncode, int qtyRequested, int noStaff, decimal directunitcost, string desc, string activitynumber) {
             object[] results = this.Invoke("FnCreateRequisitionLine", new object[] {
                         docNo,
                         transactioncode,
                         qtyRequested,
                         noStaff,
                         directunitcost,
-                        desc});
+                        desc,
+                        activitynumber});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void FnCreateRequisitionLineAsync(string docNo, string transactioncode, int qtyRequested, int noStaff, decimal directunitcost, string desc) {
-            this.FnCreateRequisitionLineAsync(docNo, transactioncode, qtyRequested, noStaff, directunitcost, desc, null);
+        public void FnCreateRequisitionLineAsync(string docNo, string transactioncode, int qtyRequested, int noStaff, decimal directunitcost, string desc, string activitynumber) {
+            this.FnCreateRequisitionLineAsync(docNo, transactioncode, qtyRequested, noStaff, directunitcost, desc, activitynumber, null);
         }
         
         /// <remarks/>
-        public void FnCreateRequisitionLineAsync(string docNo, string transactioncode, int qtyRequested, int noStaff, decimal directunitcost, string desc, object userState) {
+        public void FnCreateRequisitionLineAsync(string docNo, string transactioncode, int qtyRequested, int noStaff, decimal directunitcost, string desc, string activitynumber, object userState) {
             if ((this.FnCreateRequisitionLineOperationCompleted == null)) {
                 this.FnCreateRequisitionLineOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnCreateRequisitionLineOperationCompleted);
             }
@@ -1545,7 +1561,8 @@ namespace WWF.eprocurement {
                         qtyRequested,
                         noStaff,
                         directunitcost,
-                        desc}, this.FnCreateRequisitionLineOperationCompleted, userState);
+                        desc,
+                        activitynumber}, this.FnCreateRequisitionLineOperationCompleted, userState);
         }
         
         private void OnFnCreateRequisitionLineOperationCompleted(object arg) {
@@ -1885,6 +1902,110 @@ namespace WWF.eprocurement {
             if ((this.FnUpdateTenderLineCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.FnUpdateTenderLineCompleted(this, new FnUpdateTenderLineCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:Addemployeepassportphoto", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="Addemployeepassportphoto_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string Addemployeepassportphoto(string employeeno, string photo) {
+            object[] results = this.Invoke("Addemployeepassportphoto", new object[] {
+                        employeeno,
+                        photo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddemployeepassportphotoAsync(string employeeno, string photo) {
+            this.AddemployeepassportphotoAsync(employeeno, photo, null);
+        }
+        
+        /// <remarks/>
+        public void AddemployeepassportphotoAsync(string employeeno, string photo, object userState) {
+            if ((this.AddemployeepassportphotoOperationCompleted == null)) {
+                this.AddemployeepassportphotoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddemployeepassportphotoOperationCompleted);
+            }
+            this.InvokeAsync("Addemployeepassportphoto", new object[] {
+                        employeeno,
+                        photo}, this.AddemployeepassportphotoOperationCompleted, userState);
+        }
+        
+        private void OnAddemployeepassportphotoOperationCompleted(object arg) {
+            if ((this.AddemployeepassportphotoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddemployeepassportphotoCompleted(this, new AddemployeepassportphotoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnUpdateTenderLinePrice", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnUpdateTenderLinePrice_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnUpdateTenderLinePrice(int entryno, string tenderno, decimal unitprice, decimal totalprice, decimal vatinc, decimal vatexc) {
+            object[] results = this.Invoke("FnUpdateTenderLinePrice", new object[] {
+                        entryno,
+                        tenderno,
+                        unitprice,
+                        totalprice,
+                        vatinc,
+                        vatexc});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnUpdateTenderLinePriceAsync(int entryno, string tenderno, decimal unitprice, decimal totalprice, decimal vatinc, decimal vatexc) {
+            this.FnUpdateTenderLinePriceAsync(entryno, tenderno, unitprice, totalprice, vatinc, vatexc, null);
+        }
+        
+        /// <remarks/>
+        public void FnUpdateTenderLinePriceAsync(int entryno, string tenderno, decimal unitprice, decimal totalprice, decimal vatinc, decimal vatexc, object userState) {
+            if ((this.FnUpdateTenderLinePriceOperationCompleted == null)) {
+                this.FnUpdateTenderLinePriceOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnUpdateTenderLinePriceOperationCompleted);
+            }
+            this.InvokeAsync("FnUpdateTenderLinePrice", new object[] {
+                        entryno,
+                        tenderno,
+                        unitprice,
+                        totalprice,
+                        vatinc,
+                        vatexc}, this.FnUpdateTenderLinePriceOperationCompleted, userState);
+        }
+        
+        private void OnFnUpdateTenderLinePriceOperationCompleted(object arg) {
+            if ((this.FnUpdateTenderLinePriceCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnUpdateTenderLinePriceCompleted(this, new FnUpdateTenderLinePriceCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnSubmitTender", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", ResponseElementName="FnSubmitTender_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/eprocurement", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnSubmitTender(string tenderNo, string vendorNo) {
+            object[] results = this.Invoke("FnSubmitTender", new object[] {
+                        tenderNo,
+                        vendorNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnSubmitTenderAsync(string tenderNo, string vendorNo) {
+            this.FnSubmitTenderAsync(tenderNo, vendorNo, null);
+        }
+        
+        /// <remarks/>
+        public void FnSubmitTenderAsync(string tenderNo, string vendorNo, object userState) {
+            if ((this.FnSubmitTenderOperationCompleted == null)) {
+                this.FnSubmitTenderOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnSubmitTenderOperationCompleted);
+            }
+            this.InvokeAsync("FnSubmitTender", new object[] {
+                        tenderNo,
+                        vendorNo}, this.FnSubmitTenderOperationCompleted, userState);
+        }
+        
+        private void OnFnSubmitTenderOperationCompleted(object arg) {
+            if ((this.FnSubmitTenderCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnSubmitTenderCompleted(this, new FnSubmitTenderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2964,6 +3085,84 @@ namespace WWF.eprocurement {
         private object[] results;
         
         internal FnUpdateTenderLineCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void AddemployeepassportphotoCompletedEventHandler(object sender, AddemployeepassportphotoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddemployeepassportphotoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddemployeepassportphotoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnUpdateTenderLinePriceCompletedEventHandler(object sender, FnUpdateTenderLinePriceCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnUpdateTenderLinePriceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnUpdateTenderLinePriceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnSubmitTenderCompletedEventHandler(object sender, FnSubmitTenderCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnSubmitTenderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnSubmitTenderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

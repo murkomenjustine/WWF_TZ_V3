@@ -31,25 +31,23 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Description</th>
+                                <th>Tender Name</th>
                                 <th>Submission Startdate</th>
                                 <th>Submission StartTime</th>
                                 <th>Submission Dateline</th>
                                 <th>Submission EndTime</th>
                                 <th>Status</th>
-                                <th>View Details</th>
+                                <th>Apply</th>
                             </tr>
                         </thead>
                         <tbody>
                             <%
                                 int counter = 0;
                                 var nav = new Config().ReturnNav();
-                                //var data = nav.invitetoTenders.Where(x => x.Published == true && x.Document_Status == "Published" && x.Procurement_Method == "Open Tender" /*&& x.Submission_End_Date >= today*/).ToList();
-                                var data = nav.invitetoTenders.ToList();
+                                var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Published").ToList();
                                 foreach (var member in data)
                                 {
-                                    string clearText = member.Code;
+                                    string clearText = member.No;
                                     try
                                     {
 
@@ -82,25 +80,14 @@
                             %>
                             <tr>
                                 <td><%=counter %></td>
-                                <td><%=member.Tender_Name %></td>
-                                <td><%=member.Description %></td>
+                                <td><%=member.Title %></td>
                                 <td><%=Convert.ToDateTime(member.Submission_Start_Date).ToString("dd-MM-yyyy") %></td>
                                 <td><%=Convert.ToDateTime(member.Submission_Start_Time).ToString("HH:mm tt") %></td>
                                 <td><%=Convert.ToDateTime(member.Submission_End_Date).ToString("dd-MM-yyyy") %></td>
                                 <td><%=Convert.ToDateTime(member.Submission_End_Time).ToString("HH:mm tt") %></td>
-                                <td><%="Open" %></td>
-                                <%
-                                    if (member.Type == "Vendor")
-                                    {
-                                %><td><a href="ConsultancyDetails.aspx?TenderNo=<%=clearText %>" class="btn btn-success"><i class="fa fa-eye"></i>View Details</a> </td>
-                                <%
-                                    }
-                                    else
-                                    {
-                                %><td><a href="ConsultancyDetails.aspx?TenderNo=<%=clearText %>" class="btn btn-success"><i class="fa fa-eye"></i>View Details</a> </td>
-                                <%
-                                    }
-                                %>
+                                <td>
+                                    <label class="btn btn-success"><i class="fa fa-check"></i> Active</label></td>
+                                <td><a href="AccountLogin.aspx" class="btn btn-primary"><i class="fa fa-check"></i> Click To Apply</a> </td>
                             </tr>
                             <%
                                 }

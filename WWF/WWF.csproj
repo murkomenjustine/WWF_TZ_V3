@@ -124,7 +124,9 @@
     <Content Include="ActiveTendersView.aspx" />
     <Content Include="ApprovedPurchaseRequisitions.aspx" />
     <Content Include="AwardedContracts_Home.aspx" />
+    <Content Include="CancelledConsultancyView.aspx" />
     <Content Include="CancelledTendersView.aspx" />
+    <Content Include="ClosedConsultancyView.aspx" />
     <Content Include="ClosedTendersView.aspx" />
     <Content Include="ConsultancyApplicationPage.aspx" />
     <Content Include="ConsultancyDetails.aspx" />
@@ -133,12 +135,14 @@
     <Content Include="ConsultantProfileView.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="DownloadTenderDocument.aspx" />
     <Content Include="DownloadVendorFile.aspx" />
     <Content Include="EmployeeDashboard.aspx" />
     <Content Include="EmployeeProfile.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HelpDesk.aspx" />
     <Content Include="HelpDesk_Home.aspx" />
+    <Content Include="ImageUpload.aspx" />
     <Content Include="InProgressPurchaseRequisitions.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="OpenPurchaseRequisitions.aspx" />
@@ -172,6 +176,8 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\NaExtender\NavXtenderAddLink.wsdl" />
+    <Content Include="SubmittedConsultancyView.aspx" />
+    <Content Include="SubmittedTendersView.aspx" />
     <Content Include="TenderApplicationPage.aspx" />
     <Content Include="Web References\NaExtender\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -255,12 +261,26 @@
     <Compile Include="AwardedContracts_Home.aspx.designer.cs">
       <DependentUpon>AwardedContracts_Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CancelledConsultancyView.aspx.cs">
+      <DependentUpon>CancelledConsultancyView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CancelledConsultancyView.aspx.designer.cs">
+      <DependentUpon>CancelledConsultancyView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CancelledTendersView.aspx.cs">
       <DependentUpon>CancelledTendersView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CancelledTendersView.aspx.designer.cs">
       <DependentUpon>CancelledTendersView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClosedConsultancyView.aspx.cs">
+      <DependentUpon>ClosedConsultancyView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClosedConsultancyView.aspx.designer.cs">
+      <DependentUpon>ClosedConsultancyView.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClosedTendersView.aspx.cs">
       <DependentUpon>ClosedTendersView.aspx</DependentUpon>
@@ -318,6 +338,13 @@
     </Compile>
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadTenderDocument.aspx.cs">
+      <DependentUpon>DownloadTenderDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DownloadTenderDocument.aspx.designer.cs">
+      <DependentUpon>DownloadTenderDocument.aspx</DependentUpon>
     </Compile>
     <Compile Include="DownloadVendorFile.aspx.cs">
       <DependentUpon>DownloadVendorFile.aspx</DependentUpon>
@@ -378,6 +405,13 @@
     </Compile>
     <Compile Include="HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageUpload.aspx.cs">
+      <DependentUpon>ImageUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImageUpload.aspx.designer.cs">
+      <DependentUpon>ImageUpload.aspx</DependentUpon>
     </Compile>
     <Compile Include="InProgressPurchaseRequisitions.aspx.cs">
       <DependentUpon>InProgressPurchaseRequisitions.aspx</DependentUpon>
@@ -488,6 +522,20 @@
     <Compile Include="SpecialGroupTenderView.aspx.designer.cs">
       <DependentUpon>SpecialGroupTenderView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SubmittedConsultancyView.aspx.cs">
+      <DependentUpon>SubmittedConsultancyView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmittedConsultancyView.aspx.designer.cs">
+      <DependentUpon>SubmittedConsultancyView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubmittedTendersView.aspx.cs">
+      <DependentUpon>SubmittedTendersView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmittedTendersView.aspx.designer.cs">
+      <DependentUpon>SubmittedTendersView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TenderApplicationPage.aspx.cs">
       <DependentUpon>TenderApplicationPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -537,6 +585,7 @@
   <ItemGroup>
     <Folder Include="bootstrap\" />
     <Folder Include="dist\" />
+    <Folder Include="Passport\" />
     <Folder Include="plugins\" />
   </ItemGroup>
   <ItemGroup>

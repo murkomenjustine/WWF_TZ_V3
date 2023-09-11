@@ -596,6 +596,7 @@
             <element minOccurs="1" maxOccurs="1" name="noStaff" type="int" />
             <element minOccurs="1" maxOccurs="1" name="directunitcost" type="decimal" />
             <element minOccurs="1" maxOccurs="1" name="desc" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="activitynumber" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -756,6 +757,55 @@
         </complexType>
       </element>
       <element name="FnUpdateTenderLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Addemployeepassportphoto">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="photo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Addemployeepassportphoto_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateTenderLinePrice">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="entryno" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="tenderno" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="unitprice" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="totalprice" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="vatinc" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="vatexc" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnUpdateTenderLinePrice_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSubmitTender">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSubmitTender_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -1016,6 +1066,24 @@
   <message name="FnUpdateTenderLine_Result">
     <part name="parameters" element="tns:FnUpdateTenderLine_Result" />
   </message>
+  <message name="Addemployeepassportphoto">
+    <part name="parameters" element="tns:Addemployeepassportphoto" />
+  </message>
+  <message name="Addemployeepassportphoto_Result">
+    <part name="parameters" element="tns:Addemployeepassportphoto_Result" />
+  </message>
+  <message name="FnUpdateTenderLinePrice">
+    <part name="parameters" element="tns:FnUpdateTenderLinePrice" />
+  </message>
+  <message name="FnUpdateTenderLinePrice_Result">
+    <part name="parameters" element="tns:FnUpdateTenderLinePrice_Result" />
+  </message>
+  <message name="FnSubmitTender">
+    <part name="parameters" element="tns:FnSubmitTender" />
+  </message>
+  <message name="FnSubmitTender_Result">
+    <part name="parameters" element="tns:FnSubmitTender_Result" />
+  </message>
   <portType name="eprocurement_Port">
     <operation name="FnChangePassword">
       <input name="FnChangePassword" message="tns:FnChangePassword" />
@@ -1184,6 +1252,18 @@
     <operation name="FnUpdateTenderLine">
       <input name="FnUpdateTenderLine" message="tns:FnUpdateTenderLine" />
       <output name="FnUpdateTenderLine_Result" message="tns:FnUpdateTenderLine_Result" />
+    </operation>
+    <operation name="Addemployeepassportphoto">
+      <input name="Addemployeepassportphoto" message="tns:Addemployeepassportphoto" />
+      <output name="Addemployeepassportphoto_Result" message="tns:Addemployeepassportphoto_Result" />
+    </operation>
+    <operation name="FnUpdateTenderLinePrice">
+      <input name="FnUpdateTenderLinePrice" message="tns:FnUpdateTenderLinePrice" />
+      <output name="FnUpdateTenderLinePrice_Result" message="tns:FnUpdateTenderLinePrice_Result" />
+    </operation>
+    <operation name="FnSubmitTender">
+      <input name="FnSubmitTender" message="tns:FnSubmitTender" />
+      <output name="FnSubmitTender_Result" message="tns:FnSubmitTender_Result" />
     </operation>
   </portType>
   <binding name="eprocurement_Binding" type="tns:eprocurement_Port">
@@ -1563,6 +1643,33 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnUpdateTenderLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Addemployeepassportphoto">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:Addemployeepassportphoto" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Addemployeepassportphoto">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Addemployeepassportphoto_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnUpdateTenderLinePrice">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnUpdateTenderLinePrice" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnUpdateTenderLinePrice">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnUpdateTenderLinePrice_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnSubmitTender">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnSubmitTender" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnSubmitTender">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnSubmitTender_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

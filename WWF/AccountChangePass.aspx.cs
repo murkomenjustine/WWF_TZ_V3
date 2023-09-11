@@ -35,16 +35,16 @@ namespace WWF
                 {
                     feedback.InnerHtml = "";
                 }
-                bool isValidpass = IsValidPassword(tNewPass);
-                if (isValidpass == false)
-                {
-                    error = true;
-                    message = "Please enter a strong password. The password must have upper, lower, digit and special characters.";
-                }
-                else
-                {
-                    feedback.InnerHtml = "";
-                }
+                //bool isValidpass = IsValidPassword(tNewPass);
+                //if (isValidpass == false)
+                //{
+                //    error = true;
+                //    message = "Please enter a strong password. The password must have upper, lower, digit and special characters.";
+                //}
+                //else
+                //{
+                //    feedback.InnerHtml = "";
+                //}
                 if (tNewPass != tConfirmPass)
                 {
                     error = true;
