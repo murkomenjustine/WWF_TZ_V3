@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="WWF.Dashboard" %>
 
 <%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Globalization" %>
 <%@ Import Namespace="WWF" %>
 <%@ Import Namespace="System.Security.Cryptography" %>
 <%@ Import Namespace="System.Text" %>
@@ -18,11 +19,13 @@
 
     <section class="content">
         <%
+            string vendorNo = Convert.ToString(Session["vendorNo"]);
             var nav = new Config().ReturnNav();
             int active = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Published").ToList().Count;
-            int submitted = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Evaluation").ToList().Count;
-            int closed = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Closed").ToList().Count;
-            int cancelled = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Cancelled").ToList().Count;
+            int submitted = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Evaluation" && x.Vendor_No == vendorNo && x.Submitted_On_Portal == true).ToList().Count;
+            int unsubmitted = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Evaluation" && x.Vendor_No == vendorNo && x.Submitted_On_Portal == false).ToList().Count;
+            int closed = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Closed" && x.Vendor_No == vendorNo && x.Submitted_On_Portal == true).ToList().Count;
+            int cancelled = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Cancelled" && x.Vendor_No == vendorNo && x.Submitted_On_Portal == true).ToList().Count;
             //
             bool isregistered = false;
             var vend = nav.eProVendorQT.Where(x => x.No == Session["vendorNo"].ToString()).ToList().Take(1);
@@ -58,6 +61,19 @@
                         <i class="ion ion-bag"></i>
                     </div>
                     <a href="ActiveTendersView.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3><%=unsubmitted %></h3>
+                        <p>Unsubmitted Tenders</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="UnsubmittedTendersView.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -117,6 +133,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Tender Name</th>
+                                <th>Tender No.</th>
                                 <th>Submission Start Date</th>
                                 <th>Submission Start Time</th>
                                 <th>Submission End Date</th>
@@ -128,8 +145,11 @@
                         <tbody>
                             <%
                                 int counter = 0;
-
-                                var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Published").ToList();
+                                string d = Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-dd");
+                                string t = Convert.ToDateTime(DateTime.Now).ToString("HH:mm tt");
+                                DateTime ndate = DateTime.ParseExact(d, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                                DateTime ntime = DateTime.ParseExact(t, "HH:mm tt", CultureInfo.InvariantCulture);
+                                var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Published" && x.Submission_End_Date > ndate).ToList();
                                 foreach (var member in data)
                                 {
                                     string clearText = member.No;
@@ -165,6 +185,7 @@
                             %>
                             <tr>
                                 <td><%=counter %></td>
+                                <td><%=member.No %></td>
                                 <td><%=member.Title %></td>
                                 <td><%=Convert.ToDateTime(member.Submission_Start_Date).ToString("dd-MM-yyyy") %></td>
                                 <td><%=Convert.ToDateTime(member.Submission_Start_Time).ToString("HH:mm tt") %></td>

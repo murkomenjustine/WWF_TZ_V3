@@ -25,8 +25,10 @@
                             <strong>Type of Registration<span class="text-danger" style="font-size: 25px">*</span></strong>
                             <asp:DropDownList runat="server" ID="registeras" CssClass="form-control select2" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="registeras_SelectedIndexChanged">
                                 <asp:ListItem>--Select--</asp:ListItem>
-                                <asp:ListItem>Supplier</asp:ListItem>
-                                <asp:ListItem>Consultant</asp:ListItem>
+                                <asp:ListItem>Consultancy</asp:ListItem>
+                                <asp:ListItem>Partners</asp:ListItem>
+                                <asp:ListItem>Contractors</asp:ListItem>
+                                <asp:ListItem>Service Providers (non-consultancy)</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="registeras" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
@@ -60,7 +62,7 @@
                         <div class="col-lg-6 col-sm-6">
                             <div class="form-group">
                                 <strong>Phone Number<span class="text-danger" style="font-size: 25px">*</span></strong>
-                                <asp:TextBox runat="server" type="number" ID="phone" CssClass="form-control" placeholder="Enter Phone Number" />
+                                <asp:TextBox runat="server" ID="phone" CssClass="form-control" placeholder="Enter Phone Number" />
                                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="phone" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                             </div>
                         </div>

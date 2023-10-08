@@ -64,14 +64,10 @@ namespace WWF
                         {
                             Response.Redirect("EmployeeDashboard.aspx");
                         }
-                        else if (Session["user"].ToString() == "Vendor")
-                        {
-                            Response.Redirect("Dashboard.aspx");
-                        }
                         else
                         {
-                            Response.Redirect("ConsultantDashboard.aspx");
-                        }                       
+                            Response.Redirect("Dashboard.aspx");
+                        }                     
                     }
                 }
             }

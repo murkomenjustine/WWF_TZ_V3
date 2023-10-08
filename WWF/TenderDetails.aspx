@@ -71,6 +71,7 @@
             </div>
             <!-- /.col -->
         </div>
+        <div runat="server" id="feedback"></div>
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-success">
@@ -98,8 +99,8 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab_1" data-toggle="tab">Tender Overview</a></li>
                         <li><a href="#tab_2" data-toggle="tab">Schedule of Specification Requirement</a></li>
-                        <li><a href="#tab_3" data-toggle="tab">Mandatory Evaluation List</a></li>
-                        <li><a href="#tab_4" data-toggle="tab">Technical Evaluation List</a></li>
+                        <li><a href="#tab_3" data-toggle="tab">Required Documents</a></li>
+                       <%-- <li><a href="#tab_4" data-toggle="tab">Technical Evaluation List</a></li>--%>
                         <li><a href="#tab_5" data-toggle="tab">Tender Documents</a></li>
                     </ul>
                     <div class="tab-content">
@@ -230,7 +231,6 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Item</th>
-                                                <th>Specifications</th>
                                                 <th>Quantity</th>
                                                 <th>Unit of Measure</th>
                                             </tr>
@@ -246,7 +246,6 @@
                                             %>
                                             <tr>
                                                 <td><%=counter %></td>
-                                                <td><%=member.No %></td>
                                                 <td><%=member.Description %></td>
                                                 <td><%=member.Quantity %></td>
                                                 <td><%=member.Unit_of_Measure %></td>

@@ -18,6 +18,8 @@
     <%
         var nav = new Config().ReturnNav();
         string cipherText = Request.QueryString["TenderNo"];
+        string currency = "";
+
         try
         {
             string EncryptionKey = "@Test";
@@ -44,6 +46,12 @@
 
         }
 
+        var tender = nav.ProcurementRequest.Where(x => x.No == cipherText).ToList();
+        foreach(var item in tender)
+        {
+            currency = item.Currency_Code;
+        }
+
     %>
     <!-- Main content -->
     <section class="content">
@@ -60,6 +68,9 @@
                                 <p>
                                     This is the final page of the application process. Kindly fill all details before submitting your application.
                                 </p>
+                                                                <p>
+                                    The currency to be used when quaoting pricing is: <strong style="color:red"><%=currency %></strong>
+                                </p>
                             </div>
                             <!-- /.col -->
                         </div>
@@ -73,7 +84,7 @@
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading">
-                Schedule of Prices
+                Schedule of Prices. Kindly use<strong style="color:yellow"> (<%=currency %>)</strong> currency when quoting pricing below.
             </div>
             <div class="panel-body">
                 <div runat="server" id="pricingfeedback"></div>
@@ -85,8 +96,8 @@
                             <th>Specification / Description</th>
                             <th>Unit of Measure</th>
                             <th>Quantity Required</th>
-                            <th>Unit Price (TZS)</th>
-                            <th>Total Price (TZS)</th>
+                            <th>Unit Price <strong style="color:red">(<%=currency %>)</strong></th>
+                            <th>Total Price <strong style="color:red">(<%=currency %>)</strong></th>
                             <th>Add Pricing</th>
                             <th>Pricing Status</th>
                         </tr>
@@ -146,7 +157,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
-                            <strong>TOTAL VAT EXCLUSIVE (TZS)</strong>
+                            <strong>TOTAL VAT EXCLUSIVE <strong style="color:red">(<%=currency %>)</strong></strong>
                             <asp:TextBox runat="server" ID="totalvatexclusive" CssClass="form-control" placeholder="" ReadOnly="true" />
                         </div>
                     </div>
@@ -160,7 +171,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
-                            <strong>TOTAL VAT INCLUSIVE (TZS)</strong>
+                            <strong>TOTAL VAT INCLUSIVE <strong style="color:red">(<%=currency %>)</strong></strong>
                             <asp:TextBox runat="server" ID="totalinclusivevat" CssClass="form-control" placeholder="" ReadOnly="true" />
                         </div>
                     </div>
@@ -217,7 +228,7 @@
                                                     try
                                                     {
                                                         String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
-                                                        String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Approved Tender Card/";
+                                                        String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Tender Evaluation Card/";
                                                         String vendorNo = Convert.ToString(Session["vendorNo"]);
                                                         vendorNo = vendorNo.Replace('/', '_');
                                                         vendorNo = vendorNo.Replace(':', '_');
@@ -274,11 +285,18 @@
             document.getElementById("ContentPlaceHolder1_lineno").value = lineno;
             $("#addpricingmodal").modal();
         }
+
         function checkTB(val) {
             var allowedString = /^\d+(\.\d{0,2})?$/; // Allow 2 decimal place with numeric value
             if (allowedString.test(val) == false) {
                 alert("The value " + val + " is not allowed, kindly input only numbers or decimal numbers e.g 5 or 5.50");
             }
+        }
+
+        function deleteFile(fileName) {
+            document.getElementById("filetoDeleteName").innerText = fileName;
+            document.getElementById("ContentPlaceHolder1_fileName").value = fileName;
+            $("#deleteFileModal").modal();
         }
     </script>
     <div id="addpricingmodal" class="modal fade" role="dialog">
@@ -319,6 +337,26 @@
                     <asp:Button runat="server" CssClass="btn btn-primary" Text="Add Price" ID="addprice" OnClick="addprice_Click" CausesValidation="false" />
                 </div>
             </div>
+        </div>
+    </div>
+
+        <div id="deleteFileModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirm Deleting File</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete the file <strong id="filetoDeleteName"></strong>?</p>
+                    <asp:TextBox runat="server" ID="fileName" type="hidden" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete File" ID="deletefile" OnClick="deletefile_Click" />
+                </div>
+            </div>
+
         </div>
     </div>
 </asp:Content>

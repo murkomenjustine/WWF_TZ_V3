@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ActiveTendersView.aspx.cs" Inherits="WWF.ActiveTendersView" %>
 <%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Globalization" %>
 <%@ Import Namespace="WWF" %>
 <%@ Import Namespace="System.Security.Cryptography" %>
 <%@ Import Namespace="System.Text" %>
@@ -30,6 +31,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Tender No.</th>
                             <th>Tender Name</th>
                             <th>Submission Startdate</th>
                             <th>Submission StartTime</th>
@@ -43,7 +45,11 @@
                         <%
                             int counter = 0;
                             var nav = new Config().ReturnNav();
-                            var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Published").ToList();
+                            string d = Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-dd");
+                            string t = Convert.ToDateTime(DateTime.Now).ToString("HH:mm tt");
+                            DateTime ndate = DateTime.ParseExact(d, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                            DateTime ntime = DateTime.ParseExact(t, "HH:mm tt", CultureInfo.InvariantCulture);
+                            var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Published" && x.Submission_End_Date > ndate).ToList();
                             foreach (var member in data)
                             {
                                 string clearText = member.No;
@@ -79,6 +85,7 @@
                         %>
                         <tr>
                             <td><%=counter %></td>
+                            <td><%=member.No %></td>
                             <td><%=member.Title %></td>
                             <td><%=Convert.ToDateTime(member.Submission_Start_Date).ToString("dd-MM-yyyy") %></td>
                             <td><%=Convert.ToDateTime(member.Submission_Start_Time).ToString("HH:mm tt") %></td>

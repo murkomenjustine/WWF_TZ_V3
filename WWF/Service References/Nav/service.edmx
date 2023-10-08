@@ -1143,6 +1143,7 @@
       </EntityType>
       <EntityType Name="ProcurementRequest">
         <Key>
+          <PropertyRef Name="AuxiliaryIndex1" />
           <PropertyRef Name="No" />
         </Key>
         <Property Name="No" Type="Edm.String" Nullable="false" />
@@ -1227,12 +1228,24 @@
         <Property Name="Opening_Person_5" Type="Edm.String" />
         <Property Name="Tender_Validate_End_Date" Type="Edm.DateTime" />
         <Property Name="Document_Status" Type="Edm.String" />
+        <Property Name="Currency" Type="Edm.String" />
+        <Property Name="Submitted_On_Portal" Type="Edm.Boolean" />
+        <Property Name="Assigned_To_Evaluator" Type="Edm.Boolean" />
+        <Property Name="Submitted_By_Evaluator" Type="Edm.Boolean" />
+        <Property Name="Qualified" Type="Edm.Boolean" />
+        <Property Name="Comments" Type="Edm.String" />
+        <Property Name="Message_To_Evaluator" Type="Edm.String" />
+        <Property Name="Parent_TendorNo" Type="Edm.String" />
+        <Property Name="Date_Assigned_to_Evaluator" Type="Edm.DateTime" />
         <Property Name="No_of_Tender_Documents" Type="Edm.Int32" />
         <Property Name="Procurement_Amount" Type="Edm.Decimal" />
         <Property Name="Approval_Status" Type="Edm.Int32" />
         <Property Name="Successful_Bidder" Type="Edm.String" />
         <Property Name="Selected_Bidder_Name" Type="Edm.String" />
         <Property Name="Approval_Path" Type="Edm.Int32" />
+        <Property Name="First_Name" Type="Edm.String" />
+        <Property Name="Last_Name" Type="Edm.String" />
+        <Property Name="AuxiliaryIndex1" Type="Edm.String" Nullable="false" />
       </EntityType>
       <EntityType Name="ProcurementRequestLines">
         <Key>
@@ -1427,6 +1440,13 @@
         <Property Name="Transaction_Code1" Type="Edm.String" />
         <Property Name="AuxiliaryIndex1" Type="Edm.String" Nullable="false" />
       </EntityType>
+      <EntityType Name="RecordLink">
+        <Key>
+          <PropertyRef Name="AuxiliaryIndex1" />
+        </Key>
+        <Property Name="Record_ID" Type="Edm.String" />
+        <Property Name="AuxiliaryIndex1" Type="Edm.Int32" Nullable="false" />
+      </EntityType>
       <EntityType Name="RFIPreqList">
         <Key>
           <PropertyRef Name="Document_No" />
@@ -1547,6 +1567,7 @@
         <Property Name="Description" Type="Edm.String" />
         <Property Name="Score" Type="Edm.Decimal" />
         <Property Name="Maximum_Score" Type="Edm.Decimal" />
+        <Property Name="Attachment" Type="Edm.Boolean" />
       </EntityType>
       <EntityType Name="SpecialGroupCategories">
         <Key>
@@ -1630,6 +1651,13 @@
         <Property Name="Description" Type="Edm.String" />
         <Property Name="Type" Type="Edm.String" />
         <Property Name="No" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="UserSetup">
+        <Key>
+          <PropertyRef Name="User_ID" />
+        </Key>
+        <Property Name="User_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Employee_No" Type="Edm.String" />
       </EntityType>
       <EntityType Name="vendorBalancesheet">
         <Key>
@@ -2064,6 +2092,7 @@
         <NavigationProperty Name="purchaseCodeLines" Relationship="NAV.Company_purchaseCodeLines" ToRole="purchaseCodeLines" FromRole="Company" />
         <NavigationProperty Name="PurchaseHeader" Relationship="NAV.Company_PurchaseHeader" ToRole="PurchaseHeader" FromRole="Company" />
         <NavigationProperty Name="PurchaseLines" Relationship="NAV.Company_PurchaseLines" ToRole="PurchaseLines" FromRole="Company" />
+        <NavigationProperty Name="RecordLink" Relationship="NAV.Company_RecordLink" ToRole="RecordLink" FromRole="Company" />
         <NavigationProperty Name="RFIPreqList" Relationship="NAV.Company_RFIPreqList" ToRole="RFIPreqList" FromRole="Company" />
         <NavigationProperty Name="RFIResponseDocuments" Relationship="NAV.Company_RFIResponseDocuments" ToRole="RFIResponseDocuments" FromRole="Company" />
         <NavigationProperty Name="RFIResponses" Relationship="NAV.Company_RFIResponses" ToRole="RFIResponses" FromRole="Company" />
@@ -2075,6 +2104,7 @@
         <NavigationProperty Name="TenderDocumentsSource" Relationship="NAV.Company_TenderDocumentsSource" ToRole="TenderDocumentsSource" FromRole="Company" />
         <NavigationProperty Name="TenderSecurityTypes" Relationship="NAV.Company_TenderSecurityTypes" ToRole="TenderSecurityTypes" FromRole="Company" />
         <NavigationProperty Name="TransactionCode" Relationship="NAV.Company_TransactionCode" ToRole="TransactionCode" FromRole="Company" />
+        <NavigationProperty Name="UserSetup" Relationship="NAV.Company_UserSetup" ToRole="UserSetup" FromRole="Company" />
         <NavigationProperty Name="vendorBalancesheet" Relationship="NAV.Company_vendorBalancesheet" ToRole="vendorBalancesheet" FromRole="Company" />
         <NavigationProperty Name="VendorBankAccounts" Relationship="NAV.Company_VendorBankAccounts" ToRole="VendorBankAccounts" FromRole="Company" />
         <NavigationProperty Name="VendorFiledRegDocument" Relationship="NAV.Company_VendorFiledRegDocument" ToRole="VendorFiledRegDocument" FromRole="Company" />
@@ -2291,6 +2321,10 @@
         <End Type="NAV.PurchaseLines" Role="PurchaseLines" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
+      <Association Name="Company_RecordLink">
+        <End Type="NAV.RecordLink" Role="RecordLink" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
       <Association Name="Company_RFIPreqList">
         <End Type="NAV.RFIPreqList" Role="RFIPreqList" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
@@ -2333,6 +2367,10 @@
       </Association>
       <Association Name="Company_TransactionCode">
         <End Type="NAV.TransactionCode" Role="TransactionCode" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_UserSetup">
+        <End Type="NAV.UserSetup" Role="UserSetup" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
       <Association Name="Company_vendorBalancesheet">
@@ -2446,6 +2484,7 @@
         <EntitySet Name="purchaseCodeLines" EntityType="NAV.purchaseCodeLines" />
         <EntitySet Name="PurchaseHeader" EntityType="NAV.PurchaseHeader" />
         <EntitySet Name="PurchaseLines" EntityType="NAV.PurchaseLines" />
+        <EntitySet Name="RecordLink" EntityType="NAV.RecordLink" />
         <EntitySet Name="RFIPreqList" EntityType="NAV.RFIPreqList" />
         <EntitySet Name="RFIResponseDocuments" EntityType="NAV.RFIResponseDocuments" />
         <EntitySet Name="RFIResponses" EntityType="NAV.RFIResponses" />
@@ -2457,6 +2496,7 @@
         <EntitySet Name="TenderDocumentsSource" EntityType="NAV.TenderDocumentsSource" />
         <EntitySet Name="TenderSecurityTypes" EntityType="NAV.TenderSecurityTypes" />
         <EntitySet Name="TransactionCode" EntityType="NAV.TransactionCode" />
+        <EntitySet Name="UserSetup" EntityType="NAV.UserSetup" />
         <EntitySet Name="vendorBalancesheet" EntityType="NAV.vendorBalancesheet" />
         <EntitySet Name="VendorBankAccounts" EntityType="NAV.VendorBankAccounts" />
         <EntitySet Name="VendorFiledRegDocument" EntityType="NAV.VendorFiledRegDocument" />
@@ -2673,6 +2713,10 @@
           <End Role="Company" EntitySet="Company" />
           <End Role="PurchaseLines" EntitySet="PurchaseLines" />
         </AssociationSet>
+        <AssociationSet Name="Company_RecordLink_RecordLink" Association="NAV.Company_RecordLink">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="RecordLink" EntitySet="RecordLink" />
+        </AssociationSet>
         <AssociationSet Name="Company_RFIPreqList_RFIPreqList" Association="NAV.Company_RFIPreqList">
           <End Role="Company" EntitySet="Company" />
           <End Role="RFIPreqList" EntitySet="RFIPreqList" />
@@ -2716,6 +2760,10 @@
         <AssociationSet Name="Company_TransactionCode_TransactionCode" Association="NAV.Company_TransactionCode">
           <End Role="Company" EntitySet="Company" />
           <End Role="TransactionCode" EntitySet="TransactionCode" />
+        </AssociationSet>
+        <AssociationSet Name="Company_UserSetup_UserSetup" Association="NAV.Company_UserSetup">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="UserSetup" EntitySet="UserSetup" />
         </AssociationSet>
         <AssociationSet Name="Company_vendorBalancesheet_vendorBalancesheet" Association="NAV.Company_vendorBalancesheet">
           <End Role="Company" EntitySet="Company" />

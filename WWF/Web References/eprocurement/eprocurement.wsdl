@@ -72,11 +72,9 @@
             <element minOccurs="1" maxOccurs="1" name="taxregistrationcountry" type="string" />
             <element minOccurs="1" maxOccurs="1" name="registrationdate" type="date" />
             <element minOccurs="1" maxOccurs="1" name="gregistrationincorporationno" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="businesstype" type="string" />
             <element minOccurs="1" maxOccurs="1" name="ownershiptype" type="int" />
-            <element minOccurs="1" maxOccurs="1" name="industrygroup" type="string" />
             <element minOccurs="1" maxOccurs="1" name="language" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="suppliertype" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="suppliertype" type="string" />
             <element minOccurs="1" maxOccurs="1" name="vision" type="string" />
             <element minOccurs="1" maxOccurs="1" name="mission" type="string" />
             <element minOccurs="1" maxOccurs="1" name="specialgroup" type="boolean" />
@@ -812,6 +810,128 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnCreateNewTender">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vendorNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="originalTenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnCreateNewTender_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSubmitTenderEvaluation">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSubmitTenderEvaluation_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAssignTender">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="evaluator" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="evaltwo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="evalthree" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="evalfour" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="evalfive" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="smsmessage" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAssignTender_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnTenderQualification">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="comments" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="qualified" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnTenderQualification_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSendEmailToProcComitteeFromEval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSendEmailToProcComitteeFromEval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSendEmailToEvalFromProcComittee">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnSendEmailToEvalFromProcComittee_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetRecordId">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetRecordId_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAwardTender">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="tenderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="award" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAwardTender_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
   <message name="FnChangePassword">
@@ -1084,6 +1204,54 @@
   <message name="FnSubmitTender_Result">
     <part name="parameters" element="tns:FnSubmitTender_Result" />
   </message>
+  <message name="FnCreateNewTender">
+    <part name="parameters" element="tns:FnCreateNewTender" />
+  </message>
+  <message name="FnCreateNewTender_Result">
+    <part name="parameters" element="tns:FnCreateNewTender_Result" />
+  </message>
+  <message name="FnSubmitTenderEvaluation">
+    <part name="parameters" element="tns:FnSubmitTenderEvaluation" />
+  </message>
+  <message name="FnSubmitTenderEvaluation_Result">
+    <part name="parameters" element="tns:FnSubmitTenderEvaluation_Result" />
+  </message>
+  <message name="FnAssignTender">
+    <part name="parameters" element="tns:FnAssignTender" />
+  </message>
+  <message name="FnAssignTender_Result">
+    <part name="parameters" element="tns:FnAssignTender_Result" />
+  </message>
+  <message name="FnTenderQualification">
+    <part name="parameters" element="tns:FnTenderQualification" />
+  </message>
+  <message name="FnTenderQualification_Result">
+    <part name="parameters" element="tns:FnTenderQualification_Result" />
+  </message>
+  <message name="FnSendEmailToProcComitteeFromEval">
+    <part name="parameters" element="tns:FnSendEmailToProcComitteeFromEval" />
+  </message>
+  <message name="FnSendEmailToProcComitteeFromEval_Result">
+    <part name="parameters" element="tns:FnSendEmailToProcComitteeFromEval_Result" />
+  </message>
+  <message name="FnSendEmailToEvalFromProcComittee">
+    <part name="parameters" element="tns:FnSendEmailToEvalFromProcComittee" />
+  </message>
+  <message name="FnSendEmailToEvalFromProcComittee_Result">
+    <part name="parameters" element="tns:FnSendEmailToEvalFromProcComittee_Result" />
+  </message>
+  <message name="FnGetRecordId">
+    <part name="parameters" element="tns:FnGetRecordId" />
+  </message>
+  <message name="FnGetRecordId_Result">
+    <part name="parameters" element="tns:FnGetRecordId_Result" />
+  </message>
+  <message name="FnAwardTender">
+    <part name="parameters" element="tns:FnAwardTender" />
+  </message>
+  <message name="FnAwardTender_Result">
+    <part name="parameters" element="tns:FnAwardTender_Result" />
+  </message>
   <portType name="eprocurement_Port">
     <operation name="FnChangePassword">
       <input name="FnChangePassword" message="tns:FnChangePassword" />
@@ -1264,6 +1432,38 @@
     <operation name="FnSubmitTender">
       <input name="FnSubmitTender" message="tns:FnSubmitTender" />
       <output name="FnSubmitTender_Result" message="tns:FnSubmitTender_Result" />
+    </operation>
+    <operation name="FnCreateNewTender">
+      <input name="FnCreateNewTender" message="tns:FnCreateNewTender" />
+      <output name="FnCreateNewTender_Result" message="tns:FnCreateNewTender_Result" />
+    </operation>
+    <operation name="FnSubmitTenderEvaluation">
+      <input name="FnSubmitTenderEvaluation" message="tns:FnSubmitTenderEvaluation" />
+      <output name="FnSubmitTenderEvaluation_Result" message="tns:FnSubmitTenderEvaluation_Result" />
+    </operation>
+    <operation name="FnAssignTender">
+      <input name="FnAssignTender" message="tns:FnAssignTender" />
+      <output name="FnAssignTender_Result" message="tns:FnAssignTender_Result" />
+    </operation>
+    <operation name="FnTenderQualification">
+      <input name="FnTenderQualification" message="tns:FnTenderQualification" />
+      <output name="FnTenderQualification_Result" message="tns:FnTenderQualification_Result" />
+    </operation>
+    <operation name="FnSendEmailToProcComitteeFromEval">
+      <input name="FnSendEmailToProcComitteeFromEval" message="tns:FnSendEmailToProcComitteeFromEval" />
+      <output name="FnSendEmailToProcComitteeFromEval_Result" message="tns:FnSendEmailToProcComitteeFromEval_Result" />
+    </operation>
+    <operation name="FnSendEmailToEvalFromProcComittee">
+      <input name="FnSendEmailToEvalFromProcComittee" message="tns:FnSendEmailToEvalFromProcComittee" />
+      <output name="FnSendEmailToEvalFromProcComittee_Result" message="tns:FnSendEmailToEvalFromProcComittee_Result" />
+    </operation>
+    <operation name="FnGetRecordId">
+      <input name="FnGetRecordId" message="tns:FnGetRecordId" />
+      <output name="FnGetRecordId_Result" message="tns:FnGetRecordId_Result" />
+    </operation>
+    <operation name="FnAwardTender">
+      <input name="FnAwardTender" message="tns:FnAwardTender" />
+      <output name="FnAwardTender_Result" message="tns:FnAwardTender_Result" />
     </operation>
   </portType>
   <binding name="eprocurement_Binding" type="tns:eprocurement_Port">
@@ -1670,6 +1870,78 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnSubmitTender_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnCreateNewTender">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnCreateNewTender" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnCreateNewTender">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnCreateNewTender_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnSubmitTenderEvaluation">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnSubmitTenderEvaluation" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnSubmitTenderEvaluation">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnSubmitTenderEvaluation_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnAssignTender">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnAssignTender" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnAssignTender">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnAssignTender_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnTenderQualification">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnTenderQualification" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnTenderQualification">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnTenderQualification_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnSendEmailToProcComitteeFromEval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnSendEmailToProcComitteeFromEval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnSendEmailToProcComitteeFromEval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnSendEmailToProcComitteeFromEval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnSendEmailToEvalFromProcComittee">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnSendEmailToEvalFromProcComittee" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnSendEmailToEvalFromProcComittee">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnSendEmailToEvalFromProcComittee_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetRecordId">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnGetRecordId" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetRecordId">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetRecordId_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnAwardTender">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/eprocurement:FnAwardTender" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnAwardTender">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnAwardTender_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

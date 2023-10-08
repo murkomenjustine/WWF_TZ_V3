@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -18,10 +19,10 @@ namespace WWF
             {
                 populateTotals();
                 var nav = new Config().ReturnNav();
-                var ptype = nav.ProcurementDocumentType.Where(x => x.Type == "Vendor");
+                var ptype = nav.RFQEvaluationLists.Where(x => x.Attachment == true);
                 documenttoupload.DataSource = ptype;
                 documenttoupload.DataTextField = "Description";
-                documenttoupload.DataValueField = "Code";
+                documenttoupload.DataValueField = "Description";
                 documenttoupload.DataBind();
             }
         }
@@ -152,14 +153,16 @@ namespace WWF
                 string ApplicationNumber = vendorNo;
                 ApplicationNumber = ApplicationNumber.Replace('/', '_');
                 ApplicationNumber = ApplicationNumber.Replace(':', '_');
-                string path1 = Config.FilesLocation() + "Approved Tender Card/";
+                string path1 = Config.FilesLocation() + "Tender Evaluation Card/";
+                string cipherText = Request.QueryString["TenderNo"];
+                string TenderNo = Decrypt(cipherText);
                 string str1 = Convert.ToString(ApplicationNumber);
                 string folderName = path1 + str1 + "/";
 
                 if (filetoupload.HasFile)
                 {
                     string extension = System.IO.Path.GetExtension(filetoupload.FileName);
-                    string filename = ApplicationNumber + "_" + gdocumenttoupload + extension;
+                    string filename = ApplicationNumber + "_" + TenderNo + "_" + gdocumenttoupload + extension;
                     string fullpath = folderName + filename;
                     if (!Directory.Exists(folderName))
                     {
@@ -170,7 +173,7 @@ namespace WWF
                         File.Delete(folderName + filename);
                     }
                     filetoupload.SaveAs(folderName + filename);
-                    //Config.navExtender.AddLinkToRecord("Vendor Registration Card", ApplicationNumber, fullpath, "");
+                    Config.navExtender.AddLinkToRecord("Tender Evaluation Card", ApplicationNumber, fullpath, "");
                     if (File.Exists(folderName + filename))
                     {
                         pricingfeedback.InnerHtml = "<div class='alert alert-success'>The document "+ gdocumenttoupload +" has been uploaded successfully<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
@@ -198,8 +201,9 @@ namespace WWF
                 string[] info = status.Split('*');
                 if (info[0] == "success")
                 {
-                    populateTotals();
                     pricingfeedback.InnerHtml = "<div class='alert alert-success'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                    "setTimeout(function() { window.location.replace('SubmittedTendersView.aspx') }, 10000);", true);
                 }
                 else
                 {
@@ -216,6 +220,44 @@ namespace WWF
         {
             string cipherText = Request.QueryString["TenderNo"];
             Response.Redirect("TenderDetails.aspx?TenderNo=" + cipherText);
+        }
+
+        protected void deletefile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String tFileName = fileName.Text.Trim();
+                String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Tender Evaluation Card/";
+                String imprestNo = Convert.ToString(Session["vendorNo"]);
+                imprestNo = imprestNo.Replace('/', '_');
+                imprestNo = imprestNo.Replace(':', '_');
+                String documentDirectory = filesFolder + imprestNo + "/";
+                String myFile = documentDirectory + tFileName;
+                if (File.Exists(myFile))
+                {
+                    File.Delete(myFile);
+                    if (File.Exists(myFile))
+                    {
+                        pricingfeedback.InnerHtml = "<div class='alert alert-danger'>The file could not be deleted <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+                    else
+                    {
+                        pricingfeedback.InnerHtml = "<div class='alert alert-success'>The file was successfully deleted <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+                }
+                else
+                {
+                    pricingfeedback.InnerHtml = "<div class='alert alert-danger'>A file with the given name does not exist in the server <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+
+
+
+            }
+            catch (Exception m)
+            {
+                pricingfeedback.InnerHtml = "<div class='alert alert-danger'>" + m.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+            }
         }
     }
 }

@@ -26,6 +26,7 @@ namespace WWF
             {
                 string message = "";
                 bool error = false;
+                string tregisteras = registeras.SelectedValue.Trim();
                 string tapplicantbusinessname = applicantbusinessname.Text.Trim();
                 string ttaxno = taxno.Text.Trim();
                 string temail = email.Text.Trim().ToLower();
@@ -88,15 +89,15 @@ namespace WWF
         protected void registeras_SelectedIndexChanged(object sender, EventArgs e)
         {
             string txtregister = registeras.SelectedValue;
-            if(txtregister == "Supplier")
-            {
-                divvendor.Visible = true;
-                divconsultant.Visible = false;
-            }
-            if (txtregister == "Consultant")
+            if (txtregister == "Consultancy")
             {
                 divvendor.Visible = false;
                 divconsultant.Visible = true;
+            }
+            else
+            {
+                divvendor.Visible = true;
+                divconsultant.Visible = false;
             }
             if (txtregister == "--Select--")
             {

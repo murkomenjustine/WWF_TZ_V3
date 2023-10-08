@@ -30,6 +30,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Tender No.</th>
                             <th>Tender Name</th>
                             <th>Submission Startdate</th>
                             <th>Submission StartTime</th>
@@ -43,7 +44,8 @@
                         <%
                             int counter = 0;
                             var nav = new Config().ReturnNav();
-                            var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Evaluation").ToList();
+                            string vendorNo = Convert.ToString(Session["vendorNo"]);
+                            var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Evaluation" && x.Vendor_No == vendorNo && x.Submitted_On_Portal == true).ToList();
                             foreach (var member in data)
                             {
                                 string clearText = member.No;
@@ -79,6 +81,7 @@
                         %>
                         <tr>
                             <td><%=counter %></td>
+                            <td><%=member.No %></td>
                             <td><%=member.Title %></td>
                             <td><%=Convert.ToDateTime(member.Submission_Start_Date).ToString("dd-MM-yyyy") %></td>
                             <td><%=Convert.ToDateTime(member.Submission_Start_Time).ToString("HH:mm tt") %></td>

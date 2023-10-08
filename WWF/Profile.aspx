@@ -18,7 +18,7 @@
         try
         {
             step = Convert.ToInt32(Request.QueryString["step"]);
-            if (step > 8 || step < 1)
+            if (step > 6 || step < 1)
             {
                 step = 1;
             }
@@ -36,7 +36,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading">
                 General Details. Kindly note that fields marked with asterisk (<span class="text-danger" style="font-size: 25px">*</span>) are mandatory.
-                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 1 of 8 <i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
+                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 1 of 6 <i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
             </div>
             <div class="panel-body">
                 <div runat="server" id="feedback"></div>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
-                            <strong>Tax Registration No.<span class="text-danger" style="font-size: 25px">*</span></strong>
+                            <strong>TIN No.<span class="text-danger" style="font-size: 25px">*</span></strong>
                             <asp:TextBox runat="server" ID="taxregistrationno" CssClass="form-control" placeholder="Please enter details here..." />
                             <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="taxregistrationno" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
@@ -85,21 +85,20 @@
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
                             <strong>Language<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:DropDownList runat="server" ID="language" CssClass="form-control select2" AppendDataBoundItems="true">
-                                <asp:ListItem>--Select--</asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="language" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
+                            <asp:TextBox runat="server" ID="languages" ReadOnly="true" CssClass="form-control">
+                            </asp:TextBox>
+                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="languages" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
-                            <strong>Business Type<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:DropDownList runat="server" ID="businesstype" CssClass="form-control select2">
+                            <strong>Supplier Category<span class="text-danger" style="font-size: 25px">*</span></strong>
+                            <asp:DropDownList runat="server" ID="businesprofilesuppliercategory" CssClass="form-control select2" AppendDataBoundItems="true">
                                 <asp:ListItem>--Select--</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="businesstype" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
+                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="businesprofilesuppliercategory" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
@@ -111,28 +110,6 @@
                                 <asp:ListItem>Registered Company</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="ownershiptype" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Supplier Type<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:DropDownList runat="server" ID="suppliertype" CssClass="form-control select2">
-                                <asp:ListItem>--Select--</asp:ListItem>
-                                <asp:ListItem>Local</asp:ListItem>
-                                <asp:ListItem>Foreign</asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="suppliertype" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Industry Group<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:DropDownList runat="server" ID="industrygroup" CssClass="form-control select2">
-                                <asp:ListItem>--Select--</asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="industrygroup" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
                 </div>
@@ -229,7 +206,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading">
                 Communication, Contact & Location Details. Kindly note that fields marked with asterisk (<span class="text-danger" style="font-size: 25px">*</span>) are mandatory.
-                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 2 of 8<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
+                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 2 of 6<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
             </div>
             <div class="panel-body">
                 <div runat="server" id="communicationfeedback"></div>
@@ -281,41 +258,16 @@
                     </div>
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
-                            <strong>Address 2<span class="text-danger" style="font-size: 25px">*</span></strong>
+                            <strong>Address 2</strong>
                             <asp:TextBox runat="server" ID="address2" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="address2" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
-                            <strong>Building/House No.<span class="text-danger" style="font-size: 25px">*</span></strong>
+                            <strong>Building/Plot No.</strong>
                             <asp:TextBox runat="server" ID="buildinghouse" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="buildinghouse" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Floor<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="floor" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="floor" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Plot No.<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="plot" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="plot" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Street<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="street" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="street" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
                 </div>
@@ -336,95 +288,15 @@
     <section class="content">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                Company/Business Profile. Kindly note that fields marked with asterisk (<span class="text-danger" style="font-size: 25px">*</span>) are mandatory.
-                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 3 of 8<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
-            </div>
-            <div class="panel-body">
-                <div runat="server" id="businessprofilefeedback"></div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Company Size<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:DropDownList runat="server" ID="companysize" CssClass="form-control select2" AppendDataBoundItems="true">
-                                <asp:ListItem>--Select--</asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="companysize" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Nominal Capital<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" type="number" ID="nominalcapital" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="nominalcapital" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Dealer Type<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:DropDownList runat="server" ID="dealertype" CssClass="form-control select2" AppendDataBoundItems="true">
-                                <asp:ListItem>--Select--</asp:ListItem>
-                                <asp:ListItem>Manufacturer</asp:ListItem>
-                                <asp:ListItem>Distributor</asp:ListItem>
-                                <asp:ListItem>Partner</asp:ListItem>
-                                <asp:ListItem>Reseller</asp:ListItem>
-                                <asp:ListItem>Other</asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="dealertype" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Max value of Business<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" type="number" ID="maxvalueofbusiness" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="maxvalueofbusiness" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Supplier Category<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:DropDownList runat="server" ID="businesprofilesuppliercategory" CssClass="form-control select2" AppendDataBoundItems="true">
-                                <asp:ListItem>--Select--</asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="businesprofilesuppliercategory" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Nature of Business<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="natureofbusiness" CssClass="form-control" TextMode="MultiLine" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="natureofbusiness" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <asp:Button runat="server" CssClass="btn btn-primary pull-left" Text="Back" ID="backtosteptwo" OnClick="back_Click" CausesValidation="false" />
-                    <asp:Button runat="server" CssClass="btn btn-primary pull-right" Text="Next" ID="businessprofiledetails" OnClick="businessprofiledetails_Click" />
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <% 
-        }
-        else if (step == 4)
-        {
-    %>
-    <section class="content">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
                 Bank Profile. Kindly note that fields marked with asterisk (<span class="text-danger" style="font-size: 25px">*</span>) are mandatory.
-                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 4 of 8<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
+                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 3 of 6<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
             </div>
             <div class="panel-body">
                 <div runat="server" id="bankprofilefeedback"></div>
                 <div class="row">
                     <div class="col-lg-6 col-sm-6">
                         <div class="form-group">
-                            <strong>Bank Code<span class="text-danger" style="font-size: 25px">*</span></strong>
+                            <strong>Swift Code<span class="text-danger" style="font-size: 25px">*</span></strong>
                             <asp:TextBox runat="server" ID="bankcodes" CssClass="form-control" placeholder="Please enter details here..." />
                             <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="bankcodes" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
@@ -473,7 +345,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Bank Code</th>
+                                            <th>Swift Code</th>
                                             <th>Bank Name</th>
                                             <th>Bank Branch No.</th>
                                             <th>Bank Account No.</th>
@@ -526,166 +398,14 @@
     </section>
     <% 
         }
-        else if (step == 5)
-        {
-    %>
-    <section class="content">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                Shareholder Details. Kindly note that fields marked with asterisk (<span class="text-danger" style="font-size: 25px">*</span>) are mandatory.
-                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 5 of 8<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
-            </div>
-            <div class="panel-body">
-                <div runat="server" id="shareholderfeedback"></div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Shareholder Name<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="directorname" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="directorname" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>ID Number<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="idnumber" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="idnumber" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Citizenship Type<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:DropDownList runat="server" ID="citizenshiptype" CssClass="form-control select2" AppendDataBoundItems="true">
-                                <asp:ListItem>--Select--</asp:ListItem>
-                                <asp:ListItem>Birth</asp:ListItem>
-                                <asp:ListItem>Naturalization</asp:ListItem>
-                                <asp:ListItem>Registration</asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" InitialValue="--Select--" ControlToValidate="citizenshiptype" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Ownership Percentage(%)<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="ownershippercentage" CssClass="form-control" placeholder="Please enter details here..." value="0" DisplayFormatString="00.00" onkeyup="checkTB(this.value)" />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="ownershippercentage" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Phone Number<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="phonenumber" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="phonenumber" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Shareholder Email Address<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="shareholderemail" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="shareholderemail" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <strong>Shareholder Address<span class="text-danger" style="font-size: 25px">*</span></strong>
-                            <asp:TextBox runat="server" ID="shareholderaddress" CssClass="form-control" placeholder="Please enter details here..." />
-                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="shareholderaddress" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <asp:Button runat="server" CssClass="btn btn-primary pull-right" Text="Save Shareholder Details" ID="shareholderdetails" OnClick="shareholderdetails_Click" />
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title"><strong>Saved Shareholder List</strong></h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <table id="example2" class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Director Name</th>
-                                            <th>ID Number</th>
-                                            <th>Citizenship Type</th>
-                                            <th>Ownership Percentage(%)</th>
-                                            <th>Phone Number</th>
-                                            <th>Email Address</th>
-                                            <th>Shareholder Address</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%
-                                            int counter = 0;
-                                            var shareholderdata = nav.VendorShareholderDetails.Where(r => r.Vendor_No == vendorNo);
-                                            foreach (var t in shareholderdata)
-                                            {
-                                                counter++;
-                                        %>
-                                        <tr>
-                                            <td><%=counter %></td>
-                                            <td><%=t.Name %></td>
-                                            <td><%=t.ID_Passport_No %></td>
-                                            <td><%=t.Citizenship_Type %></td>
-                                            <td><%=t.Entity_Ownership %></td>
-                                            <td><%=t.Phone_No %></td>
-                                            <td><%=t.E_Mail %></td>
-                                            <td><%=t.Address %></td>
-                                            <td>
-                                                <label class="btn btn-primary" onclick="editShareholder('<%=t.Entry_No %>','<%=t.Name %>','<%=t.ID_Passport_No %>','<%=t.Citizenship_Type %>','<%=t.Entity_Ownership %>','<%=t.Phone_No %>','<%=t.E_Mail %>','<%=t.Address %>');"><i class="fa fa-edit"></i>Edit</label>
-                                            </td>
-                                            <td>
-                                                <label class="btn btn-danger" onclick="removeshareholder('<%=t.Entry_No %>','<%=t.Name %>');"><i class="fa fa-thrash"></i>Remove</label>
-                                            </td>
-                                        </tr>
-                                        <%
-                                            }
-                                        %>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <!-- ./box-body -->
-                </div>
-                <!-- /.box -->
-            </div>
-            <!-- /.col -->
-        </div>
-        <div class="panel-footer">
-            <asp:Button runat="server" CssClass="btn btn-primary pull-left" Text="Back" ID="backtostepfour" OnClick="back_Click" CausesValidation="false" />
-            <asp:Button runat="server" CssClass="btn btn-primary pull-right" Text="Next" ID="nexttostepsix" OnClick="nexttostepsix_Click" CausesValidation="false" />
-            <div class="clearfix"></div>
-        </div>
-    </section>
-    <% 
-        }
-        else if (step == 6)
+        else if (step == 4)
         {
     %>
     <section class="content">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 Past Experience. Kindly note that fields marked with asterisk (<span class="text-danger" style="font-size: 25px">*</span>) are mandatory.
-                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 6 of 8<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
+                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 4 of 6<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
             </div>
             <div class="panel-body">
                 <div runat="server" id="pastexperiencefeedback"></div>
@@ -750,6 +470,15 @@
                             <strong>Address<span class="text-danger" style="font-size: 25px">*</span></strong>
                             <asp:TextBox runat="server" ID="projectaddress" CssClass="form-control" placeholder="Please enter details here..." />
                             <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="projectaddress" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="form-group">
+                            <strong>Experience Letter<span class="text-danger" style="font-size: 25px">*</span></strong>
+                            <asp:FileUpload runat="server" ID="experienceletter" CssClass="form-control" />
+                            <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="experienceletter" ErrorMessage="Please fill this field, it cannot be empty!" ForeColor="Red" />
                         </div>
                     </div>
                 </div>
@@ -839,14 +568,14 @@
     </section>
     <% 
         }
-        else if (step == 7)
+        else if (step == 5)
         {
     %>
     <section class="content">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 Key Staff / Personnel. Kindly note that fields marked with asterisk (<span class="text-danger" style="font-size: 25px">*</span>) are mandatory.
-                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 7 of 8<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
+                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 5 of 6<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
             </div>
             <div class="panel-body">
                 <div runat="server" id="keystafffeedback"></div>
@@ -1018,14 +747,14 @@
     </section>
     <% 
         }
-        else if (step == 8)
+        else if (step == 6)
         {
     %>
     <section class="content">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 Document Upload. Kindly note that fields marked with asterisk (<span class="text-danger" style="font-size: 25px">*</span>) are mandatory.
-                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 8 of 8<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
+                 <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 6 of 6<i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
             </div>
             <div class="panel-body">
                 <div runat="server" id="documentsfeedback"></div>
@@ -1327,7 +1056,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
-                    <asp:Button runat="server" CssClass="btn btn-primary" Text="Remove Shareholder" ID="removeshareholder" OnClick="removeshareholder_Click" CausesValidation="false" />
+                    <asp:Button runat="server" CssClass="btn btn-primary" Text="Remove Shareholder" ID="removeshareholder" CausesValidation="false" />
                 </div>
             </div>
         </div>
@@ -1400,7 +1129,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
-                    <asp:Button runat="server" CssClass="btn btn-primary" Text="Edit Shareholder Details" ID="editshareholder" OnClick="editshareholder_Click" CausesValidation="false" />
+                    <asp:Button runat="server" CssClass="btn btn-primary" Text="Edit Shareholder Details" ID="editshareholder" CausesValidation="false" />
                 </div>
             </div>
         </div>

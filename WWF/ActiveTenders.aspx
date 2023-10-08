@@ -31,6 +31,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Tender No.</th>
                                 <th>Tender Name</th>
                                 <th>Submission Startdate</th>
                                 <th>Submission StartTime</th>
@@ -80,6 +81,7 @@
                             %>
                             <tr>
                                 <td><%=counter %></td>
+                                <td><%=member.No %></td>
                                 <td><%=member.Title %></td>
                                 <td><%=Convert.ToDateTime(member.Submission_Start_Date).ToString("dd-MM-yyyy") %></td>
                                 <td><%=Convert.ToDateTime(member.Submission_Start_Time).ToString("HH:mm tt") %></td>

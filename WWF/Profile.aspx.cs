@@ -19,7 +19,7 @@ namespace WWF
             try
             {
                 step = Convert.ToInt32(Request.QueryString["step"]);
-                if (step > 8 || step < 1)
+                if (step > 6 || step < 1)
                 {
                     step = 1;
                 }
@@ -42,23 +42,11 @@ namespace WWF
                     taxregistrationcountry.DataValueField = "Code";
                     taxregistrationcountry.DataBind();
 
-                    var dbusinesstype = nav.businessTypes;
-                    businesstype.DataSource = dbusinesstype;
-                    businesstype.DataTextField = "Description";
-                    businesstype.DataValueField = "Code";
-                    businesstype.DataBind();
-
-                    var dindustrygroup = nav.IndustryGroup;
-                    industrygroup.DataSource = dindustrygroup;
-                    industrygroup.DataTextField = "Description";
-                    industrygroup.DataValueField = "Code";
-                    industrygroup.DataBind();
-
-                    var dlanguage = nav.languages;
-                    language.DataSource = dlanguage;
-                    language.DataTextField = "Name";
-                    language.DataValueField = "Code";
-                    language.DataBind();
+                    var dsuppliercategorys = nav.SupplierCategory;
+                    businesprofilesuppliercategory.DataSource = dsuppliercategorys;
+                    businesprofilesuppliercategory.DataTextField = "Description";
+                    businesprofilesuppliercategory.DataValueField = "Category_Code";
+                    businesprofilesuppliercategory.DataBind();
 
                     //dropdowns for special group
                     var dsuppliercategory = nav.SpecialGroupCategories;
@@ -82,11 +70,8 @@ namespace WWF
                         taxregistrationcountry.SelectedValue = v.Country_of_Incorporation;
                         registrationdate.Text = Convert.ToDateTime(v.Reg_Incorporation_Date).ToString("yyyy-MM-dd");
                         registrationincorporationno.Text = v.Registration_Incorporation_No;
-                        businesstype.SelectedValue = v.Business_Type;
                         ownershiptype.SelectedValue = v.Ownership_Type;
-                        industrygroup.SelectedValue = v.Industry_Group;
-                        language.SelectedValue = v.Language_Code;
-                        suppliertype.SelectedValue = v.Supplier_Type;
+                        languages.Text = "English";
                         vision.Text = v.Vision_Statement;
                         mission.Text = v.Mission_Statement;
                         if(v.Special_Group == true)
@@ -124,41 +109,11 @@ namespace WWF
                         phone.Text = v.Phone_No;
                         email.Text = v.E_Mail;
                         buildinghouse.Text = v.Building_House_No;
-                        floor.Text = v.Floor;
-                        plot.Text = v.Plot_No;
-                        street.Text = v.Street;
                     }
                 }
 
-                //step 3
-                if (step == 3)
-                {
-                    var dcompanysize = nav.companySizes;
-                    companysize.DataSource = dcompanysize;
-                    companysize.DataTextField = "Description";
-                    companysize.DataValueField = "Code";
-                    companysize.DataBind();
-
-                    var dsuppliercategory = nav.SupplierCategory;
-                    businesprofilesuppliercategory.DataSource = dsuppliercategory;
-                    businesprofilesuppliercategory.DataTextField = "Description";
-                    businesprofilesuppliercategory.DataValueField = "Category_Code";
-                    businesprofilesuppliercategory.DataBind();
-
-                    var vendorBusinessProfile = nav.eProVendorQT.Where(x => x.No == vendorNo).ToList();
-                    foreach (var v in vendorBusinessProfile)
-                    {
-                        companysize.SelectedValue = v.Company_Size;
-                        nominalcapital.Text = Convert.ToString(v.Nominal_Capital_LCY);
-                        dealertype.SelectedValue = v.Dealer_Type;
-                        maxvalueofbusiness.Text = Convert.ToString(v.Max_Value_of_Business);
-                        businesprofilesuppliercategory.Text = v.Supplier_Category;
-                        natureofbusiness.Text = v.Nature_of_Business;
-                    }
-                }
-
-                //step 7
-                if (step == 7)
+                //step 5
+                if (step == 5)
                 {
                     var dcountry = nav.Countries;
                     staffsnationality1.DataSource = dcountry;
@@ -167,8 +122,8 @@ namespace WWF
                     staffsnationality1.DataBind();
                 }
 
-                //step 8
-                if (step == 8)
+                //step 6
+                if (step == 6)
                 {
                     var ptype = nav.ProcurementDocumentType.Where(x => x.Type == "Vendor");
                     documenttoupload.DataSource = ptype;
@@ -204,8 +159,8 @@ namespace WWF
                 string s = Convert.ToDateTime(registrationdate.Text.Trim()).ToString("yyyy-MM-dd");
                 DateTime gregistrationdate = DateTime.ParseExact(s, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 string gregistrationincorporationno = registrationincorporationno.Text.Trim();
-                string gbusinesstype = businesstype.SelectedValue.Trim();
                 string nownershiptype = ownershiptype.SelectedValue.Trim();
+                string gbusinesprofilesuppliercategory = businesprofilesuppliercategory.SelectedValue.Trim();
                 int gownershiptype = 0;
                 if (nownershiptype == "Sole Ownership.Partnership")
                 {
@@ -215,18 +170,7 @@ namespace WWF
                 {
                     gownershiptype = 2;
                 }
-                string gindustrygroup = industrygroup.SelectedValue.Trim();
-                string glanguage = language.SelectedValue.Trim();
-                string nsuppliertype = suppliertype.SelectedValue.Trim();
-                int gsuppliertype = 0;
-                if (nsuppliertype == "Local")
-                {
-                    gsuppliertype = 0;
-                }
-                if (nsuppliertype == "Foreign")
-                {
-                    gsuppliertype = 1;
-                }
+                string glanguage = languages.Text.Trim();
                 string gvision = vision.Text.Trim();
                 string gmission = mission.Text.Trim();
                 bool isspecialgroup = false;
@@ -263,7 +207,7 @@ namespace WWF
                 {
                     flag = false;
                     err = "";
-                    string status = Config.ObjNav.FnSupplierGeneralDetails(vendorNo, gsuppliername, gtaxregistrationno, gtaxregistrationcountry, gregistrationdate, gregistrationincorporationno, gbusinesstype, gownershiptype, gindustrygroup, glanguage, gsuppliertype, gvision, gmission, isspecialgroup);
+                    string status = Config.ObjNav.FnSupplierGeneralDetails(vendorNo, gsuppliername, gtaxregistrationno, gtaxregistrationcountry, gregistrationdate, gregistrationincorporationno, gownershiptype, glanguage, gbusinesprofilesuppliercategory, gvision, gmission, isspecialgroup);
                     string[] info = status.Split('*');
 
                     if (info[0] == "success")
@@ -291,12 +235,9 @@ namespace WWF
                 string gphone = phone.Text.Trim();
                 string gemail = email.Text.Trim();
                 string gbuildinghouse = buildinghouse.Text.Trim();
-                string gfloor = floor.Text.Trim();
-                string gplot = plot.Text.Trim();
-                string gstreet = street.Text.Trim();
 
                 string vendorNo = Convert.ToString(Session["vendorNo"]);
-                string status = Config.ObjNav.FnCommContactDetails(vendorNo, gaddress, gaddress2, gphone, gemail, gbuildinghouse, gfloor, gplot, gstreet);
+                string status = Config.ObjNav.FnCommContactDetails(vendorNo, gaddress, gaddress2, gphone, gemail, gbuildinghouse, "", "", "");
                 string[] info = status.Split('*');
 
                 if (info[0] == "success")
@@ -326,57 +267,6 @@ namespace WWF
             catch
             {
                 
-            }
-        }
-
-        protected void businessprofiledetails_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string gcompanysize = companysize.Text.Trim();
-                decimal gnominalcapital = Convert.ToDecimal(nominalcapital.Text.Trim());
-                string ndealertype = dealertype.SelectedValue.Trim();
-                int gdealertype = 0;
-                if (ndealertype == "Manufacturer")
-                {
-                    gdealertype = 0;
-                }
-                if (ndealertype == "Distributor")
-                {
-                    gdealertype = 1;
-                }
-                if (ndealertype == "Partner")
-                {
-                    gdealertype = 2;
-                }
-                if (ndealertype == "Reseller")
-                {
-                    gdealertype = 3;
-                }
-                if (ndealertype == "Other")
-                {
-                    gdealertype = 4;
-                }
-                decimal gmaxvalueofbusiness = Convert.ToDecimal(maxvalueofbusiness.Text.Trim());
-                string gbusinesprofilesuppliercategory = businesprofilesuppliercategory.SelectedValue.Trim();
-                string gnatureofbusiness = natureofbusiness.Text.Trim();
-
-                string vendorNo = Convert.ToString(Session["vendorNo"]);
-                string status = Config.ObjNav.FnBusinessProfileDetails(vendorNo, gcompanysize, gnominalcapital, gdealertype, gmaxvalueofbusiness, gbusinesprofilesuppliercategory, gnatureofbusiness);
-                string[] info = status.Split('*');
-
-                if (info[0] == "success")
-                {
-                    Response.Redirect("Profile.aspx?step=4");
-                }
-                else
-                {
-                    businessprofilefeedback.InnerHtml = "<div class='alert alert-danger'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
-            }
-            catch (Exception ex)
-            {
-                businessprofilefeedback.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
         }
 
@@ -467,138 +357,11 @@ namespace WWF
             int bankData = nav.VendorBankAccounts.Where(r => r.Vendor_No == vendorNo).ToList().Count;
             if(bankData > 0)
             {
-                Response.Redirect("Profile.aspx?step=5");
+                Response.Redirect("Profile.aspx?step=4");
             }
             else
             {
                 bankprofilefeedback.InnerHtml = "<div class='alert alert-danger'>Kindly enter at least one bank record to proceed.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
-        }
-
-        protected void shareholderdetails_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string gdirectorname = directorname.Text.Trim();
-                string gidnumber = idnumber.Text.Trim();
-                string ncitizenshiptype = citizenshiptype.SelectedValue.Trim();
-                int gcitizenshiptype = 0;
-                if (ncitizenshiptype == "Birth")
-                {
-                    gcitizenshiptype = 1;
-                }
-                if (ncitizenshiptype == "Naturalization")
-                {
-                    gcitizenshiptype = 2;
-                }
-                if (ncitizenshiptype == "Registration")
-                {
-                    gcitizenshiptype = 3;
-                }
-                decimal gownershippercentage = Convert.ToDecimal(ownershippercentage.Text.Trim());
-                string gphonenumber = phonenumber.Text.Trim();
-                string gshareholderemail = shareholderemail.Text.Trim();
-                string gshareholderaddress = shareholderaddress.Text.Trim();
-
-                string vendorNo = Convert.ToString(Session["vendorNo"]);
-                string status = Config.ObjNav.FnInsertShareholderDetails(vendorNo, gdirectorname, gidnumber, gcitizenshiptype, gownershippercentage, gphonenumber, gshareholderemail, gshareholderaddress);
-                string[] info = status.Split('*');
-
-                if (info[0] == "success")
-                {
-                    shareholderfeedback.InnerHtml = "<div class='alert alert-success'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
-                else
-                {
-                    shareholderfeedback.InnerHtml = "<div class='alert alert-danger'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
-            }
-            catch (Exception ex)
-            {
-                shareholderfeedback.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
-        }
-
-        protected void editshareholder_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string gdirectorname = shareName.Text.Trim();
-                string gidnumber = shareIDPassportNo.Text.Trim();
-                string ncitizenshiptype = shareCitizenshipType.SelectedValue.Trim();
-                int gcitizenshiptype = 0;
-                if (ncitizenshiptype == "Birth")
-                {
-                    gcitizenshiptype = 1;
-                }
-                if (ncitizenshiptype == "Naturalization")
-                {
-                    gcitizenshiptype = 2;
-                }
-                if (ncitizenshiptype == "Registration")
-                {
-                    gcitizenshiptype = 3;
-                }
-                decimal gownershippercentage = Convert.ToDecimal(shareEntityOwnership.Text.Trim());
-                string gphonenumber = sharePhoneNo.Text.Trim();
-                string gshareholderemail = shareEMail.Text.Trim();
-                string gshareholderaddress = shareAddress.Text.Trim();
-                int glineno = Convert.ToInt32(shareEntryNo.Text.Trim());
-                string vendorNo = Convert.ToString(Session["vendorNo"]);
-                string status = Config.ObjNav.FnEditShareholderDetails(vendorNo, glineno, gdirectorname, gidnumber, gcitizenshiptype, gownershippercentage, gphonenumber, gshareholderemail, gshareholderaddress);
-                string[] info = status.Split('*');
-
-                if (info[0] == "success")
-                {
-                    shareholderfeedback.InnerHtml = "<div class='alert alert-success'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
-                else
-                {
-                    shareholderfeedback.InnerHtml = "<div class='alert alert-danger'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
-            }
-            catch (Exception ex)
-            {
-                shareholderfeedback.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
-        }
-
-        protected void removeshareholder_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int glineno = Convert.ToInt32(shareEntryNo.Text.Trim());
-                string vendorNo = Convert.ToString(Session["vendorNo"]);
-                string status = Config.ObjNav.FnDeleteShareholderDetails(vendorNo, glineno);
-                string[] info = status.Split('*');
-
-                if (info[0] == "success")
-                {
-                    shareholderfeedback.InnerHtml = "<div class='alert alert-success'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
-                else
-                {
-                    shareholderfeedback.InnerHtml = "<div class='alert alert-danger'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
-            }
-            catch (Exception ex)
-            {
-                shareholderfeedback.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
-        }
-
-        protected void nexttostepsix_Click(object sender, EventArgs e)
-        {
-            var nav = new Config().ReturnNav();
-            string vendorNo = Convert.ToString(Session["vendorNo"]);
-            int shareholderdata = nav.VendorShareholderDetails.Where(r => r.Vendor_No == vendorNo).ToList().Count;
-            if (shareholderdata > 0)
-            {
-                Response.Redirect("Profile.aspx?step=6");
-            }
-            else
-            {
-                shareholderfeedback.InnerHtml = "<div class='alert alert-danger'>Kindly enter at least one shareholder record to proceed.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
         }
 
@@ -695,12 +458,12 @@ namespace WWF
 
         protected void nexttostepseven_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Profile.aspx?step=7");
+            Response.Redirect("Profile.aspx?step=5");
         }
 
         protected void skippastexperience_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Profile.aspx?step=7");
+            Response.Redirect("Profile.aspx?step=5");
         }
 
         protected void staffdetails_Click(object sender, EventArgs e)
@@ -802,7 +565,7 @@ namespace WWF
             int keysatffdata = nav.VendorProffessionalStaff.Where(r => r.Vendor_No == vendorNo).ToList().Count;
             if (keysatffdata > 0)
             {
-                Response.Redirect("Profile.aspx?step=8");
+                Response.Redirect("Profile.aspx?step=6");
             }
             else
             {
