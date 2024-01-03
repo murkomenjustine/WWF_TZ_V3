@@ -10,6 +10,6 @@
 namespace WWF {
     
     
-    public partial class ClosedTendersView {
+    public partial class eAwarderTenders {
     }
 }

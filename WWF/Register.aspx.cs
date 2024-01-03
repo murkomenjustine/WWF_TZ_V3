@@ -42,15 +42,15 @@ namespace WWF
                 {
                     feedback.InnerHtml = "";
                 }
-                if (tphone.Length > 13 || tphone.Length < 10)
-                {
-                    error = true;
-                    message = "Please enter a valid phone number, it should be between 10 to 12 digits";
-                }
-                else
-                {
-                    feedback.InnerHtml = "";
-                }
+                //if (tphone.Length > 13 || tphone.Length < 10)
+                //{
+                //    error = true;
+                //    message = "Please enter a valid phone number, it should be between 10 to 12 digits";
+                //}
+                //else
+                //{
+                //    feedback.InnerHtml = "";
+                //}
                 if (error)
                 {
                     feedback.InnerHtml = "<div class='alert alert-danger'>" + message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";

@@ -25,7 +25,6 @@
                 Closed Tenders
             </div>
             <div class="panel-body">
-                <div runat="server" id="feedback"></div>
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>

@@ -31,7 +31,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/08/2023 14:18:35</publishTime>
     </File>
     <File Include="AllSubmittedTenders.aspx">
-      <publishTime>10/08/2023 16:05:11</publishTime>
+      <publishTime>10/17/2023 14:56:52</publishTime>
     </File>
     <File Include="ApplicationInsights.config">
       <publishTime>03/27/2023 22:01:15</publishTime>
@@ -44,6 +44,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="AwardedContracts_Home.aspx">
       <publishTime>06/01/2023 11:55:41</publishTime>
+    </File>
+    <File Include="AwardedTenderDetails.aspx">
+      <publishTime>10/17/2023 16:07:42</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>03/27/2023 22:01:15</publishTime>
@@ -208,10 +211,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="bin/WWF.dll">
-      <publishTime>10/08/2023 16:06:20</publishTime>
+      <publishTime>10/25/2023 23:51:08</publishTime>
     </File>
     <File Include="bin/WWF.XmlSerializers.dll">
-      <publishTime>10/08/2023 16:06:22</publishTime>
+      <publishTime>10/25/2023 23:51:09</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
       <publishTime>03/26/2015 01:42:38</publishTime>
@@ -247,13 +250,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/17/2023 11:33:12</publishTime>
     </File>
     <File Include="ClosedTendersView.aspx">
-      <publishTime>09/26/2023 14:21:07</publishTime>
+      <publishTime>10/17/2023 13:55:34</publishTime>
     </File>
     <File Include="ConsultancyApplicationPage.aspx">
       <publishTime>07/14/2023 13:09:07</publishTime>
     </File>
     <File Include="ConsultancyDetails.aspx">
       <publishTime>07/14/2023 13:06:20</publishTime>
+    </File>
+    <File Include="ConsultantAwarded.aspx">
+      <publishTime>10/17/2023 15:45:00</publishTime>
     </File>
     <File Include="ConsultantDashboard.aspx">
       <publishTime>07/17/2023 12:13:20</publishTime>
@@ -284,6 +290,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="DownloadVendorTenderDocs.aspx">
       <publishTime>09/26/2023 17:03:37</publishTime>
+    </File>
+    <File Include="eAwarderTenders.aspx">
+      <publishTime>10/17/2023 13:56:08</publishTime>
+    </File>
+    <File Include="eClosedTenders.aspx">
+      <publishTime>10/17/2023 15:24:58</publishTime>
     </File>
     <File Include="EmployeeDashboard.aspx">
       <publishTime>08/22/2023 11:20:22</publishTime>
@@ -361,7 +373,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2023 23:24:06</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>10/08/2023 15:00:57</publishTime>
+      <publishTime>10/25/2023 23:44:14</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>03/28/2023 17:16:28</publishTime>

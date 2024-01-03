@@ -127,12 +127,14 @@
     <Content Include="ApprovedPurchaseRequisitions.aspx" />
     <Content Include="AssignTender.aspx" />
     <Content Include="AwardedContracts_Home.aspx" />
+    <Content Include="AwardedTenderDetails.aspx" />
     <Content Include="CancelledConsultancyView.aspx" />
     <Content Include="CancelledTendersView.aspx" />
     <Content Include="ClosedConsultancyView.aspx" />
     <Content Include="ClosedTendersView.aspx" />
     <Content Include="ConsultancyApplicationPage.aspx" />
     <Content Include="ConsultancyDetails.aspx" />
+    <Content Include="ConsultantAwarded.aspx" />
     <Content Include="ConsultantDashboard.aspx" />
     <Content Include="ConsultantProfile.aspx" />
     <Content Include="ConsultantProfileView.aspx" />
@@ -142,6 +144,8 @@
     <Content Include="DownloadTenderDocument.aspx" />
     <Content Include="DownloadVendorFile.aspx" />
     <Content Include="DownloadVendorTenderDocs.aspx" />
+    <Content Include="eAwarderTenders.aspx" />
+    <Content Include="eClosedTenders.aspx" />
     <Content Include="EmployeeDashboard.aspx" />
     <Content Include="EmployeeProfile.aspx" />
     <Content Include="EvaluateTender.aspx" />
@@ -288,6 +292,13 @@
     <Compile Include="AwardedContracts_Home.aspx.designer.cs">
       <DependentUpon>AwardedContracts_Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AwardedTenderDetails.aspx.cs">
+      <DependentUpon>AwardedTenderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AwardedTenderDetails.aspx.designer.cs">
+      <DependentUpon>AwardedTenderDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CancelledConsultancyView.aspx.cs">
       <DependentUpon>CancelledConsultancyView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -330,6 +341,13 @@
     </Compile>
     <Compile Include="ConsultancyDetails.aspx.designer.cs">
       <DependentUpon>ConsultancyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultantAwarded.aspx.cs">
+      <DependentUpon>ConsultantAwarded.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultantAwarded.aspx.designer.cs">
+      <DependentUpon>ConsultantAwarded.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultantDashboard.aspx.cs">
       <DependentUpon>ConsultantDashboard.aspx</DependentUpon>
@@ -395,6 +413,20 @@
       <DependentUpon>DownloadVendorTenderDocs.aspx</DependentUpon>
     </Compile>
     <Compile Include="DropdownItems.cs" />
+    <Compile Include="eAwarderTenders.aspx.cs">
+      <DependentUpon>eAwarderTenders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eAwarderTenders.aspx.designer.cs">
+      <DependentUpon>eAwarderTenders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="eClosedTenders.aspx.cs">
+      <DependentUpon>eClosedTenders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eClosedTenders.aspx.designer.cs">
+      <DependentUpon>eClosedTenders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeDashboard.aspx.cs">
       <DependentUpon>EmployeeDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

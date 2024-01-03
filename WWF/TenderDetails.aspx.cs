@@ -72,7 +72,7 @@ namespace WWF
 
         protected void cancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("TenderDetails.aspx");
+            Response.Redirect("Dashboard.aspx");
         }
 
         public static string Encrypt(string clearText)

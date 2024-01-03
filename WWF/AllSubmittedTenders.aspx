@@ -203,17 +203,24 @@
                                     }
                                 %>
                                 <%
-                                    if(member.Qualified == true)
+                                    if(member.Qualified == true && member.Submitted_By_Evaluator == true)
                                     {
                                         %>                                <td>
                                     <label class="btn btn-success" onclick="award('<%=member.No %>', '<%=member.Title %>');"><i class="fa fa-check"></i> Award</label>
                                 </td><%
                                          }
-                                         else
+                                         if(member.Qualified == false && member.Submitted_By_Evaluator == true)
                                          {
                                         %>                                <td>
                                     <label class="btn btn-warning" onclick="noaward('<%=member.No %>', '<%=member.Title %>');"><i class="fa fa-check"></i> No Award</label>
                                 </td><%
+                                         }
+                                         if(member.Qualified == false && member.Submitted_By_Evaluator == false)
+                                         {
+                                %>
+                                <td>
+                                    <label class="btn btn-default"><i class="fa fa-eye"></i>Award</label></td>
+                                <%
                                          }
                                 %>
                             </tr>

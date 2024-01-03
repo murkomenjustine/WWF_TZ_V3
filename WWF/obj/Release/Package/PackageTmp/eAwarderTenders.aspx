@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ClosedTendersView.aspx.cs" Inherits="WWF.ClosedTendersView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="eAwarderTenders.aspx.cs" Inherits="WWF.eAwarderTenders" %>
 
 <%@ Import Namespace="System.IO" %>
 <%@ Import Namespace="WWF" %>
@@ -22,7 +22,7 @@
     <section class="content">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                Closed Tenders
+                Awarded Tenders
             </div>
             <div class="panel-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -44,7 +44,7 @@
                             int counter = 0;
                             var nav = new Config().ReturnNav();
                             String vendorNo = Convert.ToString(Session["vendorNo"]);
-                            var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Closed" && x.Vendor_No == vendorNo && x.Submitted_On_Portal == true).ToList();
+                            var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Closed" && x.Awarded == true && x.Submitted_On_Portal == true).ToList();
                             foreach (var member in data)
                             {
                                 string clearText = member.No;
@@ -86,7 +86,7 @@
                             <td><%=Convert.ToDateTime(member.Submission_Start_Time).ToString("HH:mm tt") %></td>
                             <td><%=Convert.ToDateTime(member.Submission_End_Date).ToString("dd-MM-yyyy") %></td>
                             <td><%=Convert.ToDateTime(member.Submission_End_Time).ToString("HH:mm tt") %></td>
-                            <td><label class="btn btn-success"><i class="fa fa-question-circle"></i>Closed</label></td>
+                            <td><label class="btn btn-success"><i class="fa fa-question-circle"></i>Awarded</label></td>
                             <%-- <td><a href="TenderDetails.aspx?TenderNo=<%=clearText %>" class="btn btn-primary"><i class="fa fa-edit"></i>View Details</a> </td>--%>
                         </tr>
                         <%
@@ -99,4 +99,5 @@
     </section>
     <!-- /.content -->
 </asp:Content>
+
 

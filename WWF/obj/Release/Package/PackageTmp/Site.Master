@@ -36,7 +36,7 @@
                     try
                     {
                         image = "Passport/" + Convert.ToString(Session["employeeNo"]) + ".png";
-                        if(image == null)
+                        if (image == null)
                         {
                             image = "Passport/" + Convert.ToString(Session["vendorNo"]) + ".png";
                         }
@@ -116,7 +116,7 @@
                         <%
                             if (Session["user"].ToString() == "Vendor")
                             {
-                        %>                        
+                        %>
                         <li><a href="Dashboard.aspx"><i class="fa fa-dashboard" aria-hidden="true"></i><span>Dashboard</span></a></li>
                         <li><a href="ImageUpload.aspx"><i class="fa fa-image" aria-hidden="true"></i><span>Photo / Logo Upload</span></a></li>
                         <%
@@ -186,21 +186,36 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="AllSubmittedTenders.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i><span>Tenders Submitted By Vendors</span></a></li>
+                                <li><a href="eAwarderTenders.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i><span>Awarded Tenders</span></a></li>
+                                <li><a href="eClosedTenders.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i><span>Closed Tenders</span></a></li>
                             </ul>
                         </li>
                         <%
                             var nav = new Config().ReturnNav();
                             string employeeNo = Convert.ToString(Session["employeeNo"]);
+                            string op1 = "";
+                            string op2 = "";
+                            string op3 = "";
+                            string op4 = "";
+                            string op5 = "";
 
-                            var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Evaluation" && x.Submitted_On_Portal == true).ToList();
+                            var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Evaluation" && x.Submitted_On_Portal == true && x.Assigned_To_Evaluator == true).ToList();
                             foreach (var member in data)
                             {
-                                if (member.Opening_Person_1 == employeeNo || member.Opening_Person_2 == employeeNo || member.Opening_Person_3 == employeeNo || member.Opening_Person_4 == employeeNo || member.Opening_Person_5 == employeeNo)
-                                {
-                                    %>                                                <li class="treeview">
+                                op1 += member.Opening_Person_1;
+                                op2 += member.Opening_Person_2;
+                                op3 += member.Opening_Person_3;
+                                op4 += member.Opening_Person_4;
+                                op5 += member.Opening_Person_5;
+                            }
+                           
+                            if (op1.Contains(employeeNo) || op2.Contains(employeeNo) || op3.Contains(employeeNo) || op4.Contains(employeeNo) || op5.Contains(employeeNo))
+                            {
+                        %>
+                        <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-table"></i>
-                                <span>Tender Management</span>
+                                <span>Tender Evaluation</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
@@ -209,10 +224,22 @@
                                 <li><a href="OpenTenderEvaluation.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i><span>Tender(s) Awaiting Evaluation</span></a></li>
                                 <li><a href="SubmittedEvaluation.aspx"><i class="fa fa-check" aria-hidden="true"></i><span>Submitted Evaluation(s)</span></a></li>
                             </ul>
-                        </li><%
-                                }
-                            }
-                          %>
+                        </li>
+                        <% }
+                          
+                        %>
+<%--                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-table"></i>
+                                <span>Tender Awards</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="ConsultantAwarded.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i><span>Awarded Tenders</span></a></li>
+                            </ul>
+                        </li>--%>
                         <%
                             }
                             if (Session["user"].ToString() == "Consultant")
@@ -233,9 +260,9 @@
                         %>
                         <li><a href="ConsultantProfile.aspx"><i class="fa fa-user-plus" aria-hidden="true"></i><span>Complete Profile</span></a></li>
                         <%
-                        }
-                        else
-                        {
+                            }
+                            else
+                            {
                         %>
                         <li><a href="ConsultantProfile.aspx"><i class="fa fa-user-plus" aria-hidden="true"></i><span>Update Profile</span></a></li>
                         <%
@@ -262,7 +289,7 @@
                             <ul class="treeview-menu">
                                 <li><a href="ActiveTendersView.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i>Active Tenders</a></li>
                                 <li><a href="SubmittedTendersView.aspx"><i class="fa fa-toggle-on" aria-hidden="true"></i>Submitted Tenders</a></li>
-<%--                                <li><a href="SpecialGroupTenderView.aspx"><i class="fa fa-gift" aria-hidden="true"></i>Special Group Tender</a></li>
+                                <%--                                <li><a href="SpecialGroupTenderView.aspx"><i class="fa fa-gift" aria-hidden="true"></i>Special Group Tender</a></li>
                                 <li><a href="TendersByRegionView.aspx"><i class="fa fa-globe" aria-hidden="true"></i>Tenders By Region</a></li>
                                 <li><a href="TendersByClosingDatesView.aspx"><i class="fa fa-calendar" aria-hidden="true"></i>Tenders By Closing Dates</a></li>--%>
                                 <li><a href="ClosedTendersView.aspx"><i class="fa fa-check"></i>Closed Tenders</a></li>

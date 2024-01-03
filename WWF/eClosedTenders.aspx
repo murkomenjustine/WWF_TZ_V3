@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ClosedTendersView.aspx.cs" Inherits="WWF.ClosedTendersView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="eClosedTenders.aspx.cs" Inherits="WWF.eClosedTenders" %>
 
 <%@ Import Namespace="System.IO" %>
 <%@ Import Namespace="WWF" %>
@@ -44,7 +44,7 @@
                             int counter = 0;
                             var nav = new Config().ReturnNav();
                             String vendorNo = Convert.ToString(Session["vendorNo"]);
-                            var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Closed" && x.Vendor_No == vendorNo && x.Submitted_On_Portal == true).ToList();
+                            var data = nav.ProcurementRequest.Where(x => x.Process_Type == "Tender" && x.Document_Status == "Closed" && x.Submitted_On_Portal == true).ToList();
                             foreach (var member in data)
                             {
                                 string clearText = member.No;
@@ -99,4 +99,5 @@
     </section>
     <!-- /.content -->
 </asp:Content>
+
 
